@@ -8,6 +8,7 @@ use App\Models\Product;
 
 class CtController extends Controller
 {
+
     public function store(Request $request){
 		DB::table('mycontent')->insert([
     		'idpct'     => $request->contid,

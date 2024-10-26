@@ -126,6 +126,17 @@
                 <a href="">Lihat lebih lanjut ></a>
             </div>
         </div>
+        <div class="row" style="margin-top:25px;">
+
+                @foreach ($ct as $content)
+                <div class="row">
+                    <div style="padding:2%; background-color:#ececec; border-radius:12px;">
+                        <h4>{{ $content->title }}</h4><hr>
+                        <p>{{ $content->prevdesc }}</p>
+                    </div>
+                </div>
+                @endforeach
+        </div>
     </div>
 </div>
 

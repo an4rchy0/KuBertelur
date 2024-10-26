@@ -60,7 +60,7 @@
                             Username     : <input type="text" class="form-control" name="username" required="required">	
                         </div>
                         <div class="form-group">
-                            Password    : <input type="text" class="form-control" name="password" required="required">
+                            Password: <input type="password" class="form-control" name="password" required="required">
                         </div>
                         <div class="form-group">
                             <a href="">Lupa Password?</a>
