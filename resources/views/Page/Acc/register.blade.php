@@ -13,60 +13,73 @@
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.6.0/css/all.min.css" integrity="sha512-Kc323vGBEqzTmouAECnVceyQqyqdsSiqLQISBL29aUW4U/M7pSPA/gEUZQqv1cwx4OnYxTxve5UMg5GT6L4JJg==" crossorigin="anonymous" referrerpolicy="no-referrer" />
     <style>
         body {
-            display: flex;
             justify-content: center;
             align-items: center;
-            height: 100vh;
-        }
-        .navbar-nav .nav-link {
-            color: #FFFFFF;
-        }
-        .navbar-nav .nav-link:hover {
-            background-color: #7A8F8A; 
-        }
-        .d-flex.flex-column a {
-            color: inherit;
-            text-decoration: none;
-        }
-        .footer a:hover {
-            text-decoration: underline;
         }
     </style>
 </head>
 <body class="font-roboto bg-gray-100">
-
 <div class="center-element" style="margin:5%;">
     <div class="row justify-content-md-center">
-        <div class="col-md-6" style="background-color:#4051E0; padding:8%; color:white;">
+        <div class="col-md-6" style="padding:3%; color:#4051E0;">
+            <div class="row justify-content-md-center">
+                <?php 
+                function generateid(){
+                    $hari = date('1');
+                    $tanggal = date('d');
+                    $bulan = date('M');
+                    $blnangka = date('m');
+                    $tahun = date('y');
+                    $jam = date('h');
+                    $minute = date('i');
+                    $detik = date('s');
+                    $haricut = substr($hari,0,1);
+                    $bulancut = substr($bulan,0,1);
+                    $hourcut = substr($jam,0,1);
+                    $minutecut = substr($minute,0,1);
+                    $detikcut = substr($detik,0,1);
+                    $kodejoin = "USPT-{$haricut}{$bulancut}{$hourcut}{$minutecut}{$detikcut}";
+                    return $kodejoin;
+                }
+                ?>
+                <h3 style="text-align:center; padding:15px;">Buat Akun</h3>
+                <form action="/PrdStore" method="post" class="bg-body-tertiary rounded-3" style="padding:3%" enctype="multipart/form-data">
+                    <fieldset>
+                        {{csrf_field()}}
+                        <div class="form-input mb-3">
+                            <input type="text" class="form-control" name="contid" value="<?php echo generateid(); ?>" hidden>
+                        </div>
+                        <div class="input-group mb-3">
+                            <input type="text" class="form-control" placeholder="Name" aria-label="Username" aria-describedby="basic-addon1" required="required">
+                        </div>
+                        <div class="input-group mb-3">
+                            <input type="text" class="form-control" placeholder="Username" aria-label="Username" aria-describedby="basic-addon1" required="required">
+                        </div>
+                        <div class="input-group mb-3">
+                            <input type="text" class="form-control" placeholder="Email" aria-label="Recipient's username" aria-describedby="basic-addon2" required="required">
+                            <span class="input-group-text" id="basic-addon2">@example.com</span>
+                        </div>
+                        <div class="form-input mb-3">
+                            <input type="text" class="form-control" placeholder="Nomor Telpon (+62..)" aria-label="Recipient's username" aria-describedby="basic-addon2" required="required">
+                        </div>
+                        <div class="form-input mb-3">
+                            <input type="text" class="form-control" placeholder="Password" aria-label="Recipient's username" aria-describedby="basic-addon2" required="required">
+                        </div>
+                        <div class="form-input mb-3" style="margin-top:3%;">
+                            <input type="submit" value="Daftar" class="btn btn-primary form-control">
+                        </div>
+                    </fieldset>
+                </form>
+                <center><hr>Sudah Memiliki Akun? <a href="/login">Login</a></center>
+            </div>
+        </div>
+        <div class="col-md-6" style="background-color:#4051E0; padding:5%; color:white;">
             <h3>Perkenalkan, Kami KuBertelur!</h3><br>
             <p>Website pengembang usaha untuk UMKM di bidang perikanan. Beberapa fitur yang kami tawarkan di website ini adalah: <br><br>
                 <i class="fa-regular fa-circle-dot fa-fw"></i>&nbsp; Jual beli produk & bibit ikan &nbsp; <br>
                 <i class="fa-regular fa-circle-dot fa-fw"></i>&nbsp; Penyedia fitur klasifikasi air &nbsp; <br>
                 <i class="fa-regular fa-circle-dot fa-fw"></i>&nbsp; Membangun Komunitas di bidang Perikanan &nbsp; <br>
             </p>
-        </div>
-        <div class="col-md-6" style="padding:3%; color:#4051E0;">
-            <div class="row justify-content-md-center">
-                <h3>Halo, Selamat Datang.</h3><br><p>Masuk ke akunmu, yuk</p>
-                <form action="/PrdStore" method="post" class="bg-body-tertiary rounded-3" style="padding:5%" enctype="multipart/form-data">
-                    <fieldset>
-                        {{csrf_field()}}
-                        <div class="form-group">
-                            Username     : <input type="text" class="form-control" name="username" required="required">	
-                        </div>
-                        <div class="form-group">
-                            Password    : <input type="text" class="form-control" name="password" required="required">
-                        </div>
-                        <div class="form-group">
-                            <a href="">Lupa Password?</a>
-                        </div>
-                        <div class="form-group" style="margin-top:3%;">
-                            <input type="submit" value="Simpan Data" class="btn btn-primary form-control">
-                        </div>
-                    </fieldset>
-                </form>
-            </div>
-            <center><hr><p>Belum Punya Akun? <a href="">Daftar</a></p></center>
         </div>
     </div>
 </div>

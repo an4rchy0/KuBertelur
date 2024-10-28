@@ -184,7 +184,7 @@
                 @foreach ($contents as $content)
                 <div class="row">
                     <div style="padding:2%; background-color:#ececec; border-radius:12px;">
-                        <h4>{{ $content->title }}</h4><hr>
+                        <h4><a href="{{ route('content.show', $content->id) }}">{{ $content->title }}
                         <p>{{ $content->prevdesc }}</p>
                     </div>
                 </div>

@@ -9,8 +9,14 @@ use App\Models\Product;
 class ProductController extends Controller
 {
     public function indexhm(){
-        $pdcvar = DB::table('product')->get();
-        return view('Page.home', ['pdc' => $pdcvar]);
+        $pdcvar = DB::table('product')->take(5)->get();
+		$pdcvarB = DB::table('product')->paginate(5);
+		$contentvar = DB::table('mycontent')->paginate(5);
+        return view('Page.home', [
+			'pdc' => $pdcvar,
+			'pdcB' => $pdcvarB,
+			'content' => $contentvar
+		]);
     }
 
     /*public function store(Request $request){

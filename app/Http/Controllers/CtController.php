@@ -8,7 +8,6 @@ use App\Models\Product;
 
 class CtController extends Controller
 {
-
     public function store(Request $request){
 		DB::table('mycontent')->insert([
     		'idpct'     => $request->contid,
@@ -21,4 +20,9 @@ class CtController extends Controller
     	]);
 		return redirect('/profile')->with('msg', 'Data Stored Successfully');
 	}
+
+	public function show($id) {
+		$content = DB::table('mycontent')->where('id', $id)->first();
+		return view('Page.detail', ['content' => $content]);
+	}	
 }

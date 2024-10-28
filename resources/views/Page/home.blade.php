@@ -22,6 +22,29 @@
             color: inherit;
             text-decoration: none;
         }
+        ul.pagination {
+    font-size: 0.8rem; /* Ukuran font yang lebih kecil */
+    padding: 0;       /* Menghilangkan padding default */
+}
+
+ul.pagination li {
+    display: inline-block;
+    margin: 0 3px;    /* Mengurangi jarak antar item */
+}
+
+ul.pagination li a,
+ul.pagination li span {
+    padding: 5px 10px; /* Mengatur padding link dan span */
+    border-radius: 4px;
+    text-decoration: none;
+    color: #007bff;    /* Warna link */
+}
+
+ul.pagination li.active span {
+    background-color: #007bff;
+    color: #fff;
+}
+
         .footer a:hover {
             text-decoration: underline;
         }
@@ -77,8 +100,8 @@
         <button class="btn" style="background-color:#deb900; border-radius:15px; padding-right:60px; padding-left:60px; margin-right:10px; margin-top:10px;">Jelajahi</button>
     </div>
 </div>
+<div class="container">  
 <div class="container-fluid" style="margin-top:70px;">
-    <div class="container">   
         <div class="row" style="margin-top:60px">
             <div class="col-md-6 tlri justify-content-md-start">
                 <h6>Apa yang baru</h6>
@@ -88,11 +111,10 @@
                 <a href="">Lihat lebih lanjut ></a>
             </div>
         </div>
-        <!-- --> 
-        <div class="container"><hr>
-            <div class="row d-flex justify-content-center" style="margin-top:50px; margin-bottom: 40px;">
+        <!-- --> <hr>
+        <div class="row d-flex justify-content-center" style="margin-top:50px; margin-bottom: 40px;">
                 @foreach($pdc as $p)
-                <div class="col-md-4 d-flex justify-content-center">
+                <div class="col-md-4 d-flex justify-content-center" style="margin-bottom:10px;">
                     <div class="card" style="width: 15rem;">
                         <img src="{{asset('storage/photo/'.$p->prdpht)}}" class="card-img-top" alt="Product">
                         <div class="card-body">
@@ -103,7 +125,6 @@
                     </div>
                 </div>
                 @endforeach
-            </div>
         </div>
         <div class="row" style="background-color:#050C9C; border-radius:15px; padding:20px; ">
             <div class="col-md-3 tlri justify-content-md-start" style="color:white;">
@@ -119,6 +140,32 @@
         <!-- -->
         <div class="row" style="margin-top:60px">
             <div class="col-md-6 tlri justify-content-md-start">
+                <h6>Sulit untuk menemukan produk yang tepat untuk ternak anda??</h6>
+                <h5>Ayo lihat produk yang bagus untukmu!</h5>
+            </div>
+            <div class="col-md-6 tlri d-flex justify-content-end">
+                <a href="">Lihat lebih lanjut ></a>
+            </div>
+        </div>
+        <div class="row d-flex justify-content-center" style="margin-top:50px; margin-bottom: 40px;">
+            @foreach($pdcB as $pB)
+            <div class="col-md-4 d-flex justify-content-center" style="margin-bottom:10px;">
+                <div class="card" style="width: 15rem;">
+                    <img src="{{asset('storage/photo/'.$pB->prdpht)}}" class="card-img-top" alt="Product">
+                    <div class="card-body">
+                        <h5 class="card-title">{{$pB->prdname}}</h5>
+                        <p class="card-text">Rp{{$pB->prdprice}}</p>
+                        <a href="#" class="btn btn-primary">Lihat lebih lanjut</a>
+                    </div>
+                </div>
+            </div>
+            @endforeach
+            <div class="d-flex justify-content-center">
+                {{ $pdcB->links('pagination::bootstrap-4') }}
+            </div>
+        </div>
+        <div class="row" style="margin-top:60px">
+            <div class="col-md-6 tlri justify-content-md-start">
                 <h6>Apakah kamu tahu??</h6>
                 <h5>Fakta dan info apa saja yang kamu ketahui tentang ikan?</h5>
             </div>
@@ -126,18 +173,20 @@
                 <a href="">Lihat lebih lanjut ></a>
             </div>
         </div>
-        <div class="row" style="margin-top:25px;">
-
-                @foreach ($ct as $content)
-                <div class="row">
-                    <div style="padding:2%; background-color:#ececec; border-radius:12px;">
-                        <h4>{{ $content->title }}</h4><hr>
-                        <p>{{ $content->prevdesc }}</p>
-                    </div>
+        <div class="row" style="margin-top:25px; margin-bottom:45px;">
+            @foreach ($content as $ct)
+            <div class="row">
+                <div style="padding:2%; background-color:#ececec; border-radius:12px;">
+                    <h4>{{ $ct->title }}</h4><hr>
+                    <p>{{ $ct->prevdesc }}</p>
                 </div>
-                @endforeach
+            </div>
+            @endforeach
+            <div class="d-flex justify-content-center">
+                {{ $content->links('pagination::bootstrap-4') }}
+            </div>
         </div>
-    </div>
+</div>
 </div>
 
 <footer class="footer bg-dark text-white" style="margin-top :20px; background-color: #343a40;">

@@ -40,6 +40,7 @@ Route::get('/addprd/{userId}', function($userId) {
 
 //tampil
 Route::get('/', [ProductController::class, 'indexhm']);
+Route::get('/content/{id}', [ContentController::class, 'show'])->name('content.show');
 
 //tambah
 Route::post('/PrdStore', [ProductController::class, 'store']);
