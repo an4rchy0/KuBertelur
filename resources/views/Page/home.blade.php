@@ -23,28 +23,24 @@
             text-decoration: none;
         }
         ul.pagination {
-    font-size: 0.8rem; /* Ukuran font yang lebih kecil */
-    padding: 0;       /* Menghilangkan padding default */
-}
-
-ul.pagination li {
-    display: inline-block;
-    margin: 0 3px;    /* Mengurangi jarak antar item */
-}
-
-ul.pagination li a,
-ul.pagination li span {
-    padding: 5px 10px; /* Mengatur padding link dan span */
-    border-radius: 4px;
-    text-decoration: none;
-    color: #007bff;    /* Warna link */
-}
-
-ul.pagination li.active span {
-    background-color: #007bff;
-    color: #fff;
-}
-
+            font-size: 0.8rem; /* Ukuran font yang lebih kecil */
+            padding: 0;       /* Menghilangkan padding default */
+        }
+        ul.pagination li {
+            display: inline-block;
+            margin: 0 3px;    /* Mengurangi jarak antar item */
+        }
+        ul.pagination li a,
+        ul.pagination li span {
+            padding: 5px 10px; /* Mengatur padding link dan span */
+            border-radius: 4px;
+            text-decoration: none;
+            color: #007bff;    /* Warna link */
+        }
+        ul.pagination li.active span {
+            background-color: #007bff;
+            color: #fff;
+        }
         .footer a:hover {
             text-decoration: underline;
         }
@@ -107,8 +103,8 @@ ul.pagination li.active span {
                 <h6>Apa yang baru</h6>
                 <h5>Ayo lihat apa saja yang baru datang!</h5>
             </div>
-            <div class="col-md-6 tlri d-flex justify-content-end">
-                <a href="">Lihat lebih lanjut ></a>
+            <div class="col-md-6 d-flex justify-content-md-end align-items-center" style="height: 100%;">
+                <i class="fa-solid fa-solid fa-face-grin-hearts fa-beat" style="font-size: 2em;"></i>
             </div>
         </div>
         <!-- --> <hr>
@@ -118,9 +114,9 @@ ul.pagination li.active span {
                     <div class="card" style="width: 15rem;">
                         <img src="{{asset('storage/photo/'.$p->prdpht)}}" class="card-img-top" alt="Product">
                         <div class="card-body">
-                          <h5 class="card-title">{{$p->prdname}}</h5>
-                          <p class="card-text">Rp{{$p->prdprice}}</p>
-                          <a href="#" class="btn btn-primary">Lihat lebih lanjut</a>
+                            <h5 class="card-title" style="padding:2% 0;"><a style="text-decoration: none; color:inherit;" href="{{ route('pd.show', $p->idproduct) }}">{{$p->prdname}}</a></h5>
+                            <p class="card-text" style="margin-top:10px;"><b>Rp{{$p->prdprice}}</b> <br> {{$p->prddescript}}</p>
+                            <a href="{{ route('pd.show', $p->idproduct) }}" class="btn btn-primary">Lihat lebih lanjut</a>
                         </div>
                     </div>
                 </div>
@@ -138,13 +134,13 @@ ul.pagination li.active span {
             </div>
         </div>
         <!-- -->
-        <div class="row" style="margin-top:60px">
+        <div class="row" style="margin-top:60px;">
             <div class="col-md-6 tlri justify-content-md-start">
                 <h6>Sulit untuk menemukan produk yang tepat untuk ternak anda??</h6>
                 <h5>Ayo lihat produk yang bagus untukmu!</h5>
             </div>
-            <div class="col-md-6 tlri d-flex justify-content-end">
-                <a href="">Lihat lebih lanjut ></a>
+            <div class="col-md-6 d-flex justify-content-md-end align-items-center" style="height: 100%;">
+                <i class="fa-solid fa-cart-shopping fa-beat" style="font-size: 2em;"></i>
             </div>
         </div>
         <div class="row d-flex justify-content-center" style="margin-top:50px; margin-bottom: 40px;">
@@ -153,9 +149,8 @@ ul.pagination li.active span {
                 <div class="card" style="width: 15rem;">
                     <img src="{{asset('storage/photo/'.$pB->prdpht)}}" class="card-img-top" alt="Product">
                     <div class="card-body">
-                        <h5 class="card-title">{{$pB->prdname}}</h5>
-                        <p class="card-text">Rp{{$pB->prdprice}}</p>
-                        <a href="#" class="btn btn-primary">Lihat lebih lanjut</a>
+                        <h5 class="card-title" style="padding:2% 0;"><a style="text-decoration: none; color:inherit;" href="{{ route('pd.show', $pB->idproduct) }}">{{$pB->prdname}}</a></h5>
+                        <p class="card-text" style="margin-top:10px;"><b>Rp{{$pB->prdprice}}</b> <br> {{$pB->prddescript}}</p>
                     </div>
                 </div>
             </div>
@@ -169,15 +164,15 @@ ul.pagination li.active span {
                 <h6>Apakah kamu tahu??</h6>
                 <h5>Fakta dan info apa saja yang kamu ketahui tentang ikan?</h5>
             </div>
-            <div class="col-md-6 tlri d-flex justify-content-end">
-                <a href="">Lihat lebih lanjut ></a>
+            <div class="col-md-6 d-flex justify-content-md-end align-items-center" style="height: 100%;">
+                <i class="fa-solid fa-face-grin-wide fa-bounce" style="font-size: 2em;"></i>
             </div>
         </div>
         <div class="row" style="margin-top:25px; margin-bottom:45px;">
             @foreach ($content as $ct)
-            <div class="row">
+            <div class="row" style="margin-bottom:10px;">
                 <div style="padding:2%; background-color:#ececec; border-radius:12px;">
-                    <h4>{{ $ct->title }}</h4><hr>
+                    <h4 style="padding:1% 0;"><a style="text-decoration: none; color:inherit;" href="{{ route('ct.show', $ct->idpct) }}">{{ $ct->title }}</a></h5><hr>
                     <p>{{ $ct->prevdesc }}</p>
                 </div>
             </div>

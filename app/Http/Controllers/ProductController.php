@@ -18,42 +18,6 @@ class ProductController extends Controller
 			'content' => $contentvar
 		]);
     }
-
-    /*public function store(Request $request){
-    	$data = $request->validate([
-    		'prdid' 		=> 'required|min:9',
-			'prdname' 		=> 'required|min:9',
-    		'prdprice'		=> 'required',
-    		'prddescript'	=> 'required',
-    		'prdqty'		=> 'required',
-    		'prdpht'      	=> 'required|file|image|mimes:png,jpg,jpeg|max:10240'
-		]);
-		$file = $request->file('photo');
-		$fileName = uniqid().'.'. $file->getClientOriginalExtension();
-		$data['prdpht'] = $file->storeAs('public/photo',$fileName);
-		Product::create($data);
-    	//alihkan ke view dokter
-    	return redirect('/dokter')->with('succesMsg', 'Data Stored Successfully');
-		//return redirect(url('product'))->with('success','Data berhasil ditambahkan!');
-    }*/
-
-	/*public function store(Request $request){
-		$data = $request->validate([
-			'prdid'        => 'required|min:9',
-			'prdname'      => 'required|min:9',
-			'prdprice'     => 'required',
-			'prddescript'  => 'required',
-			'prdqty'       => 'required',
-			'prdpht'       => 'required|file|image|mimes:png,jpg,jpeg|max:10240'
-		]);
-	
-		$file = $request->file('prdpht');
-		$fileName = uniqid().'.'. $file->getClientOriginalExtension();
-		$data['prdpht'] = $file->storeAs('public/photo', $fileName);
-
-		Product::create($data);
-		return redirect('/')->with('successMsg', 'Data Stored Successfully');
-	}*/
 	
 	public function store(Request $request){
 		$file = $request->file('prdpht');

@@ -28,32 +28,28 @@ Route::get('/develop', function(){
 Route::get('/regis', function(){
     return view('Page.Acc.register');
 });
+Route::get('/buycart', function(){
+    return view('Page.buycart');
+});
 Route::get('/addcont/{userId}', function($userId) {
     return view('Page.addcont', compact('userId'));
 })->name('addcont');
 Route::get('/addprd/{userId}', function($userId) {
     return view('Page.addprd', compact('userId'));
 })->name('addprd');
-/*Route::get('/profile', function(){
-    return view('Page.Acc.profile');
-});*/
 
 //tampil
 Route::get('/', [ProductController::class, 'indexhm']);
-Route::get('/content/{id}', [ContentController::class, 'show'])->name('content.show');
+Route::get('/buyPd/{id}', [ContentController::class, 'show'])->name('pd.show');
+Route::get('/shCt/{id}', [ContentController::class, 'show'])->name('ct.show');
 
 //tambah
 Route::post('/PrdStore', [ProductController::class, 'store']);
 Route::post('/BgStore', [CtController::class, 'store']);
-//Route::resource("/PrdStore", ProductController::class);
 
-//log
-//Route::post('/mylog', [UserController::class, 'login'])->name('login');
+//log & auth
 Route::post('/login', [UserController::class, 'login'])->name('pslogin');
 Route::get('/profile', [UserController::class, 'showProfile'])->middleware('auth');
 Route::get('/login', function() {
     return view('Page.Acc.login'); // Gantilah dengan tampilan login Anda
 })->name('loginPage');
-
-//Route::get('/profile', [UserController::class, 'index'])->name('profile');
-//Route::get('/login', [UserController::class, 'showLoginForm'])->name('login');
