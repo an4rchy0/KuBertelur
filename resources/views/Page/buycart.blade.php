@@ -63,7 +63,10 @@
     <div class="container">  
         <div class="container-fluid">
             <div class="row" style="margin-top: 5%">
-                <div class="col-md-6"><img src="" alt="test"></div>
+                <div class="col-md-6">
+                    <img src="{{asset('storage/photo/'.$content->prdpht)}}" class="card-img-top" alt="Product">
+                    <div class="row"><p>{{$content->prddescript}}</p></div>
+                </div>
                 <div class="col-md-6">
                     <span style="align-text:center;" class="d-flex">
                         <i class="fa-solid fa-star fa-bounce" style="color: #dbb014;"></i>
@@ -73,17 +76,18 @@
                         <i class="fa-solid fa-star fa-bounce" style="color: #dbb014;"></i>
                     </span>
                     <p>Recommended (KuBertelur) <br> 
-                    <h1>Judul Product</h1> <br> 
-                    Avaibility : <br> 
-                    Stok : <br> 
-                    Harga : <span style="padding:5px 2%; background-color: #e6c347; border-radius:12px;">20% Off</span><br>
-                    Deskripsi : <br></p>
+                    <h1>{{$content->prdname}}</h1> <br> 
+                    Avaibility : {{ $content->prdqty > 0 ? 'Available' : 'Not Available' }}<br> 
+                    Stok : {{$content->prdqty}}<br> 
+                    Harga : {{$content->prdprice}} <span style="padding:5px 2%; background-color: #e6c347; border-radius:12px; margin-left:2%;">20% Off</span><br>
                     <div class="row" style="">
                         <form action="{{ route('pslogin') }}" method="post" class="bg-body-tertiary rounded-3" style="padding:2%" enctype="multipart/form-data">
                             <fieldset>
                                 {{csrf_field()}}
-                                <div class="form-group">
-                                    Kuantitas : <input type="password" class="form-control" name="password" required="required">
+                                <div class="form-group form-inline">
+                                    Kuantitas : 
+                                    <input type="password" class="form-control" name="password" required="required" style="margin-right: 10px;">
+                                    <input type="button" class="form-control" name="button">
                                 </div>
                                 <div class="form-group" style="margin-top:3%;">
                                     <input type="submit" value="Simpan Data" class="btn btn-primary form-control">

@@ -36,6 +36,11 @@ class ProductController extends Controller
 		return redirect('/profile')->with('msg', 'Data Stored Successfully');
 	}
 
+	public function show($id) {
+		$content = DB::table('product')->where('idproduct', $id)->first();
+		return view('Page.buycart', ['content' => $content]);
+	}		
+
     //untuk form edit
     public function edit($id){
     	//mengambil data berdasar id
