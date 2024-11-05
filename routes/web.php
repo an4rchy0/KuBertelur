@@ -38,16 +38,23 @@ Route::get('/addprd/{userId}', function($userId) {
     return view('Page.addprd', compact('userId'));
 })->name('addprd');
 
-//tampil
 Route::get('/', [ProductController::class, 'indexhm']);
 Route::get('/buyPd/{id}', [ProductController::class, 'show'])->name('pd.show');
 Route::get('/shCt/{id}', [ContentController::class, 'show'])->name('ct.show');
+Route::get('/del/{id}', [ProductController::class, 'ups'])->name('pd.up');
+Route::get('/del/{id}', [ContentController::class, 'ups'])->name('ct.up');
+Route::get('/del/{id}', [ProductController::class, 'del'])->name('pd.del');
+Route::get('/del/{id}', [ContentController::class, 'del'])->name('ct.del');
 
-//tambah
 Route::post('/PrdStore', [ProductController::class, 'store']);
 Route::post('/BgStore', [CtController::class, 'store']);
+Route::post('/UsReg', [UserController::class, 'store']);
+Route::post('/addup/{id}', [CtController::class, 'up']);
+Route::post('/addup/{id}', [UserController::class, 'up']);
 
-//log & auth
+Route::get('/del/{id}', [ProductController::class, "del"]);
+Route::get('/del/{id}', [CtController::class, "del"]);
+
 Route::post('/login', [UserController::class, 'login'])->name('pslogin');
 Route::get('/profile', [UserController::class, 'showProfile'])->middleware('auth');
 Route::get('/login', function() {

@@ -18,7 +18,6 @@ class ProductController extends Controller
 			'content' => $contentvar
 		]);
     }
-	
 	public function store(Request $request){
 		$file = $request->file('prdpht');
 		$fileName = uniqid().'.'. $file->getClientOriginalExtension();
@@ -35,34 +34,27 @@ class ProductController extends Controller
     	]);
 		return redirect('/profile')->with('msg', 'Data Stored Successfully');
 	}
-
 	public function show($id) {
 		$content = DB::table('product')->where('idproduct', $id)->first();
 		return view('Page.buycart', ['content' => $content]);
 	}		
-
-    //untuk form edit
-    public function edit($id){
-    	//mengambil data berdasar id
-    	$pasivar = DB::table('dokters')->where('iddokter', $id)->get();
-    	return view('editDokter', ['pas' => $pasivar]);
+    //form edit
+    public function ups($id){
+    	$var = DB::table('product')->where('idproduct', $id)->get();
+    	return view('----', ['pas' => $var]);
     }
-    //untuk form simpan edit
-    public function perbarui(Request $request,$iddokter){
-    	DB::table('dokters')->where('iddokter', $iddokter)->update([
-    		'namadokter' => $request->nama,
-    		'jk'         => $request->jk,
-    		'tanggallahir' => $request->tanggallahir,
-    		'nohp'         => $request->nohp,
-    		'email'        => $request->email,
-    		'alamat'       => $request->alamat
+    //form simpan edit
+    public function up(Request $request,$idproduct){
+    	DB::table('product')->where('idproduct', $idproduct)->update([
+    		'prdname' => $request->nama,
+    		'prdprice'         => $request->jk,
+    		'prddescript' => $request->tanggallahir,
+    		'prdqty'         => $request->nohp,
     	]);
-    	//alihkan ke view dokter
-    	return redirect('/dokter')->with('succesMsg', 'Data Telah Diperbarui');
+    	return redirect('/profile')->with('succesMsg', 'Data Telah Diperbarui!');
     }
-
-    public function hapus($id){
-    	DB::table('dokters')->where('iddokter',$id)->delete();
-    	return redirect('/dokter')->with('succesMsg', 'Data Deleted Successfully');
+    public function del($id){
+    	DB::table('product')->where('idproduct',$id)->delete();
+    	return redirect('/profile')->with('succesMsg', 'Data berhasil dihapus!');
     }
 }
