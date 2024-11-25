@@ -56,12 +56,11 @@
                 </li>
             </ul>
             <div class="d-flex align-items-center space-x-4">
-                <!--<input class="form-control rounded-full text-black" placeholder="Apa yang kamu cari?" type="text" style="margin-right:10px;"/>-->
                 <button class="btn" style="background-color:#deb900; border-radius:12px; margin-right:10px;">Developer</button>
                 <div class="d-flex align-items-center space-x-2">
                     <img src="https://upload.wikimedia.org/wikipedia/commons/9/9f/Flag_of_Indonesia.svg" alt="Flag of Indonesia" height="20" width="20" style="margin-right:10px;"/>
                     <span style="color:white; margin-right:20px;"> <span style="margin-right:10px;">IDN | </span> 
-                    <a href="/login"><i class="fa-solid fa-user" style="color:#ffff; height:20px; width:20px;"></i></a></span>
+                    <a href="/profile"><i class="fa-solid fa-user" style="color:#ffff; height:20px; width:20px;"></i></a></span>
                 </div>
             </div>
         </div>
@@ -72,10 +71,10 @@
     <div class="container-fluid" style="padding: 50px 50px 50px 50px;">
         <div class="row">
             <div class="alert alert-success" role="alert">
-                <h4 class="alert-heading">Well done!</h4>
-                <p>Aww yeah, you successfully read this important alert message. This example text is going to run a bit longer so that you can see how spacing within an alert works with this kind of content.</p>
+                <h4 class="alert-heading">Buat Konten yang Menarik yukk!</h4>
+                <p>Dengan membuat konten yang menarik bisa memikat audiens juga lohh! yukk segera buat konten biar meramaikan akunmu! Selain itu dengan menggunakan konten akan menambahkan wawasan dan pembagi ilmu!</p>
                 <hr>
-                <p class="mb-0">Whenever you need to, be sure to use margin utilities to keep things nice and tidy.</p>
+                <p class="mb-0">Mohon gunakan pribahasa yang baik dan cukup bijak didalam membuat konten! <b>Melanggar ketentuan akan mendapatkan sanksi yang sepadan!</b></p>
             </div>
         
         <?php 
@@ -115,7 +114,7 @@
                 <div class="form-group">
                     <input type="text" class="form-control" name="ctus" required="required" value="{{ $userId }}" hidden>
                 </div>
-                <input type="submit" value="Simpan Data" class="btn btn-primary form-control">
+                <input type="submit" value="Simpan Kontenku!" class="btn btn-primary form-control">
             </fieldset>
         </form>
         </div>

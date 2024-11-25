@@ -24,7 +24,7 @@ class ProductController extends Controller
 		$data['prdpht'] = $file->storeAs('public/photo', $fileName);
 
 		DB::table('product')->insert([
-    		'idproduct'			=> $request->prdid,
+    		'idproduct'		=> $request->prdid,
     		'prdname'		=> $request->prdname,
     		'prdprice'		=> $request->prdprice,
     		'prddescript'	=> $request->prddescript,
@@ -41,15 +41,15 @@ class ProductController extends Controller
     //form edit
     public function ups($id){
     	$var = DB::table('product')->where('idproduct', $id)->get();
-    	return view('----', ['pas' => $var]);
+    	return view('Page.upprd', ['pas' => $var]);
     }
     //form simpan edit
     public function up(Request $request,$idproduct){
     	DB::table('product')->where('idproduct', $idproduct)->update([
-    		'prdname' => $request->nama,
-    		'prdprice'         => $request->jk,
-    		'prddescript' => $request->tanggallahir,
-    		'prdqty'         => $request->nohp,
+    		'prdname'	  => $request->prdname,
+    		'prdprice'    => $request->prdprice,
+    		'prddescript' => $request->prddescript,
+    		'prdqty'      => $request->prdqty,
     	]);
     	return redirect('/profile')->with('succesMsg', 'Data Telah Diperbarui!');
     }

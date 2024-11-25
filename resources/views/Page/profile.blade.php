@@ -78,7 +78,7 @@
             <div class="col-md-6 justify-content-md-start">
                 <p style="font-size:18px; margin-top:20px;"><span style="margin-right:5px; background-color:#172bd2; padding:10px 20px; border-radius:25px;">Transaksi</span>
                 <span style="margin-right:15px; background-color:#172bd2; padding:10px 20px; border-radius:18px;">Komunitas</span> <br><br>
-                <span style="margin-right:5px; background-color:#172bd2; padding:10px 20px; border-radius:18px;">Konten</span>
+                <span style="margin-right:5px; background-color:#172bd2; padding:10px 20px; border-radius:18px;">Post</span>
                 <span style="margin-right:15px; background-color:#172bd2; padding:10px 20px; border-radius:18px;">Produkku</span> <br><br>
                 <span style="margin-right:15px; background-color:#172bd2; padding:10px 20px; border-radius:18px;">Statistik</span></p>
             </div>
@@ -171,21 +171,38 @@
         </div>
         <div class="row d-flex" style="margin-top:25px;">
             <div class="row">
-                <div class="col-md-6 d-flex align-items-center justify-content-md-start"><h5>Kontenku</h5></div>
-                <div class="col-md-6 d-flex justify-content-md-end"><div class="alert alert-success" role="alert"><a href="{{ route('addcont', ['userId' => $user->idusr_kbt]) }}" style="text-decoration:none; color:inherit;">Tambah konten +</a></div></div><hr>
+                <div class="col-md-6 d-flex align-items-center justify-content-md-start"><h5>Post</h5></div>
+                <div class="col-md-6 d-flex justify-content-md-end"><div class="alert alert-success" role="alert"><a href="{{ route('addcont', ['userId' => $user->idusr_kbt]) }}" style="text-decoration:none; color:inherit;">Tambah Post +</a></div></div><hr>
             </div>
             @if ($contents->isEmpty())
                 <div class="row">
                     <div class="alert alert-info d-flex justify-content-center align-items-center" role="alert">
-                        Upss.. kamu belum posting atau upload konten nih <a href="a" class="alert-link" style="margin-left:5px;">Tambah konten kamu disini</a>
+                        Upss.. kamu belum posting atau upload Post nih <a href="a" class="alert-link" style="margin-left:5px;">Tambah Post kamu disini</a>
                     </div>
                 </div>
             @else
                 @foreach ($contents as $content)
-                <div class="row">
-                    <div style="padding:2%; background-color:#ececec; border-radius:12px;">
-                        <h4><a href="{{ route('ct.show', $content->idpct) }}" style="text-decoration:none; color:inherit;">{{ $content->title }}</a></h4>
+                <div class="row" style="margin-bottom:2%;">
+                    <div style="padding:2%; background-color:#e0f0f8; border-radius:12px;">
+                        <div class="row">
+                            <div class="col-md-6 d-flex align-items-center justify-content-md-start"><h4><a href="{{ route('ct.show', $content->idpct) }}" style="text-decoration:none; color:inherit;">{{ $content->title }}</a></h4><hr></div>
+                            <div class="col-md-6 d-flex justify-content-md-end"><div class="alert alert-secondary" role="alert"><a href="{{ route('ct.up', ['id' => $content->idpct]) }}" style="color:#a3a3a3"><i class="fa fa-edit" style="font-size: 15px; margin-right: 5px;"></i></a><a href="#" data-toggle="modal" data-target="#deleteModal{{$content->idpct}}" style="color:#a3a3a3"><i class="fa fa-trash" style="font-size: 15px;"></i></a></div></div><hr>
+                        </div>
                         <p>{{ $content->prevdesc }}</p>
+                        <div class="modal fade" id="deleteModal{{$content->idpct}}" tabindex="-1" role="dialog" aria-labelledby="deleteModal{{$content->idpct}}" aria-hidden="true">
+                            <div class="modal-dialog modal-dialog-centered" role="document">
+                                <div class="modal-content">
+                                    <div class="modal-header">
+                                        <h5 class="modal-title" id="deleteModal{{$content->idpct}}">Konfirmasi Hapus</h5>
+                                    </div>
+                                    <div class="modal-body">Apakah Anda yakin ingin menghapus Post ini?</div>
+                                    <div class="modal-footer">
+                                        <button type="button" class="btn btn-secondary" data-dismiss="modal">Batal</button>
+                                        <a href="{{ route('ct.del', ['id' => $content->idpct]) }}" class="btn btn-danger">Hapus</a>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
                     </div>
                 </div>
                 @endforeach
@@ -204,36 +221,36 @@
                 </div>
             @else
                 <div class="row d-flex justify-content-center align-items-center">
-                    @foreach ($pdc as $pd)
-                        <div class="col-md-4 d-flex justify-content-center align-items-center" style="margin-top:25px;">
-                            <div class="card" style="">
-                                <img src="{{asset('storage/photo/'.$pd->prdpht)}}" class="card-img-top img-responsive margin" alt="Product" style="width:250px;"> <!-- Pastikan field image ada -->
-                                <div class="card-body">
-                                    <h5 class="card-title">{{ $pd->prdname }}</h5>
-                                </div>
-                                <div class="card-footer">
-                                    <a href="#"><i class="fa fa-edit" style="font-size: 24px; margin-right: 10px;"></i></a>
-                                    <a href="#" data-toggle="modal" data-target="#deleteModal"><i class="fa fa-trash" style="font-size: 24px;"></i></a>
-                                    <div class="modal fade" id="deleteModal" tabindex="-1" role="dialog" aria-labelledby="deleteModalLabel" aria-hidden="true">
-                                        <div class="modal-dialog modal-dialog-centered" role="document">
-                                            <div class="modal-content">
-                                                <div class="modal-header">
-                                                    <h5 class="modal-title" id="deleteModalLabel">Konfirmasi Hapus</h5>
-                                                </div>
-                                                <div class="modal-body">
-                                                    Apakah Anda yakin ingin menghapus produk ini?
-                                                </div>
-                                                <div class="modal-footer">
-                                                    <button type="button" class="btn btn-secondary" data-dismiss="modal">Batal</button>
-                                                    <a href="pasienview/hapus/" class="btn btn-danger">Hapus</a>
-                                                </div>
+                @foreach ($pdc as $pd)
+                    <div class="col-md-4 d-flex justify-content-center align-items-center" style="margin-top:25px;">
+                        <div class="card" style="">
+                            <img src="{{asset('storage/photo/'.$pd->prdpht)}}" class="card-img-top img-responsive margin" alt="Product" style="width : 257px; height: 180px;">
+                            <div class="card-body">
+                                <h5 class="card-title" style="padding:2% 0;"><a style="text-decoration: none; color:inherit;" href="{{ route('pd.show', $pd->idproduct) }}">{{$pd->prdname}}</a></h5>
+                            </div>
+                            <div class="card-footer">
+                                <a href="{{ route('pd.up', ['id' => $pd->idproduct]) }}"><i class="fa fa-edit" style="font-size: 24px; margin-right: 10px;"></i></a>
+                                <a href="#" data-toggle="modal" data-target="#deleteModal{{$pd->idproduct}}"><i class="fa fa-trash" style="font-size: 24px;"></i></a>
+                                <div class="modal fade" id="deleteModal{{$pd->idproduct}}" tabindex="-1" role="dialog" aria-labelledby="deleteModalLabel{{$pd->idproduct}}" aria-hidden="true">
+                                    <div class="modal-dialog modal-dialog-centered" role="document">
+                                        <div class="modal-content">
+                                            <div class="modal-header">
+                                                <h5 class="modal-title" id="deleteModalLabel{{$pd->idproduct}}">Konfirmasi Hapus</h5>
+                                            </div>
+                                            <div class="modal-body">
+                                                Apakah Anda yakin ingin menghapus produk ini?
+                                            </div>
+                                            <div class="modal-footer">
+                                                <button type="button" class="btn btn-secondary" data-dismiss="modal">Batal</button>
+                                                <a href="{{ route('pd.del', ['id' => $pd->idproduct]) }}" class="btn btn-danger">Hapus</a>
                                             </div>
                                         </div>
                                     </div>
                                 </div>
                             </div>
                         </div>
-                    @endforeach
+                    </div>
+                @endforeach
                 </div>
             @endif
 

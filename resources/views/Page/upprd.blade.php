@@ -76,52 +76,29 @@
                 <p class="mb-0">Mohon gunakan kata - kata yang baik dan cukup bijak didalam membuat konten! <b>Melanggar ketentuan akan mendapatkan sanksi yang sepadan!</p>
             </div>
         
-        <?php 
-            function generateid(){
-                $hari = date('l');
-                $tanggal = date('d');
-                $bulan = date('M');
-                $blnangka = date('m');
-                $tahun = date('y');
-                $jam = date('h');
-                $minute = date('i');
-                $detik = date('s');
-                $haricut = substr($hari,0,1);
-                $bulancut = substr($bulan,0,1);
-                $hourcut = substr($jam,0,1);
-                $minutecut = substr($minute,0,1);
-                $detikcut = substr($detik,0,1);
-                $kodejoin = "PC-{$haricut}{$bulancut}{$hourcut}{$minutecut}{$detikcut}";
-                return $kodejoin;
-            }
-        ?>
-        <form action="/PrdStore" method="post" class="bg-body-tertiary rounded-3" style="padding:5%" enctype="multipart/form-data">
+        @foreach($pas as $p)
+        <form action="{{ url('/upPD', $p->idproduct)}}" method="post" class="bg-body-tertiary rounded-3" style="padding:5%" enctype="multipart/form-data">
             <fieldset>
                 {{csrf_field()}}
                 <div class="form-group">
-                    <input type="text" class="form-control" name="prdid" value="<?php echo generateid(); ?>" hidden>
+                    <input type="text" class="form-control" name="contid" value="{{$p->idproduct}}" disabled>
                 </div>
                 <div class="form-group">
-                    Nama Produk     : <input type="text" class="form-control" name="prdname" required="required">	
+                    Nama Produk     : <input type="text" value="{{$p->prdname}}" class="form-control" name="prdname" required="required">	
                 </div>
                 <div class="form-group">
-                    Harga Produk    : <input type="text" class="form-control" name="prdprice" required="required">
+                    Harga Produk    : <input type="text" value="{{$p->prdprice}}" class="form-control" name="prdprice" required="required">
                 </div>
                 <div class="form-group">
-                    Deskripsi       : <textarea class="form-control" name="prddescript" required="required"></textarea><br>
+                    Deskripsi       : <textarea class="form-control" name="prddescript" required="required">{{ $p->prddescript }}</textarea><br>
                 </div>
                 <div class="form-group">
-                    Stok            : <input type="text" class="form-control" name="prdqty" required="required">
+                    Stok            : <input type="text" value="{{$p->prdqty}}" class="form-control" name="prdqty" required="required">
                 </div>
-                <div class="form-group">
-                    Upload File     : <input type="file" class="form-control" name="prdpht" id="photo">
-                </div>
-                <div class="form-group">
-                    <input type="text" class="form-control" name="prdus" required="required" value="{{ $userId }}" hidden>
-                </div>
-                <input type="submit" value="Simpan Data" class="btn btn-primary form-control">
+                <input type="submit" value="Simpan Data" class="btn btn-primary form-control" style="margin-top:2%;">
             </fieldset>
         </form>
+        @endforeach
         </div>
     </div>
 </div>

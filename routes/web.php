@@ -41,19 +41,19 @@ Route::get('/addprd/{userId}', function($userId) {
 Route::get('/', [ProductController::class, 'indexhm']);
 Route::get('/buyPd/{id}', [ProductController::class, 'show'])->name('pd.show');
 Route::get('/shCt/{id}', [ContentController::class, 'show'])->name('ct.show');
-Route::get('/del/{id}', [ProductController::class, 'ups'])->name('pd.up');
-Route::get('/del/{id}', [ContentController::class, 'ups'])->name('ct.up');
-Route::get('/del/{id}', [ProductController::class, 'del'])->name('pd.del');
-Route::get('/del/{id}', [ContentController::class, 'del'])->name('ct.del');
+Route::get('/pd.up{id}', [ProductController::class, 'ups'])->name('pd.up');
+Route::get('/ct.up/{id}', [CtController::class, 'ups'])->name('ct.up');
+Route::get('/pd.del/{id}', [ProductController::class, 'del'])->name('pd.del');
+Route::get('/ct.del/{id}', [CtController::class, 'del'])->name('ct.del');
 
 Route::post('/PrdStore', [ProductController::class, 'store']);
 Route::post('/BgStore', [CtController::class, 'store']);
 Route::post('/UsReg', [UserController::class, 'store']);
-Route::post('/addup/{id}', [CtController::class, 'up']);
-Route::post('/addup/{id}', [UserController::class, 'up']);
+Route::post('/upCT/{id}', [CtController::class, 'up']);
+Route::post('/upPD/{id}', [ProductController::class, 'up']);
 
-Route::get('/del/{id}', [ProductController::class, "del"]);
-Route::get('/del/{id}', [CtController::class, "del"]);
+//Route::get('/del/{id}', [ProductController::class, "del"]);
+//Route::get('/del/{id}', [CtController::class, "del"]);
 
 Route::post('/login', [UserController::class, 'login'])->name('pslogin');
 Route::get('/profile', [UserController::class, 'showProfile'])->middleware('auth');

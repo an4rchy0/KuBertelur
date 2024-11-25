@@ -147,7 +147,7 @@
             @foreach($pdcB as $pB)
             <div class="col-md-4 d-flex justify-content-center" style="margin-bottom:10px;">
                 <div class="card" style="width: 15rem;">
-                    <img src="{{asset('storage/photo/'.$pB->prdpht)}}" class="card-img-top" alt="Product">
+                    <img src="{{asset('storage/photo/'.$pB->prdpht)}}" class="card-img-top" alt="Product" style="width : 257px; height: 180px;">
                     <div class="card-body">
                         <h5 class="card-title" style="padding:2% 0;"><a style="text-decoration: none; color:inherit;" href="{{ route('pd.show', $pB->idproduct) }}">{{$pB->prdname}}</a></h5>
                         <p class="card-text" style="margin-top:10px;"><b>Rp{{$pB->prdprice}}</b></p>

@@ -27,7 +27,7 @@ class CtController extends Controller
 	//form edit
     public function ups($id){
     	$var = DB::table('mycontent')->where('idpct', $id)->get();
-    	return view('----', ['pas' => $var]);
+    	return view('Page.upcont', ['pas' => $var]);
     }
     //form simpan edit
     public function up(Request $request,$idproduct){

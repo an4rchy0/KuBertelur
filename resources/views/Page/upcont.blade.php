@@ -71,57 +71,32 @@
     <div class="container-fluid" style="padding: 50px 50px 50px 50px;">
         <div class="row">
             <div class="alert alert-success" role="alert">
-                <h4 class="alert-heading">Hello Hello!</h4>
-                <p>Ramaikan akunmu dengan penuhi berbagai konten yukk!</p><hr>
-                <p class="mb-0">Mohon gunakan kata - kata yang baik dan cukup bijak didalam membuat konten! <b>Melanggar ketentuan akan mendapatkan sanksi yang sepadan!</p>
+                <h4 class="alert-heading">Buat Konten yang Menarik yukk!</h4>
+                <p>Dengan membuat konten yang menarik bisa memikat audiens juga lohh! yukk segera buat konten biar meramaikan akunmu! Selain itu dengan menggunakan konten akan menambahkan wawasan dan pembagi ilmu!</p>
+                <hr>
+                <p class="mb-0">Mohon gunakan pribahasa yang baik dan cukup bijak didalam membuat konten! <b>Melanggar ketentuan akan mendapatkan sanksi yang sepadan!</b></p>
             </div>
         
-        <?php 
-            function generateid(){
-                $hari = date('l');
-                $tanggal = date('d');
-                $bulan = date('M');
-                $blnangka = date('m');
-                $tahun = date('y');
-                $jam = date('h');
-                $minute = date('i');
-                $detik = date('s');
-                $haricut = substr($hari,0,1);
-                $bulancut = substr($bulan,0,1);
-                $hourcut = substr($jam,0,1);
-                $minutecut = substr($minute,0,1);
-                $detikcut = substr($detik,0,1);
-                $kodejoin = "PC-{$haricut}{$bulancut}{$hourcut}{$minutecut}{$detikcut}";
-                return $kodejoin;
-            }
-        ?>
-        <form action="/PrdStore" method="post" class="bg-body-tertiary rounded-3" style="padding:5%" enctype="multipart/form-data">
+        @foreach($pas as $p)
+        <form action="{{ url('/upCT', $p->idpct)}}" method="post" class="bg-body-tertiary rounded-3" style="padding:5%" enctype="multipart/form-data">
             <fieldset>
                 {{csrf_field()}}
                 <div class="form-group">
-                    <input type="text" class="form-control" name="prdid" value="<?php echo generateid(); ?>" hidden>
+                    <input type="text" class="form-control" name="contid" value="{{$p->idpct}}" disabled>
                 </div>
                 <div class="form-group">
-                    Nama Produk     : <input type="text" class="form-control" name="prdname" required="required">	
+                    Judul Konten            : <input type="text" class="form-control" value="{{$p->title}}" name="conttl" required="required">	
                 </div>
                 <div class="form-group">
-                    Harga Produk    : <input type="text" class="form-control" name="prdprice" required="required">
+                    Deskripsi Singkat Konten (Preview) : <textarea class="form-control" name="pvdc" required="required">{{ $p->prevdesc }}</textarea>
                 </div>
                 <div class="form-group">
-                    Deskripsi       : <textarea class="form-control" name="prddescript" required="required"></textarea><br>
+                    Isi Blog Konten Anda    : <textarea class="form-control" name="cont" required="required">{{$p->content}}</textarea><br><br><br>
                 </div>
-                <div class="form-group">
-                    Stok            : <input type="text" class="form-control" name="prdqty" required="required">
-                </div>
-                <div class="form-group">
-                    Upload File     : <input type="file" class="form-control" name="prdpht" id="photo">
-                </div>
-                <div class="form-group">
-                    <input type="text" class="form-control" name="prdus" required="required" value="{{ $userId }}" hidden>
-                </div>
-                <input type="submit" value="Simpan Data" class="btn btn-primary form-control">
+                <input type="submit" value="Simpan Kontenku!" class="btn btn-primary form-control">
             </fieldset>
         </form>
+        @endforeach
         </div>
     </div>
 </div>

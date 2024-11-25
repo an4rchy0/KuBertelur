@@ -18,10 +18,54 @@
         .navbar-nav .nav-link:hover {
             background-color: #7A8F8A; 
         }
+        .input-group-inline { 
+            display: flex; align-items: center; 
+        } 
+        .input-group-inline .form-control { 
+            margin-right: 10px; 
+        }
         .footer a:hover {
             text-decoration: underline;
         }
     </style>
+    <script> 
+        function generaterandprc() { 
+            return Math.floor(Math.random() * (15000 - 10000 + 1)) + 10000 + 2500; 
+        } 
+        document.addEventListener('DOMContentLoaded', (event) => { 
+            const addressInput = document.querySelector('input[name="address"]'); 
+            const priceInput = document.querySelector('input[name="price"]'); 
+            addressInput.addEventListener('input', () => { 
+                if (addressInput.value !== "") { 
+                    priceInput.value = generaterandprc(); 
+                } else { 
+                    priceInput.value = ""; 
+                } 
+                updateTotal();
+            }); 
+            const prdprice = <?php echo $content->prdprice; ?>; 
+            const qtyInput = document.querySelector('input[name="qty"]'); 
+            const tqtyInput = document.querySelector('input[name="tqty"]'); 
+            qtyInput.addEventListener('input', () => { 
+                if (qtyInput.value !== "") { 
+                    tqtyInput.value = `Rp. ${prdprice * qtyInput.value}`;
+                } else { 
+                    tqtyInput.value = ""; 
+                } 
+                updateTotal();
+            }); 
+            const totalInput = document.querySelector('input[name="total"]'); 
+            function updateTotal() { 
+                if (priceInput.value !== "" && tqtyInput.value !== "") { 
+                    const priceValue = parseFloat(priceInput.value.replace('Rp. ', '')); 
+                    const tqtyValue = parseFloat(tqtyInput.value.replace('Rp. ', '')); 
+                    totalInput.value = `Rp. ${priceValue + tqtyValue}`; 
+                } else { 
+                    totalInput.value = ""; 
+                } 
+            }
+        });
+    </script>
 </head>
 <body>
     <nav class="navbar navbar-expand-lg navbar-dark" style="background-color: #000e86;">
@@ -63,9 +107,9 @@
     <div class="container">  
         <div class="container-fluid">
             <div class="row" style="margin-top: 5%">
-                <div class="col-md-6 d-flex flex-column justify-content-center align-items-center">
-                    <img src="{{asset('storage/photo/'.$content->prdpht)}}" alt="Product" width="400" height="400">
-                    <div class="row">
+                <div class="col-md-6 d-flex flex-column justify-content-center align-items-center" style="padding:2%">
+                    <img src="{{asset('storage/photo/'.$content->prdpht)}}" alt="Product" width="300px" height="300px">
+                    <div class="row" style="margin-top:5%;">
                         <p style="text-align:justify">{{$content->prddescript}}</p>
                     </div>
                 </div>
@@ -82,16 +126,32 @@
                     Avaibility : {{ $content->prdqty > 0 ? 'Available' : 'Not Available' }}<br> 
                     Stok : {{$content->prdqty}}<br> 
                     Harga : {{$content->prdprice}} <span style="padding:5px 2%; background-color: #e6c347; border-radius:12px; margin-left:2%;">20% Off</span><br>
+                   
                     <div class="row" style="margin-top:20px;">
                         <form action="{{ route('pslogin') }}" method="post" class="bg-body-tertiary rounded-3" style="padding:2%" enctype="multipart/form-data">
                             <fieldset>
                                 {{csrf_field()}}
                                 <div class="form-group form-inline">
                                     Kuantitas : 
-                                    <input type="password" class="form-control" name="password" required="required" style="margin-right: 10px;">
+                                    <div class="form-group input-group-inline"> 
+                                        <input type="text" class="form-control" name="qty" required="required" placeholder="Jumlah Barang"> 
+                                        <input type="text" class="form-control" name="tqty" required="required" placeholder="Total" disabled> 
+                                    </div>
+                                </div>
+                                <div class="form-group form-inline">
+                                    Alamat : 
+                                    <input type="text" class="form-control" name="address" required="required"placeholder="Alamat Anda" style="margin-right: 10px;">
+                                </div>
+                                <div class="form-group form-inline">
+                                    Jasa Kirim & Aplikasi : 
+                                    <input type="text" class="form-control" name="price" required="required" placeholder="Biaya Jasa & Aplikasi" style="margin-right: 10px;" disabled>
+                                </div>
+                                <div class="form-group form-inline">
+                                    Total : 
+                                    <input type="text" class="form-control" name="total" required="required" placeholder="Total" style="margin-right: 10px;" disabled>
                                 </div>
                                 <div class="form-group" style="margin-top:3%;">
-                                    <input type="submit" value="Simpan Data" class="btn btn-primary form-control">
+                                    <input type="submit" value="Beli Sekarang" class="btn btn-primary form-control">
                                 </div>
                             </fieldset>
                         </form>

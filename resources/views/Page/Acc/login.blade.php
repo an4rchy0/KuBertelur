@@ -66,7 +66,7 @@
                             <a href="">Lupa Password?</a>
                         </div>
                         <div class="form-group" style="margin-top:3%;">
-                            <input type="submit" value="Simpan Data" class="btn btn-primary form-control">
+                            <input type="submit" value="Masuk" class="btn btn-primary form-control">
                         </div>
                     </fieldset>
                 </form>
