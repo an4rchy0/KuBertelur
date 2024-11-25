@@ -24,46 +24,48 @@
         <div class="col-md-6" style="padding:3%; color:#4051E0;">
             <div class="row justify-content-md-center">
                 <?php 
-                function generateid(){
-                    $hari = date('1');
-                    $tanggal = date('d');
-                    $bulan = date('M');
-                    $blnangka = date('m');
-                    $tahun = date('y');
-                    $jam = date('h');
-                    $minute = date('i');
-                    $detik = date('s');
-                    $haricut = substr($hari,0,1);
-                    $bulancut = substr($bulan,0,1);
-                    $hourcut = substr($jam,0,1);
-                    $minutecut = substr($minute,0,1);
-                    $detikcut = substr($detik,0,1);
-                    $kodejoin = "USPT-{$haricut}{$bulancut}{$hourcut}{$minutecut}{$detikcut}";
-                    return $kodejoin;
-                }
+                    if (!function_exists('genid')) { 
+                        function genid() { 
+                            $hari = date('l'); 
+                            $tanggal = date('d'); 
+                            $bulan = date('M'); 
+                            $blnangka = date('m'); 
+                            $tahun = date('y'); 
+                            $jam = date('H'); 
+                            $minute = date('i'); 
+                            $detik = date('s'); 
+                            $haricut = substr($hari, 0, 1); 
+                            $bulancut = substr($bulan, 0, 1); 
+                            $hourcut = substr($jam, 0, 1); 
+                            $minutecut = substr($minute, 0, 1); 
+                            $detikcut = substr($detik, 0, 1); 
+                            $kodejoin = "USPT-{$haricut}{$bulancut}{$hourcut}{$minutecut}{$detikcut}"; 
+                            return $kodejoin;
+                        }
+                    }
                 ?>
                 <h3 style="text-align:center; padding:15px;">Buat Akun</h3>
-                <form action="/PrdStore" method="post" class="bg-body-tertiary rounded-3" style="padding:3%" enctype="multipart/form-data">
+                <form action="/UsReg" method="post" class="bg-body-tertiary rounded-3" style="padding:3%" enctype="multipart/form-data">
                     <fieldset>
                         {{csrf_field()}}
                         <div class="form-input mb-3">
-                            <input type="text" class="form-control" name="contid" value="<?php echo generateid(); ?>" hidden>
+                            <input type="text" class="form-control" name="usid" value="<?php echo genid(); ?>" hidden>
                         </div>
                         <div class="input-group mb-3">
-                            <input type="text" class="form-control" placeholder="Name" aria-label="Username" aria-describedby="basic-addon1" required="required">
+                            <input type="text" class="form-control" name="name" placeholder="Name" aria-label="Username" aria-describedby="basic-addon1" required="required">
                         </div>
                         <div class="input-group mb-3">
-                            <input type="text" class="form-control" placeholder="Username" aria-label="Username" aria-describedby="basic-addon1" required="required">
+                            <input type="text" class="form-control" name="usname" placeholder="Username" aria-label="Username" aria-describedby="basic-addon1" required="required">
                         </div>
                         <div class="input-group mb-3">
-                            <input type="text" class="form-control" placeholder="Email" aria-label="Recipient's username" aria-describedby="basic-addon2" required="required">
+                            <input type="text" class="form-control" name="usemail" placeholder="Email" aria-label="Recipient's username" aria-describedby="basic-addon2" required="required">
                             <span class="input-group-text" id="basic-addon2">@example.com</span>
                         </div>
                         <div class="form-input mb-3">
-                            <input type="text" class="form-control" placeholder="Nomor Telpon (+62..)" aria-label="Recipient's username" aria-describedby="basic-addon2" required="required">
+                            <input type="text" class="form-control" name="tlp" placeholder="Nomor Telpon (+62..)" aria-label="Recipient's username" aria-describedby="basic-addon2" required="required">
                         </div>
                         <div class="form-input mb-3">
-                            <input type="text" class="form-control" placeholder="Password" aria-label="Recipient's username" aria-describedby="basic-addon2" required="required">
+                            <input type="password" class="form-control" name="uspass" placeholder="Password" aria-label="Recipient's username" aria-describedby="basic-addon2" required="required">
                         </div>
                         <div class="form-input mb-3" style="margin-top:3%;">
                             <input type="submit" value="Daftar" class="btn btn-primary form-control">

@@ -61,7 +61,14 @@
                 <div class="d-flex align-items-center space-x-2">
                     <img src="https://upload.wikimedia.org/wikipedia/commons/9/9f/Flag_of_Indonesia.svg" alt="Flag of Indonesia" height="20" width="20" style="margin-right:10px;"/>
                     <span style="color:white; margin-right:20px;"> <span style="margin-right:10px;">IDN | </span> 
-                    <a href="/login"><i class="fa-solid fa-user" style="color:#ffff; height:20px; width:20px;"></i></a></span>
+                    <!-- Tautan Logout -->
+                    <a href="#" onclick="event.preventDefault(); document.getElementById('logout-form').submit();">
+                        <i class="fa-solid fa-user" style="color:#ffff; height:20px; width:20px;"></i>
+                    </a>
+                    <!-- Form Logout Tersembunyi -->
+                    <form id="logout-form" action="{{ route('logout') }}" method="POST" style="display: none;">
+                        @csrf
+                    </form>
                 </div>
             </div>
         </div>
@@ -73,7 +80,8 @@
             <div class="col-md-6 justify-content-md-start">
                 <h4>Hello</h4>
                 <h1>{{ $user->name }}</h1>
-                <h3>{{ $user->email }}</h3>
+                <h3>{{ $user->email}}</h3>
+                <h3>{{$user->idusr_kbt}}</h3>
             </div>
             <div class="col-md-6 justify-content-md-start">
                 <p style="font-size:18px; margin-top:20px;"><span style="margin-right:5px; background-color:#172bd2; padding:10px 20px; border-radius:25px;">Transaksi</span>
@@ -213,6 +221,7 @@
                 <div class="col-md-6 d-flex align-items-center justify-content-md-start"><h5>Produkku</h5></div>
                 <div class="col-md-6 d-flex justify-content-md-end"><div class="alert alert-success" role="alert"><a href="{{ route('addprd', ['userId' => $user->idusr_kbt]) }}" style="text-decoration:none; color:inherit;">Tambah produk +</a></div></div><hr>
             </div>
+            <?php echo $userId . 'a' ?>
             @if ($pdc->isEmpty())
                 <div class="row">
                     <div class="alert alert-info d-flex justify-content-center align-items-center" role="alert">

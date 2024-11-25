@@ -28,7 +28,7 @@
             text-decoration: underline;
         }
     </style>
-    <script> 
+    <script defer> 
         function generaterandprc() { 
             return Math.floor(Math.random() * (15000 - 10000 + 1)) + 10000 + 2500; 
         } 
@@ -64,6 +64,23 @@
                     totalInput.value = ""; 
                 } 
             }
+            const form = document.querySelector('form'); 
+            const modal = new bootstrap.Modal(document.getElementById('exampleModalToggle')); 
+            const cancelButton = document.getElementById('cancelButton');
+            form.addEventListener('submit', (e) => { 
+                e.preventDefault(); 
+                if (form.checkValidity()) { 
+                    modal.show();
+                    setTimeout(() => { 
+                        form.submit();
+                    }, 10000); 
+                } else { 
+                    form.reportValidity(); 
+                } 
+            });
+            cancelButton.addEventListener('click', () => { 
+                modal.hide(); 
+            });
         });
     </script>
 </head>
@@ -128,7 +145,7 @@
                     Harga : {{$content->prdprice}} <span style="padding:5px 2%; background-color: #e6c347; border-radius:12px; margin-left:2%;">20% Off</span><br>
                    
                     <div class="row" style="margin-top:20px;">
-                        <form action="{{ route('pslogin') }}" method="post" class="bg-body-tertiary rounded-3" style="padding:2%" enctype="multipart/form-data">
+                        <form action="/stbuy" method="post" class="bg-body-tertiary rounded-3" style="padding:2%" enctype="multipart/form-data">
                             <fieldset>
                                 {{csrf_field()}}
                                 <div class="form-group form-inline">
@@ -150,11 +167,25 @@
                                     Total : 
                                     <input type="text" class="form-control" name="total" required="required" placeholder="Total" style="margin-right: 10px;" disabled>
                                 </div>
-                                <div class="form-group" style="margin-top:3%;">
-                                    <input type="submit" value="Beli Sekarang" class="btn btn-primary form-control">
+                                <div class="form-group" style="margin-top:3%;"> 
+                                    <input type="submit" value="Beli Sekarang" class="btn btn-primary form-control"> 
                                 </div>
                             </fieldset>
                         </form>
+                        <div class="modal fade" id="exampleModalToggle" aria-hidden="true" aria-labelledby="exampleModalToggleLabel" tabindex="-1"> 
+                            <div class="modal-dialog modal-dialog-centered"> 
+                                <div class="modal-content"> 
+                                    <div class="modal-header text-center"> 
+                                        <h1 class="modal-title fs-5" id="exampleModalToggleLabel">Mohon scan Transaksi pembelian</h1> 
+                                        <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button> 
+                                    </div> 
+                                    <div class="modal-body text-center justify-content-center"> <img class="img-fluid" src="{{ asset('img/barQ.png') }}" alt="bar" style="width: 40%; padding: 10px; align-content: center;"></div> 
+                                    <div class="modal-footer justify-content-center"> 
+                                        <button type="button" class="btn btn-secondary" data-bs-dismiss="modal" id="cancelButton">Batal</button> 
+                                    </div> 
+                                </div> 
+                            </div> 
+                        </div>
                     </div>
                 </div>
             </div>

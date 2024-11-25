@@ -1,6 +1,7 @@
 <?php
 
 use Illuminate\Support\Facades\Route;
+use Illuminate\Support\Facades\Auth; 
 use App\Http\Controllers\ProductController;
 use App\Http\Controllers\UserController;
 use App\Http\Controllers\CtController;
@@ -39,7 +40,7 @@ Route::get('/addprd/{userId}', function($userId) {
 })->name('addprd');
 
 Route::get('/', [ProductController::class, 'indexhm']);
-Route::get('/buyPd/{id}', [ProductController::class, 'show'])->name('pd.show');
+Route::get('/buyPd/{id}', [ProductController::class, 'show'])->name('pd.show')->middleware('auth');
 Route::get('/shCt/{id}', [ContentController::class, 'show'])->name('ct.show');
 Route::get('/pd.up{id}', [ProductController::class, 'ups'])->name('pd.up');
 Route::get('/ct.up/{id}', [CtController::class, 'ups'])->name('ct.up');
@@ -47,6 +48,7 @@ Route::get('/pd.del/{id}', [ProductController::class, 'del'])->name('pd.del');
 Route::get('/ct.del/{id}', [CtController::class, 'del'])->name('ct.del');
 
 Route::post('/PrdStore', [ProductController::class, 'store']);
+Route::post('/stbuy', [ProductController::class, 'store']); //koreksi lagi
 Route::post('/BgStore', [CtController::class, 'store']);
 Route::post('/UsReg', [UserController::class, 'store']);
 Route::post('/upCT/{id}', [CtController::class, 'up']);
@@ -55,8 +57,15 @@ Route::post('/upPD/{id}', [ProductController::class, 'up']);
 //Route::get('/del/{id}', [ProductController::class, "del"]);
 //Route::get('/del/{id}', [CtController::class, "del"]);
 
-Route::post('/login', [UserController::class, 'login'])->name('pslogin');
+//Route::get('/profile/{id}', [UserController::class, 'showProfile'])->name('profile')->middleware('auth');
 Route::get('/profile', [UserController::class, 'showProfile'])->middleware('auth');
+Route::post('/login', [UserController::class, 'login'])->name('pslogin');
 Route::get('/login', function() {
     return view('Page.Acc.login'); // Gantilah dengan tampilan login Anda
 })->name('loginPage');
+
+Route::post('/logout', function () { 
+    Auth::logout(); 
+    session()->flush(); 
+    return redirect('/'); 
+})->name('logout');

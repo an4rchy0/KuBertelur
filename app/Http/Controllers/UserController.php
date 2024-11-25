@@ -24,6 +24,8 @@ class UserController extends Controller
             // Login berhasil
             Auth::loginUsingId($user->idusr_kbt);
             session(['user' => $user]);
+            Auth::id($user->idusr_kbt);
+            //return redirect()->route('profile', ['id' => $user->idusr_kbt]);
             return redirect('/profile');
         } else {
             // Login gagal
@@ -32,20 +34,23 @@ class UserController extends Controller
     }
     public function showProfile(){
         $user = session('user');
+        $userString = strval($user->idusr_kbt);
 
         if (!$user) {
             return redirect()->route('loginPage');
         }else{
-            $userId = Auth::id(); // Mendapatkan ID pengguna yang sedang login
-            $contents = DB::table('mycontent')->where('idusr_kbt', $userId)->get(); // Mengambil konten yang diinputkan oleh pengguna
-            $pdc = DB::table('product')->where('idusr_kbt', $userId)->get();
-            return view('Page.profile', compact('user','contents','pdc'));
+            $userId = Auth::id(); 
+            echo $userString . 'echoo';// Mendapatkan ID pengguna yang sedang login
+            $contents = DB::table('mycontent')->where('idusr_kbt', $userString)->get(); // Mengambil konten yang diinputkan oleh pengguna
+            $pdc = DB::table('product') ->where('idusr_kbt', $userString) ->get();
+            return view('Page.profile', compact('user','contents','pdc', 'userId'));
         }
     }
 	public function store(Request $request){
 		DB::table('usr_kpt')->insert([
     		'idusr_kbt'		=> $request->usid,
-    		'name'  		=> $request->usname,
+    		'name'  		=> $request->name,
+            'username'      => $request->usname,
     		'call'		    => $request->tlp,
     		'email'     	=> $request->usemail,
     		'password'     	=> $request->uspass,
