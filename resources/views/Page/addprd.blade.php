@@ -114,7 +114,7 @@
                     Stok            : <input type="text" class="form-control" name="prdqty" required="required">
                 </div>
                 <div class="form-group">
-                    Upload File     : <input type="file" class="form-control" name="prdpht" id="photo">
+                    Upload File     : <input type="file" class="form-control" name="prdpht" id="photo" required="required">
                 </div>
                 <div class="form-group">
                     <input type="text" class="form-control" name="prdus" required="required" value="{{ $userId }}" hidden>
