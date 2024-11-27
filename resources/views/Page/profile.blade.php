@@ -192,7 +192,7 @@
                 <div class="row" style="margin-bottom:2%;">
                     <div style="padding:2%; background-color:#e0f0f8; border-radius:12px;">
                         <div class="row">
-                            <div class="col-md-6 d-flex align-items-center justify-content-md-start"><h4><a href="{{ route('ct.show', $content->idpct) }}" style="text-decoration:none; color:inherit;">{{ $content->title }}</a></h4><hr></div>
+                            <div class="col-md-6 d-flex align-items-center justify-content-md-start"><h4><a href="{{ route('ct.showII', $user->idusr_kbt) }}" style="text-decoration:none; color:inherit;">{{ $content->title }}</a></h4><hr></div>
                             <div class="col-md-6 d-flex justify-content-md-end"><div class="alert alert-secondary" role="alert"><a href="{{ route('ct.up', ['id' => $content->idpct]) }}" style="color:#a3a3a3"><i class="fa fa-edit" style="font-size: 15px; margin-right: 5px;"></i></a><a href="#" data-toggle="modal" data-target="#deleteModal{{$content->idpct}}" style="color:#a3a3a3"><i class="fa fa-trash" style="font-size: 15px;"></i></a></div></div><hr>
                         </div>
                         <p>{{ $content->prevdesc }}</p>

@@ -41,7 +41,8 @@ Route::get('/addprd/{userId}', function($userId) {
 
 Route::get('/', [ProductController::class, 'indexhm']);
 Route::get('/buyPd/{id}', [ProductController::class, 'show'])->name('pd.show')->middleware('auth');
-Route::get('/shCt/{id}', [ContentController::class, 'show'])->name('ct.show');
+//Route::get('/shCt/{id}', [CtController::class, 'show'])->name('ct.show');
+Route::get('/shCt/{id}', [CtController::class, 'showall'])->name('ct.showII')->middleware('auth');
 Route::get('/pd.up{id}', [ProductController::class, 'ups'])->name('pd.up');
 Route::get('/ct.up/{id}', [CtController::class, 'ups'])->name('ct.up');
 Route::get('/pd.del/{id}', [ProductController::class, 'del'])->name('pd.del');

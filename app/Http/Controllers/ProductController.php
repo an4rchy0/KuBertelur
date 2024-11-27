@@ -11,14 +11,25 @@ class ProductController extends Controller
     public function indexhm(){
         $pdcvar = DB::table('product')->take(5)->get();
 		$pdcvarB = DB::table('product')->paginate(5);
-		$contentvar = DB::table('mycontent')->paginate(5);
-		$nameCont = DB::table('usr_kpt')->where('idusr_kbt', DB::table('mycontent')->value('idusr_kbt'))->get();
-        return view('Page.home', [
+		//$contentvar = DB::table('mycontent')->paginate(5);
+		//$nameCont = DB::table('usr_kpt')->where('idusr_kbt', DB::table('mycontent')->value('idusr_kbt'))->get();
+        $contentvar = DB::table('mycontent')
+    ->leftJoin('usr_kpt', 'mycontent.idusr_kbt', '=', 'usr_kpt.idusr_kbt')
+    ->select('mycontent.*', 'usr_kpt.name as user_name') // Menampilkan semua kolom dari mycontent dan kolom name dari usr_kpt
+    ->paginate(5);
+
+		$user = session('user');
+		$userString = 'false';
+        if (!$user == false) {
+            $userString = strval($user->idusr_kbt);
+        }
+		return view('Page.home', [
 			'pdc' => $pdcvar,
 			'pdcB' => $pdcvarB,
 			'content' => $contentvar,
-			'nameC' => $nameCont
-		]);
+			//'nameC' => $nameCont,
+			'us' => $userString,
+		]); 
     }
 	public function store(Request $request){
 		$file = $request->file('prdpht');

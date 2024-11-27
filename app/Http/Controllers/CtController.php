@@ -24,6 +24,10 @@ class CtController extends Controller
 		$content = DB::table('mycontent')->where('id', $id)->first();
 		return view('Page.detail', ['content' => $content]);
 	}
+	public function showall($id) {
+		$contents = DB::table('mycontent')->get(); // Mengambil semua data dari tabel mycontent
+		return view('Page.detcontprev', ['contents' => $contents, 'id' => $id]);
+	}	
 	//form edit
     public function ups($id){
     	$var = DB::table('mycontent')->where('idpct', $id)->get();

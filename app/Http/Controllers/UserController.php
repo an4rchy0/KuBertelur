@@ -42,7 +42,7 @@ class UserController extends Controller
             $userId = Auth::id(); 
             $contents = DB::table('mycontent')->where('idusr_kbt', $userString)->get(); // Mengambil konten yang diinputkan oleh pengguna
             $pdc = DB::table('product') ->where('idusr_kbt', $userString) ->get();
-            return view('Page.profile', compact('user','contents','pdc', 'userId'));
+            return view('Page.profile', compact('user','contents','pdc', 'userId','userString'));
         }
     }
 	public function store(Request $request){

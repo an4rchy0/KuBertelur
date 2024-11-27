@@ -174,10 +174,16 @@
             @foreach ($content as $ct)
             <div class="row" style="margin-bottom:10px;">
                 <div style="padding:2%; background-color:#ececec; border-radius:12px;">
-                    <h4 style="padding:1% 0;"><a style="text-decoration: none; color:inherit;" href="{{ route('ct.show', $ct->idpct) }}">{{ $ct->title }}</a></h5>
-                    @foreach ($nameC as $nc)
-                        <p><b>{{ $nc->name }}</b></p>
-                    @endforeach
+                @if($us == 'false')
+                    <h4 style="padding:1% 0;">{{ $ct->title }}</h4>
+                @else
+                    <div style="padding:2%; background-color:#ececec; border-radius:12px;">
+                        <a style="text-decoration: none; color:inherit;" href="{{ route('ct.showII', $us) }}">
+                            <h4 style="padding:1% 0;">{{ $ct->title }}</h4>
+                        </a>
+                    </div>
+                @endif
+                        <p><b>{{ $ct->user_name }}</b></p>
                     <hr><p>{{ $ct->prevdesc }}</p>
                 </div>
             </div>
