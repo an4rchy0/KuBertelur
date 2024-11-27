@@ -12,10 +12,12 @@ class ProductController extends Controller
         $pdcvar = DB::table('product')->take(5)->get();
 		$pdcvarB = DB::table('product')->paginate(5);
 		$contentvar = DB::table('mycontent')->paginate(5);
+		$nameCont = DB::table('usr_kpt')->where('idusr_kbt', DB::table('mycontent')->value('idusr_kbt'))->get();
         return view('Page.home', [
 			'pdc' => $pdcvar,
 			'pdcB' => $pdcvarB,
-			'content' => $contentvar
+			'content' => $contentvar,
+			'nameC' => $nameCont
 		]);
     }
 	public function store(Request $request){

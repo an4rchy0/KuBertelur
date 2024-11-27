@@ -40,7 +40,6 @@ class UserController extends Controller
             return redirect()->route('loginPage');
         }else{
             $userId = Auth::id(); 
-            echo $userString . 'echoo';// Mendapatkan ID pengguna yang sedang login
             $contents = DB::table('mycontent')->where('idusr_kbt', $userString)->get(); // Mengambil konten yang diinputkan oleh pengguna
             $pdc = DB::table('product') ->where('idusr_kbt', $userString) ->get();
             return view('Page.profile', compact('user','contents','pdc', 'userId'));

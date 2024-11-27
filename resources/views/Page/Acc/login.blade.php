@@ -62,9 +62,6 @@
                         <div class="form-group">
                             Password: <input type="password" class="form-control" name="password" required="required">
                         </div>
-                        <div class="form-group">
-                            <a href="">Lupa Password?</a>
-                        </div>
                         <div class="form-group" style="margin-top:3%;">
                             <input type="submit" value="Masuk" class="btn btn-primary form-control">
                         </div>

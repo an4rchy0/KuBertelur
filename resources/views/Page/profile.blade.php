@@ -81,7 +81,6 @@
                 <h4>Hello</h4>
                 <h1>{{ $user->name }}</h1>
                 <h3>{{ $user->email}}</h3>
-                <h3>{{$user->idusr_kbt}}</h3>
             </div>
             <div class="col-md-6 justify-content-md-start">
                 <p style="font-size:18px; margin-top:20px;"><span style="margin-right:5px; background-color:#172bd2; padding:10px 20px; border-radius:25px;">Transaksi</span>
@@ -185,7 +184,7 @@
             @if ($contents->isEmpty())
                 <div class="row">
                     <div class="alert alert-info d-flex justify-content-center align-items-center" role="alert">
-                        Upss.. kamu belum posting atau upload Post nih <a href="a" class="alert-link" style="margin-left:5px;">Tambah Post kamu disini</a>
+                        Upss.. kamu belum posting atau upload Post nih 
                     </div>
                 </div>
             @else
@@ -221,11 +220,10 @@
                 <div class="col-md-6 d-flex align-items-center justify-content-md-start"><h5>Produkku</h5></div>
                 <div class="col-md-6 d-flex justify-content-md-end"><div class="alert alert-success" role="alert"><a href="{{ route('addprd', ['userId' => $user->idusr_kbt]) }}" style="text-decoration:none; color:inherit;">Tambah produk +</a></div></div><hr>
             </div>
-            <?php echo $userId . 'a' ?>
             @if ($pdc->isEmpty())
                 <div class="row">
                     <div class="alert alert-info d-flex justify-content-center align-items-center" role="alert">
-                        Belum ada produk yang ditambahkan &nbsp <a href="{{ route('addprd', ['userId' => $userId]) }}" class="alert-link"> Tambahkan produk anda disini</a>
+                        Uppss.. Belum ada produk yang ditambahkan 
                     </div>
                 </div>
             @else

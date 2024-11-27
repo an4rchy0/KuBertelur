@@ -41,6 +41,8 @@
             background-color: #007bff;
             color: #fff;
         }
+        .custom-button { border-radius: 12px; background-color: white; color: gray; border: 1px solid gray; padding: ; text-align: center; text-decoration: none; display: inline-block; font-size: 16px; cursor: pointer; border-radius: 5px; } 
+        .custom-button:hover { background-color: #f2f2f2; }
         .footer a:hover {
             text-decoration: underline;
         }
@@ -104,33 +106,33 @@
                 <h5>Ayo lihat apa saja yang baru datang!</h5>
             </div>
             <div class="col-md-6 d-flex justify-content-md-end align-items-center" style="height: 100%;">
-                <i class="fa-solid fa-solid fa-face-grin-hearts fa-beat" style="font-size: 2em;"></i>
+                <i class="fa-solid fa-solid fa-face-grin-hearts fa-beat" style="font-size: 1.5em;"></i>
             </div>
         </div>
         <!-- --> <hr>
         <div class="row d-flex justify-content-center" style="margin-top:50px; margin-bottom: 40px;">
                 @foreach($pdc as $p)
                 <div class="col-md-4 d-flex justify-content-center" style="margin-bottom:10px;">
-                    <div class="card" style="width: 15rem;">
+                    <div class="card" style="width : 257px;">
                         <img src="{{asset('storage/photo/'.$p->prdpht)}}" class="card-img-top" alt="Product">
                         <div class="card-body">
                             <h5 class="card-title" style="padding:2% 0;"><a style="text-decoration: none; color:inherit;" href="{{ route('pd.show', $p->idproduct) }}">{{$p->prdname}}</a></h5>
                             <p class="card-text" style="margin-top:10px;"><b>Rp{{$p->prdprice}}</b> <br> </p>
-                            <a href="{{ route('pd.show', $p->idproduct) }}" class="btn btn-primary">Lihat lebih lanjut</a>
+                            <div class="content-justify-center" style="display: flex; justify-content: center;"><a href="{{ route('pd.show', $p->idproduct) }}" class="btn btn-primary">Lihat lebih lanjut</a></div>
                         </div>
                     </div>
                 </div>
                 @endforeach
         </div>
         <div class="row" style="background-color:#050C9C; border-radius:15px; padding:20px; ">
-            <div class="col-md-3 tlri justify-content-md-start" style="color:white;">
-                Daftarkan diri anda segera, supaya <br> anda tidak ketinggalan program kita!!
+            <div class="col-md-3 tlri justify-content-md-start" style="color:white; padding: 1%;">
+                Daftarkan diri anda segera, agar <br> tidak ketinggalan program kami!
             </div>
-            <div class="col-md-7 tlri justify-content-md-start">
-                <input class="form-control rounded-full text-black" placeholder="masukan emailmu!" type="text"/>
+            <div class="col-md-7 tlri justify-content-md-start" style="padding:1%;">
+                <a href="{{ route('loginPage') }}" style="border-radius:12px;" class="custom-button form-control">Masuk</a>
             </div>
-            <div class="col-md-2 tlri justify-content-md-start">
-                <button class="btn" style="background-color:#deb900; border-radius:12px; margin-right:10px; width:100%">Berlangganan</button>
+            <div class="col-md-2 tlri justify-content-md-start" style="padding:1%;">
+                <a href="/regis" style="background-color:#deb900; border-radius:12px; color:black;" class="custom-button form-control">Daftar</a>
             </div>
         </div>
         <!-- -->
@@ -140,14 +142,14 @@
                 <h5>Ayo lihat produk yang bagus untukmu!</h5>
             </div>
             <div class="col-md-6 d-flex justify-content-md-end align-items-center" style="height: 100%;">
-                <i class="fa-solid fa-cart-shopping fa-beat" style="font-size: 2em;"></i>
+                <i class="fa-solid fa-cart-shopping fa-beat" style="font-size: 1.5em;"></i>
             </div>
         </div>
         <div class="row d-flex justify-content-center" style="margin-top:50px; margin-bottom: 40px;">
             @foreach($pdcB as $pB)
             <div class="col-md-4 d-flex justify-content-center" style="margin-bottom:10px;">
-                <div class="card" style="width: 15rem;">
-                    <img src="{{asset('storage/photo/'.$pB->prdpht)}}" class="card-img-top" alt="Product" style="width : 257px; height: 180px;">
+                <div class="card" style="width : 257px;">
+                    <img src="{{asset('storage/photo/'.$pB->prdpht)}}" class="card-img-top" alt="Product">
                     <div class="card-body">
                         <h5 class="card-title" style="padding:2% 0;"><a style="text-decoration: none; color:inherit;" href="{{ route('pd.show', $pB->idproduct) }}">{{$pB->prdname}}</a></h5>
                         <p class="card-text" style="margin-top:10px;"><b>Rp{{$pB->prdprice}}</b></p>
@@ -172,8 +174,11 @@
             @foreach ($content as $ct)
             <div class="row" style="margin-bottom:10px;">
                 <div style="padding:2%; background-color:#ececec; border-radius:12px;">
-                    <h4 style="padding:1% 0;"><a style="text-decoration: none; color:inherit;" href="{{ route('ct.show', $ct->idpct) }}">{{ $ct->title }}</a></h5><hr>
-                    <p>{{ $ct->prevdesc }}</p>
+                    <h4 style="padding:1% 0;"><a style="text-decoration: none; color:inherit;" href="{{ route('ct.show', $ct->idpct) }}">{{ $ct->title }}</a></h5>
+                    @foreach ($nameC as $nc)
+                        <p><b>{{ $nc->name }}</b></p>
+                    @endforeach
+                    <hr><p>{{ $ct->prevdesc }}</p>
                 </div>
             </div>
             @endforeach
