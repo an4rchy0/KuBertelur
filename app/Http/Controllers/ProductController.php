@@ -14,9 +14,9 @@ class ProductController extends Controller
 		//$contentvar = DB::table('mycontent')->paginate(5);
 		//$nameCont = DB::table('usr_kpt')->where('idusr_kbt', DB::table('mycontent')->value('idusr_kbt'))->get();
         $contentvar = DB::table('mycontent')
-    ->leftJoin('usr_kpt', 'mycontent.idusr_kbt', '=', 'usr_kpt.idusr_kbt')
-    ->select('mycontent.*', 'usr_kpt.name as user_name') // Menampilkan semua kolom dari mycontent dan kolom name dari usr_kpt
-    ->paginate(5);
+		->leftJoin('usr_kpt', 'mycontent.idusr_kbt', '=', 'usr_kpt.idusr_kbt')
+		->select('mycontent.*', 'usr_kpt.name as user_name') // Menampilkan semua kolom dari mycontent dan kolom name dari usr_kpt
+		->paginate(5);
 
 		$user = session('user');
 		$userString = 'false';
@@ -44,6 +44,17 @@ class ProductController extends Controller
     		'prdqty'     	=> $request->prdqty,
     		'prdpht'       	=> $fileName,
 			'idusr_kbt'		=> $request->prdus,
+    	]);
+		return redirect('/profile')->with('msg', 'Data Stored Successfully');
+	}
+	public function storeTrans(Request $request){
+		DB::table('trs_kpt')->insert([
+    		'TRSIDs'	=> $request->prdid,
+    		'pdcID'		=> $request->prdname,
+    		'usID'		=> $request->prdprice,
+    		'qty'		=> $request->prddescript,
+    		'alamat'    => $request->prdqty,
+    		'total'     => $fileName,
     	]);
 		return redirect('/profile')->with('msg', 'Data Stored Successfully');
 	}

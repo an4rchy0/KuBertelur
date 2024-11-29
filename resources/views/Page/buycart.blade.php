@@ -167,6 +167,9 @@
                                     Total : 
                                     <input type="text" class="form-control" name="total" required="required" placeholder="Total" style="margin-right: 10px;" disabled>
                                 </div>
+                                <div class="form-group form-inline"> 
+                                    <input type="text" class="form-control" name="total" required="required" placeholder="Total" style="margin-right: 10px;" value="{{ $userId }}" hidden>
+                                </div>
                                 <div class="form-group" style="margin-top:3%;"> 
                                     <input type="submit" value="Beli Sekarang" class="btn btn-primary form-control"> 
                                 </div>
