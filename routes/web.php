@@ -49,7 +49,7 @@ Route::get('/pd.del/{id}', [ProductController::class, 'del'])->name('pd.del');
 Route::get('/ct.del/{id}', [CtController::class, 'del'])->name('ct.del');
 
 Route::post('/PrdStore', [ProductController::class, 'store']);
-Route::post('/stbuy', [ProductController::class, 'store']); //koreksi lagi
+Route::post('/stbuy', [ProductController::class, 'storeTrans']); //koreksi lagi
 Route::post('/BgStore', [CtController::class, 'store']);
 Route::post('/UsReg', [UserController::class, 'store']);
 Route::post('/upCT/{id}', [CtController::class, 'up']);

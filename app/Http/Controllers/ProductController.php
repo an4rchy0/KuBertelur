@@ -49,18 +49,18 @@ class ProductController extends Controller
 	}
 	public function storeTrans(Request $request){
 		DB::table('trs_kpt')->insert([
-    		'TRSIDs'	=> $request->prdid,
-    		'pdcID'		=> $request->prdname,
-    		'usID'		=> $request->prdprice,
-    		'qty'		=> $request->prddescript,
-    		'alamat'    => $request->prdqty,
-    		'total'     => $fileName,
+    		'TRSIDs'	=> $request->trid,
+    		'pdcID'		=> $request->pdcid,
+    		'usID'		=> $request->usid,
+    		'qty'		=> $request->qty,
+    		'alamat'    => $request->address,
+    		'total'     => $request->total,
     	]);
 		return redirect('/profile')->with('msg', 'Data Stored Successfully');
 	}
 	public function show($id, $ide) {
 		$content = DB::table('product')->where('idproduct', $id)->first();
-		return view('Page.buycart', ['content' => $content, 'userID' => $ide]);
+		return view('Page.buycart', ['content' => $content, 'userID' => $ide, 'pdcID' => $id]);
 	}		
     //form edit
     public function ups($id){

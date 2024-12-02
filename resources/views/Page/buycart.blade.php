@@ -70,8 +70,12 @@
             form.addEventListener('submit', (e) => { 
                 e.preventDefault(); 
                 if (form.checkValidity()) { 
-                    modal.show();
-                    setTimeout(() => { 
+                    modal.show();    
+                        setTimeout(() => { 
+                        var totalInput = document.getElementById('total');
+                        var value = totalInput.value;
+                        var numericValue = value.replace('Rp. ', '');
+                        totalInput.value = numericValue;
                         form.submit();
                     }, 10000); 
                 } else { 
@@ -143,7 +147,25 @@
                     Avaibility : {{ $content->prdqty > 0 ? 'Available' : 'Not Available' }}<br> 
                     Stok : {{$content->prdqty}}<br> 
                     Harga : {{$content->prdprice}} <span style="padding:5px 2%; background-color: #e6c347; border-radius:12px; margin-left:2%;">20% Off</span><br>
-                   
+                    <?php 
+                        function generateid(){
+                            $hari = date('l');
+                            $tanggal = date('d');
+                            $bulan = date('M');
+                            $blnangka = date('m');
+                            $tahun = date('y');
+                            $jam = date('h');
+                            $minute = date('i');
+                            $detik = date('s');
+                            $haricut = substr($hari,0,1);
+                            $bulancut = substr($bulan,0,1);
+                            $hourcut = substr($jam,0,1);
+                            $minutecut = substr($minute,0,1);
+                            $detikcut = substr($detik,0,1);
+                            $kodejoin = "TR-{$haricut}{$bulancut}{$hourcut}{$minutecut}{$detikcut}";
+                            return $kodejoin;
+                        }
+                    ?>
                     <div class="row" style="margin-top:20px;">
                         <form action="/stbuy" method="post" class="bg-body-tertiary rounded-3" style="padding:2%" enctype="multipart/form-data">
                             <fieldset>
@@ -156,6 +178,10 @@
                                     </div>
                                 </div>
                                 <div class="form-group form-inline">
+                                    <input type="text" class="form-control" name="trid" value="<?php echo generateid(); ?>" hidden>
+                                    <input type="text" class="form-control" name="pdcid" value="{{ $pdcID }}" hidden>
+                                </div>
+                                <div class="form-group form-inline">
                                     Alamat : 
                                     <input type="text" class="form-control" name="address" required="required"placeholder="Alamat Anda" style="margin-right: 10px;">
                                 </div>
@@ -165,10 +191,10 @@
                                 </div>
                                 <div class="form-group form-inline">
                                     Total : 
-                                    <input type="text" class="form-control" name="total" required="required" placeholder="Total" style="margin-right: 10px;" disabled>
+                                    <input type="text" class="form-control" name="total" id="total" required="required" placeholder="Total" style="margin-right: 10px; background-color: #E7E9E7;" readonly>
                                 </div>
                                 <div class="form-group form-inline"> 
-                                    <input type="text" class="form-control" name="total" required="required" placeholder="Total" style="margin-right: 10px;" value="{{ $userID }}" hidden>
+                                    <input type="text" class="form-control" name="usid" required="required" placeholder="Total" style="margin-right: 10px;" value="{{ $userID }}" hidden>
                                 </div>
                                 <div class="form-group" style="margin-top:3%;"> 
                                     <input type="submit" value="Beli Sekarang" class="btn btn-primary form-control"> 
