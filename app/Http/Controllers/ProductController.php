@@ -58,9 +58,9 @@ class ProductController extends Controller
     	]);
 		return redirect('/profile')->with('msg', 'Data Stored Successfully');
 	}
-	public function show($id) {
+	public function show($id, $ide) {
 		$content = DB::table('product')->where('idproduct', $id)->first();
-		return view('Page.buycart', ['content' => $content]);
+		return view('Page.buycart', ['content' => $content, 'userID' => $ide]);
 	}		
     //form edit
     public function ups($id){

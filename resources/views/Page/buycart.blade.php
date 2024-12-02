@@ -151,7 +151,7 @@
                                 <div class="form-group form-inline">
                                     Kuantitas : 
                                     <div class="form-group input-group-inline"> 
-                                        <input type="text" class="form-control" name="qty" required="required" placeholder="Jumlah Barang"> 
+                                        <input type="number" class="form-control" name="qty" required="required" placeholder="Jumlah Barang"> 
                                         <input type="text" class="form-control" name="tqty" required="required" placeholder="Total" disabled> 
                                     </div>
                                 </div>
@@ -168,7 +168,7 @@
                                     <input type="text" class="form-control" name="total" required="required" placeholder="Total" style="margin-right: 10px;" disabled>
                                 </div>
                                 <div class="form-group form-inline"> 
-                                    <input type="text" class="form-control" name="total" required="required" placeholder="Total" style="margin-right: 10px;" value="{{ $userId }}" hidden>
+                                    <input type="text" class="form-control" name="total" required="required" placeholder="Total" style="margin-right: 10px;" value="{{ $userID }}" hidden>
                                 </div>
                                 <div class="form-group" style="margin-top:3%;"> 
                                     <input type="submit" value="Beli Sekarang" class="btn btn-primary form-control"> 

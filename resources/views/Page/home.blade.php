@@ -116,9 +116,9 @@
                     <div class="card" style="width : 257px;">
                         <img src="{{asset('storage/photo/'.$p->prdpht)}}" class="card-img-top" alt="Product">
                         <div class="card-body">
-                            <h5 class="card-title" style="padding:2% 0;"><a style="text-decoration: none; color:inherit;" href="{{ route('pd.show', $p->idproduct) }}">{{$p->prdname}}</a></h5>
+                            <h5 class="card-title" style="padding:2% 0;"><a style="text-decoration: none; color:inherit;" href="{{ route('pd.show', [$p->idproduct, $us]) }}">{{$p->prdname}}</a></h5>
                             <p class="card-text" style="margin-top:10px;"><b>Rp{{$p->prdprice}}</b> <br> </p>
-                            <div class="content-justify-center" style="display: flex; justify-content: center;"><a href="{{ route('pd.show', $p->idproduct) }}" class="btn btn-primary">Lihat lebih lanjut</a></div>
+                            <div class="content-justify-center" style="display: flex; justify-content: center;"><a href="{{ route('pd.show', [$p->idproduct, $us]) }}" class="btn btn-primary">Lihat lebih lanjut</a></div>
                         </div>
                     </div>
                 </div>
@@ -151,7 +151,7 @@
                 <div class="card" style="width : 257px;">
                     <img src="{{asset('storage/photo/'.$pB->prdpht)}}" class="card-img-top" alt="Product">
                     <div class="card-body">
-                        <h5 class="card-title" style="padding:2% 0;"><a style="text-decoration: none; color:inherit;" href="{{ route('pd.show', $pB->idproduct) }}">{{$pB->prdname}}</a></h5>
+                        <h5 class="card-title" style="padding:2% 0;"><a style="text-decoration: none; color:inherit;" href="{{ route('pd.show', [$pB->idproduct, $us]) }}">{{$pB->prdname}}</a></h5>
                         <p class="card-text" style="margin-top:10px;"><b>Rp{{$pB->prdprice}}</b></p>
                     </div>
                 </div>

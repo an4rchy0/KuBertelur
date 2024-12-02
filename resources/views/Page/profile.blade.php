@@ -233,7 +233,7 @@
                         <div class="card" style="">
                             <img src="{{asset('storage/photo/'.$pd->prdpht)}}" class="card-img-top img-responsive margin" alt="Product" style="width : 257px; height: 180px;">
                             <div class="card-body">
-                                <h5 class="card-title" style="padding:2% 0;"><a style="text-decoration: none; color:inherit;" href="{{ route('pd.show', $pd->idproduct) }}">{{$pd->prdname}}</a></h5>
+                                <h5 class="card-title" style="padding:2% 0;"><a style="text-decoration: none; color:inherit;" href="{{ route('pd.show', [$pd->idproduct, $user->idusr_kbt]) }}">{{$pd->prdname}}</a></h5>
                             </div>
                             <div class="card-footer">
                                 <a href="{{ route('pd.up', ['id' => $pd->idproduct]) }}"><i class="fa fa-edit" style="font-size: 24px; margin-right: 10px;"></i></a>
