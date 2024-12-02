@@ -95,47 +95,30 @@
 
 <div class="container-fluid">
     <div class="container">
-        <div class="row" style="margin-top:60px">
-            <div class="col-md-6 justify-content-md-start"><h4>Transaksi Pembelian <i class="fa-solid fa-bucket" style="font-size:24px; margin-left:10px;"></i></h4></div>
-            <div class="col-md-6 d-flex justify-content-end"><h4></h4></div>
-        </div>
-        <div class="row" style="margin-top:20px;">
-            <div class="col-md-6 justify-content-md-start" style="">
-                <h5>Sedang dikirim</h5><hr>
-                <div class="d-flex justify-content-around">
-                    <div class="card" style="width: 15rem;">
-                        <img src="{{asset('img/ban1-4.png')}}" class="card-img-top" alt="Product">
-                        <div class="card-body">
-                            <h5 class="card-title">Lele sunggut Madura</h5>
-                        </div>
-                    </div>
-                    <div class="card" style="width: 15rem;">
-                        <img src="{{asset('img/ban1-4.png')}}" class="card-img-top" alt="Product">
-                        <div class="card-body">
-                            <h5 class="card-title">Lele sunggut Madura</h5>
-                        </div>
-                    </div>
-                </div>
-            </div>
-            <div class="col-md-6 justify-content-end">
+        <div class="row" style="margin-top:6%;">
+            <h4>Transaksi Pembelian <i class="fa-solid fa-bucket" style="font-size:24px; margin-left:10px;"></i></h4><hr>
+            @if ($pdc->isEmpty())
                 <div class="row">
-                    <div class="col-md-12 justify-content-md-start"><h5>Selesai</h5><hr></div>
-                    <div class="d-flex justify-content-around">
-                        <div class="card" style="width: 15rem;">
-                            <img src="{{asset('img/ban1-4.png')}}" class="card-img-top" alt="Product">
-                            <div class="card-body">
-                                <h5 class="card-title">Lele sunggut Madura</h5>
-                            </div>
-                        </div>
-                        <div class="card" style="width: 15rem;">
-                            <img src="{{asset('img/ban1-4.png')}}" class="card-img-top" alt="Product">
-                            <div class="card-body">
-                                <h5 class="card-title">Lele sunggut Madura</h5>
-                            </div>
-                        </div>
+                    <div class="alert alert-info d-flex justify-content-center align-items-center" role="alert">
+                        Uppss.. Belum ada produk yang ditambahkan 
+                    </div>
+                </div>
+            @else
+            <div class="card mb-3" style="max-width: 540px;">
+                <div class="row g-0">
+                    <div class="col-md-4">
+                    <img src="{{ asset('img/ban1-5.png') }}" class="img-fluid rounded-start" alt="...">
+                    </div>
+                    <div class="col-md-8">
+                    <div class="card-body">
+                        <h5 class="card-title">Card title</h5>
+                        <p class="card-text">This is a wider card with supporting text below as a natural lead-in to additional content. This content is a little bit longer.</p>
+                        <p class="card-text"><small class="text-body-secondary">Last updated 3 mins ago</small></p>
+                    </div>
                     </div>
                 </div>
             </div>
+            @endif
         </div>
         <div class="row d-flex align-items-center justify-content-center" style="margin-top:50px; background-image: url({{ asset('img/ban1-5.png') }}); background-size: 100% 100%; background-repeat: no-repeat; background-position: center center; padding:5% 20%; color:white;">
             <div class="row">
@@ -192,10 +175,10 @@
                 <div class="row" style="margin-bottom:2%;">
                     <div style="padding:2%; background-color:#e0f0f8; border-radius:12px;">
                         <div class="row">
-                            <div class="col-md-6 d-flex align-items-center justify-content-md-start"><h4><a href="{{ route('ct.showII', $user->idusr_kbt) }}" style="text-decoration:none; color:inherit;">{{ $content->title }}</a></h4><hr></div>
-                            <div class="col-md-6 d-flex justify-content-md-end"><div class="alert alert-secondary" role="alert"><a href="{{ route('ct.up', ['id' => $content->idpct]) }}" style="color:#a3a3a3"><i class="fa fa-edit" style="font-size: 15px; margin-right: 5px;"></i></a><a href="#" data-toggle="modal" data-target="#deleteModal{{$content->idpct}}" style="color:#a3a3a3"><i class="fa fa-trash" style="font-size: 15px;"></i></a></div></div><hr>
+                            <div class="col-md-10 d-flex align-items-center justify-content-md-start"><h4><a href="{{ route('ct.showII', $user->idusr_kbt) }}" style="text-decoration:none; color:inherit;">{{ $content->title }}</a></h4><hr></div>
+                            <div class="col-md-2 d-flex justify-content-md-end"><div class="alert alert-secondary" role="alert"><a href="{{ route('ct.up', ['id' => $content->idpct]) }}" style="color:#a3a3a3"><i class="fa fa-edit" style="font-size: 15px; margin-right: 5px;"></i></a><a href="#" data-toggle="modal" data-target="#deleteModal{{$content->idpct}}" style="color:#a3a3a3"><i class="fa fa-trash" style="font-size: 15px;"></i></a></div></div><hr>
                         </div>
-                        <p>{{ $content->prevdesc }}</p>
+                        <p>{{ $content->prevdesc }} <br> {{ \App\Helpers\StringHelper::limitWords($content->content, 100) }} ...</p>
                         <div class="modal fade" id="deleteModal{{$content->idpct}}" tabindex="-1" role="dialog" aria-labelledby="deleteModal{{$content->idpct}}" aria-hidden="true">
                             <div class="modal-dialog modal-dialog-centered" role="document">
                                 <div class="modal-content">
@@ -230,14 +213,16 @@
                 <div class="row d-flex justify-content-center align-items-center">
                 @foreach ($pdc as $pd)
                     <div class="col-md-4 d-flex justify-content-center align-items-center" style="margin-top:25px;">
-                        <div class="card" style="">
-                            <img src="{{asset('storage/photo/'.$pd->prdpht)}}" class="card-img-top img-responsive margin" alt="Product" style="width : 257px; height: 180px;">
+                        <div class="card" style="width: 300px;">
+                            <img src="{{asset('storage/photo/'.$pd->prdpht)}}" class="card-img-top img-responsive margin" alt="Product" style="width : 300px; height: 223px;">
                             <div class="card-body">
-                                <h5 class="card-title" style="padding:2% 0;"><a style="text-decoration: none; color:inherit;" href="{{ route('pd.show', [$pd->idproduct, $user->idusr_kbt]) }}">{{$pd->prdname}}</a></h5>
+                                <h5 class="card-title" style="padding-top:2% 0;"><a style="text-decoration: none; color:inherit;" href="{{ route('pd.show', [$pd->idproduct, $user->idusr_kbt]) }}">{{$pd->prdname}}</a></h5>
+                                <p class="card-text" style="text-align: justify;">Harga: {{ $pd->prdprice }} <br><div style="margin-top:1px;">{{ \App\Helpers\StringHelper::limitWords($pd->prddescript, 15) }} ...</div> </p>
+                                <p class="card-text"><small class="text-body-secondary">Stok : {{ $pd->prdqty }}</small></p>
                             </div>
                             <div class="card-footer">
-                                <a href="{{ route('pd.up', ['id' => $pd->idproduct]) }}"><i class="fa fa-edit" style="font-size: 24px; margin-right: 10px;"></i></a>
-                                <a href="#" data-toggle="modal" data-target="#deleteModal{{$pd->idproduct}}"><i class="fa fa-trash" style="font-size: 24px;"></i></a>
+                                <a href="{{ route('pd.up', ['id' => $pd->idproduct]) }}"><i class="fa fa-edit" style="font-size: 20px; margin-right: 10px;"></i></a>
+                                <a href="#" data-toggle="modal" data-target="#deleteModal{{$pd->idproduct}}"><i class="fa fa-trash" style="font-size: 20px;"></i></a>
                                 <div class="modal fade" id="deleteModal{{$pd->idproduct}}" tabindex="-1" role="dialog" aria-labelledby="deleteModalLabel{{$pd->idproduct}}" aria-hidden="true">
                                     <div class="modal-dialog modal-dialog-centered" role="document">
                                         <div class="modal-content">
@@ -260,7 +245,6 @@
                 @endforeach
                 </div>
             @endif
-
         </div>
     </div>
 </div>

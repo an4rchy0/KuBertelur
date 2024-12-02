@@ -113,12 +113,12 @@
         <div class="row d-flex justify-content-center" style="margin-top:50px; margin-bottom: 40px;">
                 @foreach($pdc as $p)
                 <div class="col-md-4 d-flex justify-content-center" style="margin-bottom:10px;">
-                    <div class="card" style="width : 257px;">
-                        <img src="{{asset('storage/photo/'.$p->prdpht)}}" class="card-img-top" alt="Product">
+                    <div class="card" style="width: 300px;">
+                        <img src="{{asset('storage/photo/'.$p->prdpht)}}" class="card-img-top img-responsive margin" alt="Product" style="width : 300px; height: 223px;">
                         <div class="card-body">
-                            <h5 class="card-title" style="padding:2% 0;"><a style="text-decoration: none; color:inherit;" href="{{ route('pd.show', [$p->idproduct, $us]) }}">{{$p->prdname}}</a></h5>
-                            <p class="card-text" style="margin-top:10px;"><b>Rp{{$p->prdprice}}</b> <br> </p>
-                            <div class="content-justify-center" style="display: flex; justify-content: center;"><a href="{{ route('pd.show', [$p->idproduct, $us]) }}" class="btn btn-primary">Lihat lebih lanjut</a></div>
+                            <h5 class="card-title" style="padding-top:2% 0;"><a style="text-decoration: none; color:inherit;" href="{{ route('pd.show', [$p->idproduct, $us]) }}">{{$p->prdname}}</a></h5>
+                            <p class="card-text" style="text-align: justify;">Harga: {{ $p->prdprice }} <br><div style="margin-top:1px;">{{ \App\Helpers\StringHelper::limitWords($p->prddescript, 15) }} ...</div> </p>
+                            <p class="card-text"><small class="text-body-secondary">Stok : {{ $p->prdqty }}</small></p>
                         </div>
                     </div>
                 </div>
@@ -148,11 +148,12 @@
         <div class="row d-flex justify-content-center" style="margin-top:50px; margin-bottom: 40px;">
             @foreach($pdcB as $pB)
             <div class="col-md-4 d-flex justify-content-center" style="margin-bottom:10px;">
-                <div class="card" style="width : 257px;">
-                    <img src="{{asset('storage/photo/'.$pB->prdpht)}}" class="card-img-top" alt="Product">
+                <div class="card" style="width: 300px;">
+                    <img src="{{asset('storage/photo/'.$pB->prdpht)}}" class="card-img-top img-responsive margin" alt="Product" style="width : 300px; height: 223px;">
                     <div class="card-body">
-                        <h5 class="card-title" style="padding:2% 0;"><a style="text-decoration: none; color:inherit;" href="{{ route('pd.show', [$pB->idproduct, $us]) }}">{{$pB->prdname}}</a></h5>
-                        <p class="card-text" style="margin-top:10px;"><b>Rp{{$pB->prdprice}}</b></p>
+                        <h5 class="card-title" style="padding-top:2% 0;"><a style="text-decoration: none; color:inherit;" href="{{ route('pd.show', [$pB->idproduct, $us]) }}">{{$pB->prdname}}</a></h5>
+                        <p class="card-text" style="text-align: justify;">Harga: {{ $pB->prdprice }} <br><div style="margin-top:1px;">{{ \App\Helpers\StringHelper::limitWords($pB->prddescript, 15) }} ...</div> </p>
+                        <p class="card-text"><small class="text-body-secondary">Stok : {{ $pB->prdqty }}</small></p>
                     </div>
                 </div>
             </div>
@@ -173,18 +174,14 @@
         <div class="row" style="margin-top:25px; margin-bottom:45px;">
             @foreach ($content as $ct)
             <div class="row" style="margin-bottom:10px;">
-                <div style="padding:2%; background-color:#ececec; border-radius:12px;">
-                @if($us == 'false')
-                    <h4 style="padding:1% 0;">{{ $ct->title }}</h4>
-                @else
-                    <div style="padding:2%; background-color:#ececec; border-radius:12px;">
-                        <a style="text-decoration: none; color:inherit;" href="{{ route('ct.showII', $us) }}">
-                            <h4 style="padding:1% 0;">{{ $ct->title }}</h4>
-                        </a>
-                    </div>
-                @endif
-                        <p><b>{{ $ct->user_name }}</b></p>
-                    <hr><p>{{ $ct->prevdesc }}</p>
+                <div style="padding-top:2%;padding-left:2%; background-color:#ececec; border-radius:12px;">
+                    @if($us == 'false')
+                        <h4 style="padding:1% 0;">{{ $ct->title }}</h4>
+                    @else
+                        <a style="text-decoration: none; color:inherit;" href="{{ route('ct.showII', $us) }}"><h4 style="padding:1% 0;">{{ $ct->title }}</h4></a>
+                    @endif
+                    <p><small class="text-body-secondary"><b>{{ $ct->user_name }}</b></small></p>
+                    <hr><p>{{ $ct->prevdesc }} <br> {{ \App\Helpers\StringHelper::limitWords($ct->content, 100) }} ...</p>
                 </div>
             </div>
             @endforeach

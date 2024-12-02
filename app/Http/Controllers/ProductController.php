@@ -16,7 +16,7 @@ class ProductController extends Controller
         $contentvar = DB::table('mycontent')
 		->leftJoin('usr_kpt', 'mycontent.idusr_kbt', '=', 'usr_kpt.idusr_kbt')
 		->select('mycontent.*', 'usr_kpt.name as user_name') // Menampilkan semua kolom dari mycontent dan kolom name dari usr_kpt
-		->paginate(5);
+		->paginate(3);
 
 		$user = session('user');
 		$userString = 'false';
