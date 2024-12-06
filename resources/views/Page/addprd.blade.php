@@ -94,6 +94,9 @@
                 $kodejoin = "PC-{$haricut}{$bulancut}{$hourcut}{$minutecut}{$detikcut}";
                 return $kodejoin;
             }
+            function aowkawokw(){
+                echo "git";
+            }
         ?>
         <form action="/PrdStore" method="post" class="bg-body-tertiary rounded-3" style="padding:5%" enctype="multipart/form-data">
             <fieldset>
