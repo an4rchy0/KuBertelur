@@ -9,6 +9,8 @@
     <!-- Bootstrap CSS -->
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-QWTKZyjpPEjISv5WaRU9OFeRpok6YctnYmDr5pNlyT2bRjXh0JMhjY6hW+ALEwIH" crossorigin="anonymous">
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js" integrity="sha384-YvpcrYf0tY3lHB60NNkmXc5s9fDVZLESaAA55NDzOxhy9GkcIdslK1eN7N6jIeHz" crossorigin="anonymous"></script>
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/aos@2.3.1/dist/aos.css">
+    <script src="https://cdn.jsdelivr.net/npm/aos@2.3.1/dist/aos.js"></script>
     <!-- Font Awesome Kit -->
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.6.0/css/all.min.css" integrity="sha512-Kc323vGBEqzTmouAECnVceyQqyqdsSiqLQISBL29aUW4U/M7pSPA/gEUZQqv1cwx4OnYxTxve5UMg5GT6L4JJg==" crossorigin="anonymous" referrerpolicy="no-referrer" />
     <style>
@@ -100,19 +102,19 @@
 </div>
 <div class="container">  
 <div class="container-fluid" style="margin-top:70px;">
-        <div class="row" style="margin-top:60px">
-            <div class="col-md-6 tlri justify-content-md-start">
+        <div class="row" style="margin-top:60px" data-aos="fade-up" data-aos-delay="100">
+            <div class="col-md-6 tlri justify-content-md-start" data-aos="fade-up" data-aos-delay="200">
                 <h6>Apa yang baru</h6>
                 <h5>Ayo lihat apa saja yang baru datang!</h5>
             </div>
-            <div class="col-md-6 d-flex justify-content-md-end align-items-center" style="height: 100%;">
+            <div class="col-md-6 d-flex justify-content-md-end align-items-center" style="height: 100%;" data-aos="fade-up" data-aos-delay="300">
                 <i class="fa-solid fa-solid fa-face-grin-hearts fa-beat" style="font-size: 1.5em;"></i>
             </div>
         </div>
         <!-- --> <hr>
-        <div class="row d-flex justify-content-center" style="margin-top:50px; margin-bottom: 40px;">
+        <div class="row d-flex justify-content-center" style="margin-top:50px; margin-bottom: 40px;" data-aos="fade-up" data-aos-delay="100">
                 @foreach($pdc as $p)
-                <div class="col-md-4 d-flex justify-content-center" style="margin-bottom:10px;">
+                <div class="col-md-4 d-flex justify-content-center" style="margin-bottom:10px;" data-aos="fade-up" data-aos-delay="200">
                     <div class="card" style="width: 300px;">
                         <img src="{{asset('storage/photo/'.$p->prdpht)}}" class="card-img-top img-responsive margin" alt="Product" style="width : 300px; height: 223px;">
                         <div class="card-body">
@@ -124,30 +126,30 @@
                 </div>
                 @endforeach
         </div>
-        <div class="row" style="background-color:#050C9C; border-radius:15px; padding:20px; ">
-            <div class="col-md-3 tlri justify-content-md-start" style="color:white; padding: 1%;">
+        <div class="row" style="background-color:#050C9C; border-radius:15px; padding:20px;" data-aos="fade-up" data-aos-delay="100">
+            <div class="col-md-3 tlri justify-content-md-start" style="color:white; padding: 1%;" data-aos="fade-up" data-aos-delay="200">
                 Daftarkan diri anda segera, agar <br> tidak ketinggalan program kami!
             </div>
-            <div class="col-md-7 tlri justify-content-md-start" style="padding:1%;">
+            <div class="col-md-7 tlri justify-content-md-start" style="padding:1%;" data-aos="fade-up" data-aos-delay="300">
                 <a href="{{ route('loginPage') }}" style="border-radius:12px;" class="custom-button form-control">Masuk</a>
             </div>
-            <div class="col-md-2 tlri justify-content-md-start" style="padding:1%;">
+            <div class="col-md-2 tlri justify-content-md-start" style="padding:1%;" data-aos="fade-up" data-aos-delay="400">
                 <a href="/regis" style="background-color:#deb900; border-radius:12px; color:black;" class="custom-button form-control">Daftar</a>
             </div>
         </div>
         <!-- -->
-        <div class="row" style="margin-top:60px;">
-            <div class="col-md-6 tlri justify-content-md-start">
+        <div class="row" style="margin-top:60px;" data-aos="fade-up" data-aos-delay="100">
+            <div class="col-md-6 tlri justify-content-md-start" data-aos="fade-up" data-aos-delay="200">
                 <h6>Sulit untuk menemukan produk yang tepat untuk ternak anda??</h6>
                 <h5>Ayo lihat produk yang bagus untukmu!</h5>
             </div>
-            <div class="col-md-6 d-flex justify-content-md-end align-items-center" style="height: 100%;">
+            <div class="col-md-6 d-flex justify-content-md-end align-items-center" style="height: 100%;" data-aos="fade-up" data-aos-delay="300">
                 <i class="fa-solid fa-cart-shopping fa-beat" style="font-size: 1.5em;"></i>
             </div>
         </div>
-        <div class="row d-flex justify-content-center" style="margin-top:50px; margin-bottom: 40px;">
+        <div class="row d-flex justify-content-center" style="margin-top:50px; margin-bottom: 40px;" data-aos="fade-up" data-aos-delay="400">
             @foreach($pdcB as $pB)
-            <div class="col-md-4 d-flex justify-content-center" style="margin-bottom:10px;">
+            <div class="col-md-4 d-flex justify-content-center" style="margin-bottom:10px;" data-aos="fade-up" data-aos-delay="500">
                 <div class="card" style="width: 300px;">
                     <img src="{{asset('storage/photo/'.$pB->prdpht)}}" class="card-img-top img-responsive margin" alt="Product" style="width : 300px; height: 223px;">
                     <div class="card-body">
@@ -162,26 +164,26 @@
                 {{ $pdcB->links('pagination::bootstrap-4') }}
             </div>
         </div>
-        <div class="row" style="margin-top:60px">
-            <div class="col-md-6 tlri justify-content-md-start">
+        <div class="row" style="margin-top:60px" data-aos="fade-up" data-aos-delay="100">
+            <div class="col-md-6 tlri justify-content-md-start" data-aos="fade-up" data-aos-delay="200">
                 <h6>Apakah kamu tahu??</h6>
                 <h5>Fakta dan info apa saja yang kamu ketahui tentang ikan?</h5>
             </div>
-            <div class="col-md-6 d-flex justify-content-md-end align-items-center" style="height: 100%;">
+            <div class="col-md-6 d-flex justify-content-md-end align-items-center" style="height: 100%;" data-aos="fade-up" data-aos-delay="300">
                 <i class="fa-solid fa-face-grin-wide fa-bounce" style="font-size: 2em;"></i>
             </div>
         </div>
-        <div class="row" style="margin-top:25px; margin-bottom:45px;">
+        <div class="row" style="margin-top:25px; margin-bottom:45px;" data-aos="fade-up" data-aos-delay="400">
             @foreach ($content as $ct)
-            <div class="row" style="margin-bottom:10px;">
-                <div style="padding-top:2%;padding-left:2%; background-color:#ececec; border-radius:12px;">
+            <div class="row" style="margin-bottom:10px;" data-aos="fade-up" data-aos-delay="500">
+                <div style="padding-top:1%;padding-left:2%; background-color:#ececec; border-radius:12px;">
                     @if($us == 'false')
                         <h4 style="padding:1% 0;">{{ $ct->title }}</h4>
                     @else
                         <a style="text-decoration: none; color:inherit;" href="{{ route('ct.showII', $us) }}"><h4 style="padding:1% 0;">{{ $ct->title }}</h4></a>
                     @endif
                     <p><small class="text-body-secondary"><b>{{ $ct->user_name }}</b></small></p>
-                    <hr><p>{{ $ct->prevdesc }} <br> {{ \App\Helpers\StringHelper::limitWords($ct->content, 100) }} ...</p>
+                    <hr><p><br> {{ \App\Helpers\StringHelper::limitWords($ct->content, 100) }} ...</p>
                 </div>
             </div>
             @endforeach
@@ -222,5 +224,10 @@
         </div>
     </div>
 </footer>
+
+<script>
+  AOS.init();
+</script>
+
 </body>
 </html>
