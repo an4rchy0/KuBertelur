@@ -128,7 +128,6 @@
                         <input type="submit" value="Simpan Data" class="btn btn-primary form-control">
                     </div>
                 </div>
-
             </fieldset>
         </form>
         </div>

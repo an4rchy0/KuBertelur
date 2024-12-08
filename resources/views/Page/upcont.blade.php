@@ -88,10 +88,10 @@
                     Judul Konten            : <input type="text" class="form-control" value="{{$p->title}}" name="conttl" required="required">	
                 </div>
                 <div class="form-group">
-                    Deskripsi Singkat Konten (Preview) : <textarea class="form-control" name="pvdc" required="required">{{ $p->prevdesc }}</textarea>
+                    <textarea class="form-control" name="pvdc" required="required" hidden>{{ $p->prevdesc }}</textarea>
                 </div>
                 <div class="form-group">
-                    Isi Blog Konten Anda    : <textarea class="form-control" name="cont" required="required">{{$p->content}}</textarea><br><br><br>
+                    Isi Konten Anda : <textarea class="form-control" name="cont" required="required" style="height: 200px;">{{$p->content}}</textarea><br>
                 </div>
                 <input type="submit" value="Simpan Kontenku!" class="btn btn-primary form-control">
             </fieldset>

@@ -98,23 +98,23 @@
         ?>
         <form action="/BgStore" method="post" class="bg-body-tertiary rounded-3" style="padding:5%" enctype="multipart/form-data">
             <fieldset>
-                {{csrf_field()}}
+                {{ csrf_field() }}
                 <div class="form-group">
                     <input type="text" class="form-control" name="contid" value="<?php echo generateid(); ?>" hidden>
                 </div>
                 <div class="form-group">
-                    Judul Konten            : <input type="text" class="form-control" name="conttl" required="required">	
+                    Judul Konten: 
+                    <input type="text" class="form-control" name="conttl" required="required">
                 </div>
                 <div class="form-group">
-                    Deskripsi Singkat Konten (Preview) : <textarea class="form-control" name="pvdc" required="required"></textarea>
+                    <textarea class="form-control" name="pvdc" required="required" hidden>-</textarea>
                 </div>
                 <div class="form-group">
-                    Isi Blog Konten Anda    : <textarea class="form-control" name="cont" required="required"></textarea><br><br><br>
-                </div>
-                <div class="form-group">
+                    Isi Blog Konten Anda: 
+                    <textarea class="form-control" name="cont" required="required" style="height: 200px;"></textarea>
                     <input type="text" class="form-control" name="ctus" required="required" value="{{ $userId }}" hidden>
-                </div>
-                <input type="submit" value="Simpan Kontenku!" class="btn btn-primary form-control">
+                </div><br>
+                <input type="submit" value="Simpan Konten" class="btn btn-primary form-control">
             </fieldset>
         </form>
         </div>
