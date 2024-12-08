@@ -11,6 +11,7 @@
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js" integrity="sha384-YvpcrYf0tY3lHB60NNkmXc5s9fDVZLESaAA55NDzOxhy9GkcIdslK1eN7N6jIeHz" crossorigin="anonymous"></script>
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/aos@2.3.1/dist/aos.css">
     <script src="https://cdn.jsdelivr.net/npm/aos@2.3.1/dist/aos.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/@srexi/purecounterjs@1.5.0/dist/purecounter_vanilla.min.js"></script>
     <!-- Font Awesome Kit -->
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.6.0/css/all.min.css" integrity="sha512-Kc323vGBEqzTmouAECnVceyQqyqdsSiqLQISBL29aUW4U/M7pSPA/gEUZQqv1cwx4OnYxTxve5UMg5GT6L4JJg==" crossorigin="anonymous" referrerpolicy="no-referrer" />
     <style>
@@ -183,7 +184,12 @@
                         <a style="text-decoration: none; color:inherit;" href="{{ route('ct.showII', $us) }}"><h4 style="padding:1% 0;">{{ $ct->title }}</h4></a>
                     @endif
                     <p><small class="text-body-secondary"><b>{{ $ct->user_name }}</b></small></p>
-                    <hr><p><br> {{ \App\Helpers\StringHelper::limitWords($ct->content, 100) }} ...</p>
+                    <hr><p> {{ \App\Helpers\StringHelper::limitWords($ct->content, 100) }} ...</p><hr>
+                    <div class="d-flex justify-content-center align-items-center" data-aos="fade-up" data-aos-delay="400" style="padding-bottom:1%;">
+                        <i class="fa-solid fa-heart"></i> &nbsp &nbsp &nbsp <span style="margin-right:5%;" data-purecounter-start="0" data-purecounter-end="25" data-purecounter-duration="1" class="purecounter"></span>&nbsp
+                        <i class="fa-solid fa-heart"></i> &nbsp &nbsp &nbsp <span style="margin-right:5%;" data-purecounter-start="0" data-purecounter-end="25" data-purecounter-duration="1" class="purecounter"></span>&nbsp
+                        <i class="fa-solid fa-heart"></i> &nbsp &nbsp &nbsp <span style="margin-right:5%;" data-purecounter-start="0" data-purecounter-end="25" data-purecounter-duration="1" class="purecounter"></span>&nbsp
+                    </div>
                 </div>
             </div>
             @endforeach
@@ -224,9 +230,9 @@
         </div>
     </div>
 </footer>
-
 <script>
   AOS.init();
+  document.addEventListener('DOMContentLoaded', function() { new PureCounter(); });
 </script>
 
 </body>
