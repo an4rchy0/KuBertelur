@@ -54,36 +54,36 @@
 <body class="font-roboto bg-gray-100">
 <nav class="navbar navbar-expand-lg navbar-dark" style="background-color: #000e86;">
     <div class="container">
-        <div class="d-flex align-items-center">
-            <img alt="Logo" class="mr-3" height="40" src="{{ asset('img/logo.png') }}" width="40" style="margin-right:10px"/>
-            <a class="navbar-brand" href="/" style="font-weight: bold; color: #FFFFFF;">KuBertelur</a>
+        <div class="d-flex align-items-center"data-aos="fade-up" data-aos-delay="100">
+            <img alt="Logo" class="mr-3" height="40" src="{{ asset('img/logo.png') }}" width="40" style="margin-right:10px" data-aos="fade-up" data-aos-delay="200"/>
+            <a class="navbar-brand" href="/" style="font-weight: bold; color: #FFFFFF;" data-aos="fade-up" data-aos-delay="300">KuBertelur</a>
         </div>
         <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
             <span class="navbar-toggler-icon"></span>
         </button>
         <div class="collapse navbar-collapse" id="navbarNav">
             <ul class="navbar-nav me-auto">
-                <li class="nav-item">
+                <li class="nav-item" data-aos="fade-up" data-aos-delay="100">
                     <a class="nav-link" href="/" style="color: #FFFFFF;">Home</a>
                 </li>
-                <li class="nav-item">
+                <li class="nav-item" data-aos="fade-up" data-aos-delay="200">
                     <a class="nav-link" href="/kat" style="color: #FFFFFF;">Blog</a>
                 </li>
-                <li class="nav-item">
+                <li class="nav-item" data-aos="fade-up" data-aos-delay="300">
                     <a class="nav-link" href="/about" style="color: #FFFFFF;">Tentang Kami</a>
                 </li>
-                <li class="nav-item">
+                <li class="nav-item" data-aos="fade-up" data-aos-delay="400">
                     <a class="nav-link" href="/kontakk" style="color: #FFFFFF;">Komunitas</a>
                 </li>
             </ul>
             <div class="d-flex align-items-center space-x-4">
                 <!--<input class="form-control rounded-full text-black" placeholder="Apa yang kamu cari?" type="text" style="margin-right:10px;"/>-->
-                <a href="/develop"><button class="btn" style="background-color:#deb900; border-radius:12px; margin-right:10px;">Developer</button></a>
+                <a data-aos="fade-up" data-aos-delay="500" href="/develop"><button class="btn" style="background-color:#deb900; border-radius:12px; margin-right:10px;">Developer</button></a>
                 <div class="d-flex align-items-center space-x-2">
-                    <img src="https://upload.wikimedia.org/wikipedia/commons/9/9f/Flag_of_Indonesia.svg" alt="Flag of Indonesia" height="20" width="20" style="margin-right:10px;"/>
-                    <span style="color:white; margin-right:20px;"> <span style="margin-right:10px;">IDN | </span> 
+                    <img data-aos="fade-up" data-aos-delay="600" src="https://upload.wikimedia.org/wikipedia/commons/9/9f/Flag_of_Indonesia.svg" alt="Flag of Indonesia" height="20" width="20" style="margin-right:10px;"/>
+                    <span data-aos="fade-up" data-aos-delay="700" style="color:white; margin-right:20px;"> <span style="margin-right:10px;">IDN | </span> 
                     <button type="button" class="btn btn-primary position-relative">
-                        <a href="/profile"><i class="fa-solid fa-user" style="color:#ffff; height:20px; width:20px;"></i></a></span>
+                        <a data-aos="fade-up" data-aos-delay="800" href="/profile"><i class="fa-solid fa-user" style="color:#ffff; height:20px; width:20px;"></i></a></span>
                         <span class="position-absolute top-0 start-100 translate-middle p-2 bg-danger border border-light rounded-circle">
                             <span class="visually-hidden">New alerts</span>
                         </span>
@@ -95,10 +95,10 @@
     </div>
 </nav>
 <div class="p-0 mb-4 bg-body-tertiary rounded-3">
-    <div class="container-fluid py-10" style="background-image: url({{ asset('img/ban1-4.png') }}); background-size: 100% 100%; background-repeat: no-repeat; background-position: center center; padding:5% 20%; color:white"> <!-- 688px; width:1107px -->
-        <h1 class="display-5 fw-bold" style="">Selamat Datang Di Website<span style="color: #ffcc00"> KuBertelur </span></h1>
-        <p class="col-md-12 fs-4">Merupakan sistem pengembangan usaha Mikro kecil dan Menengah yang bergerak dibidang perikanan. <br> Visi kami menciptakan unit komunitas & penjualan yang terintegrasi dari berbagai daerah.</p>
-        <button class="btn" style="background-color:#deb900; border-radius:15px; padding-right:60px; padding-left:60px; margin-right:10px; margin-top:10px;">Jelajahi</button>
+    <div class="container-fluid py-10" data-aos="fade-up" data-aos-delay="100" style="background-image: url({{ asset('img/ban1-4.png') }}); background-size: 100% 100%; background-repeat: no-repeat; background-position: center center; padding:5% 20%; color:white"> <!-- 688px; width:1107px -->
+        <h1 class="display-5 fw-bold" data-aos="fade-up" data-aos-delay="200" style="">Selamat Datang Di Website<span style="color: #ffcc00"> KuBertelur </span></h1>
+        <p class="col-md-12 fs-4" data-aos="fade-up" data-aos-delay="300">Merupakan sistem pengembangan usaha Mikro kecil dan Menengah yang bergerak dibidang perikanan. <br> Visi kami menciptakan unit komunitas & penjualan yang terintegrasi dari berbagai daerah.</p>
+        <button class="btn" data-aos="fade-up" data-aos-delay="400" style="background-color:#deb900; border-radius:15px; padding-right:60px; padding-left:60px; margin-right:10px; margin-top:10px;">Jelajahi</button>
     </div>
 </div>
 <div class="container">  
@@ -186,9 +186,9 @@
                     <p><small class="text-body-secondary"><b>{{ $ct->user_name }}</b></small></p>
                     <hr><p> {{ \App\Helpers\StringHelper::limitWords($ct->content, 100) }} ...</p><hr>
                     <div class="d-flex justify-content-center align-items-center" data-aos="fade-up" data-aos-delay="400" style="padding-bottom:1%;">
-                        <i class="fa-solid fa-heart"></i> &nbsp &nbsp &nbsp <span style="margin-right:5%;" data-purecounter-start="0" data-purecounter-end="25" data-purecounter-duration="1" class="purecounter"></span>&nbsp
-                        <i class="fa-solid fa-heart"></i> &nbsp &nbsp &nbsp <span style="margin-right:5%;" data-purecounter-start="0" data-purecounter-end="25" data-purecounter-duration="1" class="purecounter"></span>&nbsp
-                        <i class="fa-solid fa-heart"></i> &nbsp &nbsp &nbsp <span style="margin-right:5%;" data-purecounter-start="0" data-purecounter-end="25" data-purecounter-duration="1" class="purecounter"></span>&nbsp
+                        <i class="fa-solid fa-heart" data-aos="fade-up"></i> &nbsp &nbsp &nbsp <span style="margin-right:5%;" data-purecounter-start="0" data-purecounter-duration="1" class="purecounter"></span>&nbsp
+                        <i class="fa-solid fa-face-laugh" data-aos="fade-up"></i> &nbsp &nbsp &nbsp <span style="margin-right:5%;" data-purecounter-start="0"  data-purecounter-duration="1" class="purecounter"></span>&nbsp
+                        <i class="fa-solid fa-arrow-trend-up" data-aos="fade-up"></i> &nbsp &nbsp &nbsp <spanstyle="margin-right:5%;" data-purecounter-start="0" data-purecounter-duration="1" class="purecounter"></span>&nbsp
                     </div>
                 </div>
             </div>
@@ -231,9 +231,18 @@
     </div>
 </footer>
 <script>
-  AOS.init();
-  document.addEventListener('DOMContentLoaded', function() { new PureCounter(); });
+    AOS.init();
+    function getRandomInt(min, max) {
+        return Math.floor(Math.random() * (max - min + 1)) + min; 
+    } 
+    document.addEventListener('DOMContentLoaded', function() {
+        var counters = document.querySelectorAll('.purecounter');
+        counters.forEach(function(counter) {
+            var randomEndValue = getRandomInt(0, 100);
+            counter.setAttribute('data-purecounter-end', randomEndValue); 
+        });
+        new PureCounter(); 
+    });
 </script>
-
 </body>
 </html>
