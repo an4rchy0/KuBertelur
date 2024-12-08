@@ -15,6 +15,12 @@
     <!-- Font Awesome Kit -->
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.6.0/css/all.min.css" integrity="sha512-Kc323vGBEqzTmouAECnVceyQqyqdsSiqLQISBL29aUW4U/M7pSPA/gEUZQqv1cwx4OnYxTxve5UMg5GT6L4JJg==" crossorigin="anonymous" referrerpolicy="no-referrer" />
     <style>
+        .col-md-4 .card{
+            transition: .3s;
+        }
+        .col-md-4:hover .card{
+            transform: scale(1.1);
+        }
         .navbar-nav .nav-link {
             color: #FFFFFF;
         }
@@ -127,6 +133,42 @@
                 </div>
                 @endforeach
         </div>
+        <div class="row justify-content-md-center text-center" style="margin-top:50px; margin-bottom: 40px; background-color:#F7F9FB;" data-aos="fade-up" data-aos-delay="100">
+            <h4 style="padding:30px;">Mari Bergabung Bersama Kami!</h4>
+            <div class="col-md-4" data-aos="fade-up" data-aos-delay="200">
+                <div class="card" style="border-radius: 40px; margin: 10px; box-shadow: 4px lightgrey;">
+                    <img class="card-img-top img-responsive margin" src="{{ asset('img/mbbk1.png') }}" alt="card image" style="border-radius: 40px; height: 250px; padding: 10px; align-content: center;">
+                    <div class="card-body" style="text-align:center;">
+                        <h5 class="card-title">Berkualitas</h5>
+                        <p class="card-text">
+                            Menyediakan berbagai pakan dan ternak perikanan dengan kualitas terbaik, dijamin untuk meningkatkan hasil panen!
+                        </p>
+                    </div>
+                </div>
+            </div>
+            <div class="col-md-4" data-aos="fade-up" data-aos-delay="300">
+                <div class="card" style="border-radius: 40px; margin: 10px; box-shadow: 4px lightgrey;">
+                    <img class="card-img-top img-responsive margin" src="{{ asset('img/mbbk2.png') }}" alt="card image" style="border-radius: 40px; height: 50%; padding: 10px; align-content: center;">
+                    <div class="card-body" style="text-align:center;">
+                        <h5 class="card-title">Beragam Pilihan</h5>
+                        <p class="card-text">
+                            Menawarkan berbagai jenis pakan dan ternak perikanan yang sesuai dengan berbagai kebutuhan spesifik!
+                        </p>
+                    </div>
+                </div>
+            </div>
+            <div class="col-md-4" data-aos="fade-up" data-aos-delay="400">
+                <div class="card" style="border-radius: 40px; margin: 10px; box-shadow: 4px lightgrey;">
+                    <img class="card-img-top img-responsive margin" src="{{ asset('img/mbbk3.png') }}" alt="card image" style="border-radius: 40px; width: 100%; padding: 10px; align-content: center;">
+                    <div class="card-body" style="text-align:center;">
+                        <h5 class="card-title"><a href="#">Komunitas</a><br></h5>
+                        <p class="card-text">
+                            Bergabung dengan komunitas pengguna yang aktif dan dapatkan tips serta saran berharga dari mereka!
+                        </p>
+                    </div>
+                </div>
+            </div>
+        </div>
         <div class="row" style="background-color:#050C9C; border-radius:15px; padding:20px;" data-aos="fade-up" data-aos-delay="100">
             <div class="col-md-3 tlri justify-content-md-start" style="color:white; padding: 1%;" data-aos="fade-up" data-aos-delay="200">
                 Daftarkan diri anda segera, agar <br> tidak ketinggalan program kami!
@@ -202,21 +244,21 @@
 
 <footer class="footer bg-dark text-white" style="margin-top :20px; background-color: #343a40;">
     <div class="container">
-        <div class="row" style="padding: 20px;">
-            <div class="col-md-4 justify-content-md-center">
+        <div class="row" style="padding: 20px;" data-aos="fade-up" data-aos-delay="100">
+            <div class="col-md-4 justify-content-md-center" data-aos="fade-up" data-aos-delay="200">
                 <img class="img-fluid mb-3" src="{{ asset('img/logo.png') }}" alt="Company Logo" style="border-radius: 50%; border: 2px solid white; width: 40%; padding: 10px; align-content: center;">
             </div>
-            <div class="col-md-8">
-                <div class="row" style="display: flex; align-items: center; justify-content: center;  text-align: justify; margin-bottom:5px;">
+            <div class="col-md-8" data-aos="fade-up" data-aos-delay="300">
+                <div class="row" data-aos="fade-up" data-aos-delay="100" style="display: flex; align-items: center; justify-content: center;  text-align: justify; margin-bottom:5px;">
                     <p>Mari bersama majukan pangan negeri! <br> KuBertelur market & community</p>
                 </div>
-                <div class="row">
-                    <div class="col-md-6">
+                <div class="row" data-aos="fade-up" data-aos-delay="100">
+                    <div class="col-md-6" data-aos="fade-up" data-aos-delay="200">
                         <h5>Kontak Pusat </h5>
                         <p> <i class="fa-brands fa-whatsapp"></i> +62 8888-888-888</p>
                         <p> <i class="fa-regular fa-envelope"></i> KuBertelurIdn@company.com</p>
                     </div>
-                    <div class="col-md-6">
+                    <div class="col-md-6" data-aos="fade-up" data-aos-delay="300">
                         <h5>Sosial Media </h5>
                         <div class="d-flex flex-column">
                             <a href="/" class="text-white mb-2"><i class="fa-brands fa-instagram"></i> Youtube : KuBertelur</a>
@@ -224,7 +266,7 @@
                     </div>
                 </div>
             </div>
-            <div class="row" style="display: flex; align-items: center; justify-content: center; height: 5vh; text-align: center;">
+            <div class="row"  style="display: flex; align-items: center; justify-content: center; height: 5vh; text-align: center;">
                 <hr><p>&copy; <span id="year"></span>Copyright | KuBertelur</p>
             </div>
         </div>

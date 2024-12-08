@@ -95,31 +95,40 @@
                 return $kodejoin;
             }
         ?>
-        <form action="/PrdStore" method="post" class="bg-body-tertiary rounded-3" style="padding:5%" enctype="multipart/form-data">
+        <form action="/PrdStore" method="post" class="bg-body-tertiary rounded-3" style="padding:2%" enctype="multipart/form-data">
             <fieldset>
                 {{csrf_field()}}
-                <div class="form-group">
-                    <input type="text" class="form-control" name="prdid" value="<?php echo generateid(); ?>" hidden>
+                <div class="row" style="margin-top: 5%;">
+                    <div class="col-md-6 d-flex flex-column justify-content-center align-items-center" style="padding:1%;">
+                        <img src="{{ asset('img/imgexm.png') }}" alt="Product" width="300px" height="300px">
+                        <div class="form-group">
+                            <input type="text" class="form-control" name="prdid" value="<?php echo generateid(); ?>" hidden>
+                        </div>
+                        <div class="form-group w-100"> 
+                            Deskripsi: <textarea class="form-control w-100" name="prddescript" required="required" style="height: 100px;"></textarea><br> 
+                        </div>
+                    </div>
+                    <div class="col-md-6">
+                        <p>Tambahkan Produk Anda Disini!<br>
+                        <div class="form-group">
+                            Nama Produk: <input type="text" class="form-control" name="prdname" required="required">
+                        </div>
+                        <div class="form-group">
+                            Harga Produk: <input type="number" class="form-control" name="prdprice" required="required">
+                        </div>
+                        <div class="form-group">
+                            Stok: <input type="number" class="form-control" name="prdqty" required="required">
+                        </div>
+                        <div class="form-group">
+                            Upload Foto Produkmu! <input type="file" class="form-control" name="prdpht" id="photo" required="required">
+                        </div>
+                        <div class="form-group">
+                            <input type="text" class="form-control" name="prdus" required="required" value="{{ $userId }}" hidden>
+                        </div>
+                        <input type="submit" value="Simpan Data" class="btn btn-primary form-control">
+                    </div>
                 </div>
-                <div class="form-group">
-                    Nama Produk     : <input type="text" class="form-control" name="prdname" required="required">	
-                </div>
-                <div class="form-group">
-                    Harga Produk    : <input type="text" class="form-control" name="prdprice" required="required">
-                </div>
-                <div class="form-group">
-                    Deskripsi       : <textarea class="form-control" name="prddescript" required="required"></textarea><br>
-                </div>
-                <div class="form-group">
-                    Stok            : <input type="text" class="form-control" name="prdqty" required="required">
-                </div>
-                <div class="form-group">
-                    Upload File     : <input type="file" class="form-control" name="prdpht" id="photo" required="required">
-                </div>
-                <div class="form-group">
-                    <input type="text" class="form-control" name="prdus" required="required" value="{{ $userId }}" hidden>
-                </div>
-                <input type="submit" value="Simpan Data" class="btn btn-primary form-control">
+
             </fieldset>
         </form>
         </div>

@@ -40,8 +40,8 @@ class UserController extends Controller
             return redirect()->route('loginPage');
         }else{
             $userId = Auth::id(); 
-            $contents = DB::table('mycontent')->where('idusr_kbt', $userString)->paginate(5); // Mengambil konten yang diinputkan oleh pengguna
-            $pdc = DB::table('product') ->where('idusr_kbt', $userString) ->get();
+            $contents = DB::table('mycontent')->where('idusr_kbt', $userString)->paginate(3); // Mengambil konten yang diinputkan oleh pengguna
+            $pdc = DB::table('product') ->where('idusr_kbt', $userString)->paginate(3);
             return view('Page.profile', compact('user','contents','pdc', 'userId','userString'));
         }
     }
