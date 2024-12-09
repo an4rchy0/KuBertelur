@@ -14,6 +14,11 @@ class UserController extends Controller
         $contents = Content::where('user_id', $userId)->get(); // Mengambil konten yang diinputkan oleh pengguna
         return view('Page.profile', compact('contents'));
     }
+    public function indexCMT($id){
+        $userId = Auth::id(); 
+        $cmt = DB::table('comty')->paginate(2);
+        return view('Page.comty', compact('cmt')); 
+    }
     public function login(Request $request){
         $credentials = $request->only('username', 'password');
         $user = DB::table('usr_kpt')

@@ -56,7 +56,7 @@
                     <a class="nav-link" href="/about" style="color: #FFFFFF;">Tentang Kami</a>
                 </li>
                 <li class="nav-item" data-aos="fade-up" data-aos-delay="400">
-                    <a class="nav-link" href="/kontakk" style="color: #FFFFFF;">Komunitas</a>
+                    <a class="nav-link" href="{{ route('cmt.showI', $userString) }}" style="color: #FFFFFF;">Komunitas</a>
                 </li>
             </ul>
             <div class="d-flex align-items-center space-x-4">
@@ -88,22 +88,18 @@
             </div>
             <div class="col-md-6 justify-content-md-start">
                 <p style="font-size:18px; margin-top:20px;">
-                    <a data-aos="fade-up" data-aos-delay="2500" href="#transaksi" style="text-decoration: none; color: inherit;">
+                    <a data-aos="fade-up" data-aos-delay="2500" href="#trans" style="text-decoration: none; color: inherit;">
                         <span style="margin-right:5px; background-color:#172bd2; padding:10px 20px; border-radius:25px;">Transaksi</span>
                     </a>
-                    <a data-aos="fade-up" data-aos-delay="2600" href="#komunitas" style="text-decoration: none; color: inherit;">
+                    <a data-aos="fade-up" data-aos-delay="2600" href="#cmt" style="text-decoration: none; color: inherit;">
                         <span style="margin-right:15px; background-color:#172bd2; padding:10px 20px; border-radius:18px;">Komunitas</span>
                     </a>
                     <br><br>
-                    <a data-aos="fade-up" data-aos-delay="2700" href="#post" style="text-decoration: none; color: inherit;">
+                    <a data-aos="fade-up" data-aos-delay="2700" href="#ct" style="text-decoration: none; color: inherit;">
                         <span style="margin-right:5px; background-color:#172bd2; padding:10px 20px; border-radius:18px;">Post</span>
                     </a>
-                    <a data-aos="fade-up" data-aos-delay="2800" href="#produkku" style="text-decoration: none; color: inherit;">
+                    <a data-aos="fade-up" data-aos-delay="2800" href="#pdc" style="text-decoration: none; color: inherit;">
                         <span style="margin-right:15px; background-color:#172bd2; padding:10px 20px; border-radius:18px;">Produkku</span>
-                    </a>
-                    <br><br>
-                    <a data-aos="fade-up" data-aos-delay="2900" href="#statistik" style="text-decoration: none; color: inherit;">
-                        <span style="margin-right:15px; background-color:#172bd2; padding:10px 20px; border-radius:18px;">Statistik</span>
                     </a>
                 </p>
             </div>
@@ -113,7 +109,7 @@
 
 <div class="container-fluid">
     <div class="container">
-        <div class="row" style="margin-top:6%;" data-aos="fade-up" data-aos-delay="100">
+        <div class="row" style="margin-top:6%;" data-aos="fade-up" data-aos-delay="100" id=trans>
             <h4>Transaksi Pembelian <i class="fa-solid fa-bucket" style="font-size:24px; margin-left:10px;"></i></h4><hr>
             @if ($pdc->isEmpty())
                 <div class="row">
@@ -154,7 +150,7 @@
                 </div>
             </div>
         </div>
-        <div class="row d-flex" style="margin-top:25px;" data-aos="fade-up" data-aos-delay="100">
+        <div class="row d-flex" style="margin-top:25px;" data-aos="fade-up" data-aos-delay="100" id=cmt>
             <div class="row">
                 <div class="col-md-6 d-flex align-items-center justify-content-md-start" data-aos="fade-up" data-aos-delay="200"><h5>Komunitasku</h5></div>
                 <div class="col-md-6 d-flex justify-content-md-end" data-aos="fade-up" data-aos-delay="300"><div class="alert alert-success" role="alert"><a href="" style="text-decoration:none; color:inherit;">Tambah komunitas +</a></div></div><hr>
@@ -186,7 +182,7 @@
                 </div>
             </div>
         </div>
-        <div class="row d-flex" style="margin-top:25px;" data-aos="fade-up" data-aos-delay="100">
+        <div class="row d-flex" style="margin-top:25px;" data-aos="fade-up" data-aos-delay="100" id=ct>
             <div class="row">
                 <div class="col-md-6 d-flex align-items-center justify-content-md-start" data-aos="fade-up" data-aos-delay="200"><h5>Post</h5></div>
                 <div class="col-md-6 d-flex justify-content-md-end" data-aos="fade-up" data-aos-delay="300"><div class="alert alert-success" role="alert"><a href="{{ route('addcont', ['userId' => $user->idusr_kbt]) }}" style="text-decoration:none; color:inherit;">Tambah Post +</a></div></div><hr>
@@ -228,7 +224,7 @@
                 </div>
             @endif
         </div>
-        <div class="row d-flex" style="margin-top:25px; margin-bottom:50px;" data-aos="fade-up" data-aos-delay="100">
+        <div class="row d-flex" style="margin-top:25px; margin-bottom:50px;" data-aos="fade-up" data-aos-delay="100" id=pdc>
             <div class="row">
                 <div class="col-md-6 d-flex align-items-center justify-content-md-start" data-aos="fade-up" data-aos-delay="200"><h5>Produkku</h5></div>
                 <div class="col-md-6 d-flex justify-content-md-end" data-aos="fade-up" data-aos-delay="300"><div class="alert alert-success" role="alert"><a href="{{ route('addprd', ['userId' => $user->idusr_kbt]) }}" style="text-decoration:none; color:inherit;">Tambah produk +</a></div></div><hr>

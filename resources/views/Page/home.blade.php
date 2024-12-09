@@ -79,7 +79,7 @@
                     <a class="nav-link" href="/about" style="color: #FFFFFF;">Tentang Kami</a>
                 </li>
                 <li class="nav-item" data-aos="fade-up" data-aos-delay="400">
-                    <a class="nav-link" href="/kontakk" style="color: #FFFFFF;">Komunitas</a>
+                    <a class="nav-link" href="{{ route('cmt.showI', $us) }}" style="color: #FFFFFF;">Komunitas</a>
                 </li>
             </ul>
             <div class="d-flex align-items-center space-x-4">
