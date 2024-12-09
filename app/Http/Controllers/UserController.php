@@ -52,6 +52,8 @@ class UserController extends Controller
             $pdc = DB::table('product')
                 ->where('idusr_kbt', $userString)
                 ->paginate(3);
+            
+            $cmt = DB::table('comty')->paginate(3);
 
             $transactions = DB::table('trs_kpt as t')
                 ->join('product as p', DB::raw('t.pdcID COLLATE utf8mb4_unicode_ci'), '=', DB::raw('p.idproduct COLLATE utf8mb4_unicode_ci'))
@@ -59,7 +61,7 @@ class UserController extends Controller
                 ->select('p.prdname', 'p.prdpht', 't.qty', DB::raw('(p.prdprice * t.qty) as total_harga'), 't.alamat', 'u.name as nama_user')
                 ->paginate(2);
 
-            return view('Page.profile', compact('user', 'contents', 'pdc', 'userId', 'userString', 'transactions'));
+            return view('Page.profile', compact('user', 'contents', 'pdc', 'userId', 'userString', 'transactions', 'cmt'));
         }
     }
 	public function store(Request $request){

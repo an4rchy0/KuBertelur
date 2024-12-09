@@ -119,66 +119,57 @@
                 </div>
             @else
                 @foreach ($transactions as $transaction)
-                    <div class="card mb-3" style="max-width: 540px; margin-right: 20px;" data-aos="fade-up" data-aos-delay="300">
-                        <div class="row g-0">
-                            <div class="col-md-4">
-                                <img src="{{ asset('storage/photo/' . $transaction->prdpht) }}" class="img-fluid rounded-start" alt="Product Image">
-                            </div>
-                            <div class="col-md-8">
-                                <div class="card-body">
-                                    <h5 class="card-title">{{ $transaction->prdname }}</h5>
-                                    <p class="card-text">
-                                        Jumlah: {{ $transaction->qty }}<br>
-                                        Total Harga: Rp {{ number_format($transaction->total_harga, 2, ',', '.') }}<br>
-                                        Alamat: {{ $transaction->alamat }}
-                                    </p>
-                                    <p class="card-text"><small class="text-body-secondary">Pembeli: {{ $transaction->nama_user }}</small></p>
-                                </div>
+                <div class="card mb-3" style="max-width: 540px; margin-right: 20px;" data-aos="fade-up" data-aos-delay="300">
+                    <div class="row g-0">
+                        <div class="col-md-4">
+                            <img src="{{ asset('storage/photo/' . $transaction->prdpht) }}" class="img-fluid rounded-start w-100 h-100" style="object-fit: cover;" alt="Product Image">
+                        </div>
+                        <div class="col-md-8">
+                            <div class="card-body">
+                                <h5 class="card-title">{{ $transaction->prdname }}</h5>
+                                <p class="card-text">
+                                    Jumlah: {{ $transaction->qty }}<br>
+                                    Total Harga: Rp {{ number_format($transaction->total_harga, 2, ',', '.') }}<br>
+                                    Alamat: {{ $transaction->alamat }}
+                                </p>
+                                <p class="card-text"><small class="text-body-secondary">Pembeli: {{ $transaction->nama_user }}</small></p>
                             </div>
                         </div>
                     </div>
+                </div>
+
                 @endforeach
                 <div class="d-flex justify-content-center" style="margin-top:2%;">
                     {{ $transactions->links('pagination::bootstrap-4') }}
                 </div>
             @endif
         </div>
+        <div class="row d-flex" style="margin-top:25px;" data-aos="fade-up" data-aos-delay="100" id=cmt>
+            <div class="row">
+                <div class="col-md-6 d-flex align-items-center justify-content-md-start" data-aos="fade-up" data-aos-delay="200"><h5>Forum Diskusi dan Komunitas</h5></div><hr>
+            </div>
+            <div class="row">
+                @foreach ($cmt as $c)
+                <div class="col-md-4 mb-3" style="margin-right:0%;">
+                    <div class="card">
+                        <div class="card-body">
+                            <h5 class="card-title">{{$c->name}}</h5>
+                            <hr>
+                            <p class="card-text">{{ \App\Helpers\StringHelper::limitWords($c->descript, 15) }} ...</p>
+                            <p class="card-text"><small>{{$c->title}}</small></p>
+                        </div>
+                    </div>
+                </div>
+                @endforeach
+                <div class="d-flex justify-content-center" style="margin-top:2%;">
+                    {{ $cmt->links('pagination::bootstrap-4') }}
+                </div>
+            </div>
+        </div>
         <div class="row d-flex align-items-center justify-content-center" data-aos="fade-up" data-aos-delay="200" style="margin-top:50px; background-image: url({{ asset('img/ban1-5.png') }}); background-size: 100% 100%; background-repeat: no-repeat; background-position: center center; padding:5% 20%; color:white;">
             <div class="row">
                 <div class="col-md-12 d-flex justify-content-center">
                     <h4 data-aos="fade-up" data-aos-delay="400">Kelola akunmu yuk!</h4>
-                </div>
-            </div>
-        </div>
-        <div class="row d-flex" style="margin-top:25px;" data-aos="fade-up" data-aos-delay="100" id=cmt>
-            <div class="row">
-                <div class="col-md-6 d-flex align-items-center justify-content-md-start" data-aos="fade-up" data-aos-delay="200"><h5>Komunitasku</h5></div>
-                <div class="col-md-6 d-flex justify-content-md-end" data-aos="fade-up" data-aos-delay="300"><div class="alert alert-success" role="alert"><a href="" style="text-decoration:none; color:inherit;">Tambah komunitas +</a></div></div><hr>
-            </div>
-            <div class="row">
-                <div class="col-md-4 d-flex" style="margin-top:25px;">
-                    <div class="card" style="">
-                        <img src="{{asset('img/ban1-4.png')}}" class="card-img-top" alt="Product">
-                        <div class="card-body">
-                            <h5 class="card-title">Lele sunggut Madura</h5>
-                        </div>
-                    </div>
-                </div>
-                <div class="col-md-4 d-flex" style="margin-top:25px;">
-                    <div class="card" style="">
-                        <img src="{{asset('img/ban1-4.png')}}" class="card-img-top" alt="Product">
-                        <div class="card-body">
-                            <h5 class="card-title">Lele sunggut Madura</h5>
-                        </div>
-                    </div>
-                </div>
-                <div class="col-md-4 d-flex" style="margin-top:25px;">
-                    <div class="card" style="">
-                        <img src="{{asset('img/ban1-4.png')}}" class="card-img-top" alt="Product">
-                        <div class="card-body">
-                            <h5 class="card-title">Lele sunggut Madura</h5>
-                        </div>
-                    </div>
                 </div>
             </div>
         </div>
