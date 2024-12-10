@@ -15,9 +15,9 @@ class UserController extends Controller
         return view('Page.profile', compact('contents'));
     }
     public function indexCMT($id){
-        $userId = Auth::id(); 
+        $userString = $id;
         $cmt = DB::table('comty')->paginate(2);
-        return view('Page.comty', compact('cmt')); 
+        return view('Page.comty', compact('cmt', 'userString')); 
     }
     public function login(Request $request){
         $credentials = $request->only('username', 'password');
@@ -64,6 +64,11 @@ class UserController extends Controller
             return view('Page.profile', compact('user', 'contents', 'pdc', 'userId', 'userString', 'transactions', 'cmt'));
         }
     }
+    public function comPrev($id, $idcmt) {
+        $myid = $id;
+        $cmt = DB::table('comty')->where('idcmt', $idcmt)->get();
+        return view('Page.comtyprev', compact('myid', 'cmt'));
+    }    
 	public function store(Request $request){
 		DB::table('usr_kpt')->insert([
     		'idusr_kbt'		=> $request->usid,

@@ -43,7 +43,7 @@
         <div class="card mb-4" data-aos="fade-up" data-aos-delay="100">
           <div data-aos="fade-up" data-aos-delay="100" class="card-header bg-primary text-white" style="padding:2%;">{{ $c->name }}</div>
           <div class="card-body" data-aos="fade-up" data-aos-delay="100">
-            <p data-aos="fade-up" data-aos-delay="100"><strong>{{ $c->title }}</strong></p>
+            <p data-aos="fade-up" data-aos-delay="100"><a style="text-decoration: none; color:inherit;" href="{{ route('cmt.showII', [$userString, $c->idcmt]) }}"><strong>{{ $c->title }}</strong></a></p>
             <p data-aos="fade-up" data-aos-delay="100">{{ $c->descript }}</p>
             <p data-aos="fade-up" data-aos-delay="100"><strong>Tagar Tren: </strong>{{ $c->hastag }}</p>
           </div>

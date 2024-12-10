@@ -153,8 +153,7 @@
                 <div class="col-md-4 mb-3" style="margin-right:0%;">
                     <div class="card">
                         <div class="card-body">
-                            <h5 class="card-title">{{$c->name}}</h5>
-                            <hr>
+                            <a style="text-decoration: none; color:inherit;" href="{{ route('cmt.showII', [$userString, $c->idcmt]) }}"><h5 class="card-title">{{$c->name}}</h5></a><hr>
                             <p class="card-text">{{ \App\Helpers\StringHelper::limitWords($c->descript, 15) }} ...</p>
                             <p class="card-text"><small>{{$c->title}}</small></p>
                         </div>

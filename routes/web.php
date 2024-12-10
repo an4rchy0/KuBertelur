@@ -41,7 +41,7 @@ Route::get('/addprd/{userId}', function($userId) {
 
 Route::get('/', [ProductController::class, 'indexhm']);
 Route::get('/buyPd/{id}/{ide}', [ProductController::class, 'show'])->name('pd.show')->middleware('auth');
-//Route::get('/shCt/{id}', [CtController::class, 'show'])->name('ct.show');
+Route::get('/shCmT/{id}/{idcmt}', [UserController::class, 'comPrev'])->name('cmt.showII')->middleware('auth');//ssss
 Route::get('/shCt/{id}', [CtController::class, 'showall'])->name('ct.showII')->middleware('auth');
 Route::get('/cmt/{id}', [UserController::class, 'indexCMT'])->name('cmt.showI')->middleware('auth');
 Route::get('/pd.up{id}', [ProductController::class, 'ups'])->name('pd.up');
@@ -56,10 +56,6 @@ Route::post('/UsReg', [UserController::class, 'store']);
 Route::post('/upCT/{id}', [CtController::class, 'up']);
 Route::post('/upPD/{id}', [ProductController::class, 'up']);
 
-//Route::get('/del/{id}', [ProductController::class, "del"]);
-//Route::get('/del/{id}', [CtController::class, "del"]);
-
-//Route::get('/profile/{id}', [UserController::class, 'showProfile'])->name('profile')->middleware('auth');
 Route::get('/profile', [UserController::class, 'showProfile'])->middleware('auth');
 Route::post('/login', [UserController::class, 'login'])->name('pslogin');
 Route::get('/login', function() {
