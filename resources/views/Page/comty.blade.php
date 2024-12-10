@@ -94,6 +94,17 @@
   </div>
   <script>
     AOS.init();
+    function getRandomInt(min, max) {
+        return Math.floor(Math.random() * (max - min + 1)) + min; 
+    } 
+    document.addEventListener('DOMContentLoaded', function() {
+        var counters = document.querySelectorAll('.purecounter');
+        counters.forEach(function(counter) {
+            var randomEndValue = getRandomInt(0, 100);
+            counter.setAttribute('data-purecounter-end', randomEndValue); 
+        });
+        new PureCounter(); 
+    });
   </script>
   <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
 </body>

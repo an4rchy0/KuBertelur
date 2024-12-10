@@ -78,13 +78,14 @@
                 <div class="card mb-4">
                   <div class="card-body">
                       <div class="d-flex">
-                          <img src="https://via.placeholder.com/50" class="rounded-circle me-3" alt="User">
+                          <img id="randomImg" src="{{asset('img/P1.png')}}" class="rounded-circle me-3" alt="User">
                           <div>
-                              <h6>Nopal <small class="text-muted">• 2 jam yang lalu</small></h6>
+                              <h6 id="randomName">Nopal <small class="text-muted">• <span id="randomHour">2</span> jam yang lalu</small></h6>
                               <p>Kemarin sempet main di daerah kawasan Jakarta Utara buat research beberapa jenis lobster yang ada disana. surprisingly saya ketemu banyak sekali jenis-jenis lobster yang punya harga mahal. Saya sempat nyobain juga resto yang ada di Lobster Fam Jakut, meskipun agak pricey karna jenis lobsternya Lobster Mutiara, tapi menurut saya dengan harga segitu bener-bener worth every penny! Take a seat buat ikut cobain juga ya kalau sempat main kesana!</p>
                               <div class="mt-2">
-                                  <button class="btn btn-sm btn-outline-primary">❤️ 100</button>
-                                  <button class="btn btn-sm btn-outline-secondary">💬 Komentar</button>
+                                <button class="btn btn-sm btn-outline-primary">❤️ <span data-purecounter-start="0" data-purecounter-duration="1" class="purecounter"></span></button>
+                                <button class="btn btn-sm btn-outline-secondary">💬 &nbsp Komentar</button>
+                                <button class="btn btn-sm btn-outline-secondary"><i class="fa-solid fa-arrow-trend-up" data-aos="fade-up"></i> &nbsp <spanstyle="margin-right:5%;" data-purecounter-start="0" data-purecounter-duration="1" class="purecounter"></span>&nbsp</button>
                               </div>
                           </div>
                       </div>
@@ -100,12 +101,12 @@
                         <h6>Didi <small class="text-muted">• 2 jam yang lalu</small></h6>
                         <p>Bro, jadi bulan ini saya boncos banget buat urusin lobster saya. Kira-kira biar nggak tekor, ada tips nggak sih buat ngatur biaya budidaya lobster biar tetap efisien? Sebelumnya makasih ya bro, thank you udah jawab.</p>
                         <div class="mt-2">
-                          <button class="btn btn-sm btn-outline-primary">❤️ 100</button>
-                          <button class="btn btn-sm btn-outline-secondary">💬 Komentar</button>
+                          <button class="btn btn-sm btn-outline-primary">❤️ <span data-purecounter-start="0" data-purecounter-duration="1" class="purecounter"></span></button>
+                          <button class="btn btn-sm btn-outline-secondary">💬 &nbsp Komentar</button>
+                          <button class="btn btn-sm btn-outline-secondary"><i class="fa-solid fa-arrow-trend-up" data-aos="fade-up"></i> &nbsp <spanstyle="margin-right:5%;" data-purecounter-start="0" data-purecounter-duration="1" class="purecounter"></span>&nbsp</button>
                         </div>
                       </div>
                     </div>
-                    <!-- Kolom Tanggapan -->
                     <div class="mt-3">
                       <h6>Tinggalkan Tanggapan:</h6>
                       <form>
@@ -203,6 +204,38 @@
   </div>
   <script>
     AOS.init();
+    function getRandomInt(min, max) {
+        return Math.floor(Math.random() * (max - min + 1)) + min; 
+    } 
+    document.addEventListener('DOMContentLoaded', function() {
+        var counters = document.querySelectorAll('.purecounter');
+        counters.forEach(function(counter) {
+            var randomEndValue = getRandomInt(0, 100);
+            counter.setAttribute('data-purecounter-end', randomEndValue); 
+        });
+        new PureCounter(); 
+    });
+    // Array of image URLs
+    const images = [
+            "{{ asset('img/P1.png') }}",
+            "{{ asset('img/P2.png') }}",
+            "{{ asset('img/P4.png') }}"
+        ];
+
+        // Array of names
+        const names = ['Didi', 'Genta', 'Nofal'];
+
+        // Get random image
+        const randomImage = images[Math.floor(Math.random() * images.length)];
+        // Get random name
+        const randomName = names[Math.floor(Math.random() * names.length)];
+        // Get random hour (1 to 3)
+        const randomHour = Math.floor(Math.random() * 3) + 1;
+
+        // Set random image
+        document.getElementById('randomImg').src = randomImage;
+        // Set random name and hour
+        document.getElementById('randomName').innerHTML = `${randomName} <small class="text-muted">• ${randomHour} jam yang lalu</small>`;
   </script>
   <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
 </body>
