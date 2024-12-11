@@ -19,20 +19,27 @@
     <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"></script>
     <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.5.3/dist/umd/popper.min.js"></script>
     <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
+    <style>
+        .hidden { display: none; }
+    </style>
 </head>
 
 <body>
   <div class="container mt-4" style="margin-bottom:3%;">
     <!-- Header -->
     <div data-aos="fade-up" data-aos-delay="100" class="d-flex justify-content-between align-items-center p-3 text-white rounded" style="background-color:#000e86; box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);">
-      <div class="d-flex align-items-center">
-        <img data-aos="fade-up" data-aos-delay="200" src="{{ asset('img/logo1.png') }}" height="40" style="background-color:#;" class="rounded-circle me-2" alt="Logo">
-        <h4  data-aos="fade-up" data-aos-delay="300" class="m-0" style="color:#FFFFF;">Forum Diskusi Komunitas</h4>
-      </div>
-      <div class="d-flex">
-        <button data-aos="fade-up" data-aos-delay="400" class="btn me-2" style="background-color:#FFD43B;"><i class="fa-solid fa-house" style="color:#000e86;"></i></button>
-        <button data-aos="fade-up" data-aos-delay="500" class="btn" style="background-color:#FFD43B;"><i class="fa-solid fa-bell" style="color:#000e86;"></i></button>
-      </div>
+        <div class="d-flex align-items-center">
+            <a href="/"><img data-aos="fade-up" data-aos-delay="200" src="{{ asset('img/logo1.png') }}" height="40" class="rounded-circle me-2" alt="Logo"></a>
+            <h4 data-aos="fade-up" data-aos-delay="300" class="m-0" style="color:#FFFFFF;">Selamat Datang di Komunitas!</h4>
+        </div>
+        <div class="d-flex">
+            <a data-aos="fade-up" data-aos-delay="400" href="{{ route('cmt.showI', $myid) }}" class="btn me-2" style="background-color:#FFD43B;">
+                <i class="fa-solid fa-house" style="color:#000e86;"></i>
+            </a>
+            <a data-aos="fade-up" data-aos-delay="500" href="/profile" class="btn" style="background-color:#FFD43B;">
+                <i class="fa-solid fa-bell" style="color:#000e86; height:20px; width:20px;"></i>
+            </a>
+        </div>
     </div>
 
     <!-- Main Content -->
@@ -76,50 +83,100 @@
             <div class="tab-content" id="postTabsContent">
               <div class="tab-pane fade show active" id="posts" role="tabpanel" aria-labelledby="posts-tab">
                 <div class="card mb-4">
-                  <div class="card-body">
-                      <div class="d-flex">
-                          <img id="randomImg" src="{{asset('img/P1.png')}}" class="rounded-circle me-3" alt="User">
-                          <div>
-                              <h6 id="randomName">Nopal <small class="text-muted">• <span id="randomHour">2</span> jam yang lalu</small></h6>
-                              <p>Kemarin sempet main di daerah kawasan Jakarta Utara buat research beberapa jenis lobster yang ada disana. surprisingly saya ketemu banyak sekali jenis-jenis lobster yang punya harga mahal. Saya sempat nyobain juga resto yang ada di Lobster Fam Jakut, meskipun agak pricey karna jenis lobsternya Lobster Mutiara, tapi menurut saya dengan harga segitu bener-bener worth every penny! Take a seat buat ikut cobain juga ya kalau sempat main kesana!</p>
-                              <div class="mt-2">
-                                <button class="btn btn-sm btn-outline-primary">❤️ <span data-purecounter-start="0" data-purecounter-duration="1" class="purecounter"></span></button>
-                                <button class="btn btn-sm btn-outline-secondary">💬 &nbsp Komentar</button>
-                                <button class="btn btn-sm btn-outline-secondary"><i class="fa-solid fa-arrow-trend-up" data-aos="fade-up"></i> &nbsp <spanstyle="margin-right:5%;" data-purecounter-start="0" data-purecounter-duration="1" class="purecounter"></span>&nbsp</button>
-                              </div>
-                          </div>
-                      </div>
-                  </div>
-              </div>
+                    <div class="card-body" id="1">
+                        <div class="d-flex">
+                            <img id="randomImg" src="{{asset('img/P1.png')}}" class="rounded-circle me-3" alt="User">
+                            <div>
+                                <h6 id="randomName">Nopal <small class="text-muted">• <span id="randomHour">2</span> jam yang lalu</small></h6>
+                                <p>Kemarin sempet main di daerah kawasan Jakarta Utara buat research beberapa jenis lobster yang ada disana. surprisingly saya ketemu banyak sekali jenis-jenis lobster yang punya harga mahal. Saya sempat nyobain juga resto yang ada di Lobster Fam Jakut, meskipun agak pricey karna jenis lobsternya Lobster Mutiara, tapi menurut saya dengan harga segitu bener-bener worth every penny! Take a seat buat ikut cobain juga ya kalau sempat main kesana!</p>
+                                <div class="mt-2">
+                                    <button class="btn btn-sm btn-outline-primary">❤️ &nbsp <span style="" data-purecounter-start="0" data-purecounter-duration="1" class="purecounter"></span>&nbsp</span></button>
+                                    <button id="commentBtn1" class="btn btn-sm btn-outline-secondary">💬 &nbsp Komentar</button>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <!--Afk-->
+                    <div class="card-body hidden" style="background-color:#F9F9F9;" id="2">
+                        <div class="d-flex">
+                            <img id="randomImg2" src="{{asset('img/P1.png')}}" class="rounded-circle me-3" alt="User">
+                            <div>
+                                <h6 id="us">Pengguna Baru<small class="text-muted">• <span id="usII">Baru</span> saja</small></h6>
+                                <p id="userComment">text</p>
+                                <div class="mt-2">
+                                    <button class="btn btn-sm btn-outline-primary">❤️ 0</span></button>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="mt-3 hidden" style="padding:2%;" id="formp1">
+                        <h6>Tinggalkan Tanggapan:</h6>
+                        <form id="form1">
+                            <div class="mb-3">
+                                <textarea id="comment1" class="form-control" rows="3" placeholder="Tulis tanggapan Anda di sini..."></textarea>
+                            </div>
+                            <button type="submit" class="btn btn-primary btn-sm">Kirim</button>
+                        </form>
+                    </div>
+                    <div class="mt-3" style="padding:2%;" id="formp2">
+                        <h6>Berikan post anda:</h6>
+                        <form id="form2">
+                            <div class="mb-3">
+                                <textarea id="comment2" class="form-control" rows="3" placeholder="Tulis tanggapan Anda di sini..."></textarea>
+                            </div>
+                            <button type="submit" class="btn btn-primary btn-sm">Kirim</button>
+                        </form>
+                    </div>
+                </div>
               </div>
               <div class="tab-pane fade" id="discussion" role="tabpanel" aria-labelledby="discussion-tab">
                 <div class="card mb-4">
                   <div class="card-body">
-                    <div class="d-flex">
-                      <img src="https://via.placeholder.com/50" class="rounded-circle me-3" alt="User">
+                    <div class="d-flex" id="1b">
+                      <img id="randomImgII" src="{{asset('img/P1.png')}}" class="rounded-circle me-3" alt="User">
                       <div>
-                        <h6>Didi <small class="text-muted">• 2 jam yang lalu</small></h6>
+                        <h6 id="randomNameII">Nopal <small class="text-muted">• <span id="randomHourII">2</span> jam yang lalu</small></h6>
                         <p>Bro, jadi bulan ini saya boncos banget buat urusin lobster saya. Kira-kira biar nggak tekor, ada tips nggak sih buat ngatur biaya budidaya lobster biar tetap efisien? Sebelumnya makasih ya bro, thank you udah jawab.</p>
                         <div class="mt-2">
                           <button class="btn btn-sm btn-outline-primary">❤️ <span data-purecounter-start="0" data-purecounter-duration="1" class="purecounter"></span></button>
-                          <button class="btn btn-sm btn-outline-secondary">💬 &nbsp Komentar</button>
-                          <button class="btn btn-sm btn-outline-secondary"><i class="fa-solid fa-arrow-trend-up" data-aos="fade-up"></i> &nbsp <spanstyle="margin-right:5%;" data-purecounter-start="0" data-purecounter-duration="1" class="purecounter"></span>&nbsp</button>
+                          <button id="commentBtn1B" class="btn btn-sm btn-outline-secondary">💬 &nbsp Komentar</button>
                         </div>
                       </div>
                     </div>
-                    <div class="mt-3">
-                      <h6>Tinggalkan Tanggapan:</h6>
-                      <form>
-                        <div class="mb-3">
-                          <textarea class="form-control" rows="3" placeholder="Tulis tanggapan Anda di sini..."></textarea>
+                    <!--Afk-->
+                    <div class="card-body hidden" style="background-color:#F9F9F9;" id="2b">
+                        <div class="d-flex">
+                            <img id="randomImg2" src="{{asset('img/P1.png')}}" class="rounded-circle me-3" alt="User">
+                            <div>
+                                <h6 id="us">Pengguna Baru<small class="text-muted">• <span id="usII">Baru</span> saja</small></h6>
+                                <p id="userCommentb">text</p>
+                                <div class="mt-2">
+                                    <button class="btn btn-sm btn-outline-primary">❤️ 0</span></button>
+                                </div>
+                            </div>
                         </div>
-                        <button type="submit" class="btn btn-primary btn-sm">Kirim</button>
-                      </form>
+                    </div>
+                    <div class="mt-3 hidden" style="padding:2%;" id="formp1b">
+                        <h6>Tinggalkan Tanggapan:</h6>
+                        <form id="form1b">
+                            <div class="mb-3">
+                                <textarea id="comment1b" class="form-control" rows="3" placeholder="Tulis tanggapan Anda di sini..."></textarea>
+                            </div>
+                            <button type="submit" class="btn btn-primary btn-sm">Kirim</button>
+                        </form>
+                    </div>
+                    <div class="mt-3" style="padding:2%;" id="formp2b">
+                        <h6>Berikan post anda:</h6>
+                        <form id="form2">
+                            <div class="mb-3">
+                                <textarea id="comment2b" class="form-control" rows="3" placeholder="Tulis tanggapan Anda di sini..."></textarea>
+                            </div>
+                            <button type="submit" class="btn btn-primary btn-sm">Kirim</button>
+                        </form>
                     </div>
                   </div>
                 </div>                
-              </div>
-              
+              </div>      
               <div class="tab-pane fade" id="announcement" role="tabpanel" aria-labelledby="announcement-tab">
                 <div class="container mt-4">
                   <div class="card">
@@ -221,21 +278,132 @@
             "{{ asset('img/P2.png') }}",
             "{{ asset('img/P4.png') }}"
         ];
-
-        // Array of names
         const names = ['Didi', 'Genta', 'Nofal'];
-
-        // Get random image
         const randomImage = images[Math.floor(Math.random() * images.length)];
-        // Get random name
         const randomName = names[Math.floor(Math.random() * names.length)];
-        // Get random hour (1 to 3)
         const randomHour = Math.floor(Math.random() * 3) + 1;
-
-        // Set random image
+        const randomImageII = images[Math.floor(Math.random() * images.length)];
+        const randomNameII = names[Math.floor(Math.random() * names.length)];
+        const randomHourII = Math.floor(Math.random() * 3) + 1;
         document.getElementById('randomImg').src = randomImage;
-        // Set random name and hour
         document.getElementById('randomName').innerHTML = `${randomName} <small class="text-muted">• ${randomHour} jam yang lalu</small>`;
+        document.getElementById('randomImgII').src = randomImageII;
+        document.getElementById('randomNameII').innerHTML = `${randomNameII} <small class="text-muted">• ${randomHourII} jam yang lalu</small>`;
+        //comment
+        document.addEventListener('DOMContentLoaded', (event) => {
+            document.getElementById('formp1').classList.add('hidden');
+            document.getElementById('formp1b').classList.add('hidden');
+
+            document.getElementById('commentBtn1').addEventListener('click', () => {
+                document.getElementById('formp1').classList.remove('hidden');
+                document.getElementById('formp2').classList.add('hidden');
+            });
+            document.getElementById('commentBtn1B').addEventListener('click', () => {
+                document.getElementById('formp1b').classList.remove('hidden');
+                document.getElementById('formp2b').classList.add('hidden');
+            });
+            
+            function getRandomNumber() { 
+              const numbers = [1, 2, 4]; 
+              const randomIndex = Math.floor(Math.random() * numbers.length); 
+              return numbers[randomIndex]; 
+            }
+            const randomImageNumber = getRandomNumber();
+            const imageUrl = `{{ asset('img/P') }}${randomImageNumber}.png`;
+
+            document.getElementById('form1').addEventListener('submit', (e) => {
+                e.preventDefault();
+                const comment = document.getElementById('comment1').value;
+                document.getElementById('userComment').innerText = comment;
+                const newComment = document.createElement('div');
+                newComment.classList.add('card-body', 'mb-4');
+                newComment.innerHTML = `
+                    <div class="d-flex" style="background-color:#F7F7F7; padding:2%;">
+                        <div> <img src="${imageUrl}" class="rounded-circle me-3" alt="User"> </div>
+                        <div>
+                            <h6>Pengguna Baru <small class="text-muted">• Baru saja</small></h6>
+                            <p>${comment}</p>
+                            <div class="mt-2">
+                                <button class="btn btn-sm btn-outline-primary">❤️ 0</button>
+                            </div>
+                        </div>
+                    </div>
+                `;
+                document.getElementById('1').insertAdjacentElement('afterend', newComment);
+                document.getElementById('formp1').classList.add('hidden');
+                document.getElementById('comment1').value = '';
+                document.getElementById('formp2').classList.remove('hidden');
+                //document.getElementById('formp1').classList.add('hidden');
+            });
+            document.getElementById('form1b').addEventListener('submit', (e) => {
+                e.preventDefault();
+                const comment = document.getElementById('comment1b').value;
+                document.getElementById('comment1b').innerText = comment;
+                const newComment = document.createElement('div');
+                newComment.classList.add('card-body', 'mb-4');
+                newComment.innerHTML = `
+                    <div class="d-flex" style="background-color:#F7F7F7; padding:2%;">
+                        <div> <img src="${imageUrl}" class="rounded-circle me-3" alt="User"> </div>
+                        <div>
+                            <h6>Pengguna Baru <small class="text-muted">• Baru saja</small></h6>
+                            <p>${comment}</p>
+                            <div class="mt-2">
+                                <button class="btn btn-sm btn-outline-primary">❤️ 0</button>
+                            </div>
+                        </div>
+                    </div>
+                `;
+                document.getElementById('1b').insertAdjacentElement('afterend', newComment);
+                document.getElementById('formp1b').classList.add('hidden');
+                document.getElementById('comment1b').value = '';
+                document.getElementById('formp2b').classList.remove('hidden');
+                //document.getElementById('formp1').classList.add('hidden');
+            });
+            document.getElementById('form2').addEventListener('submit', (e) => {
+                e.preventDefault();
+                const comment = document.getElementById('comment2').value;
+                const newComment = document.createElement('div');
+                newComment.classList.add('card-body', 'mb-4');
+                newComment.innerHTML = `
+                    <div class="d-flex">
+                        <div> <img src="${imageUrl}" class="rounded-circle me-3" alt="User"> </div>
+                        <div>
+                            <h6>Pengguna Baru <small class="text-muted">• Baru saja</small></h6>
+                            <p>${comment}</p>
+                            <div class="mt-2">
+                                <button class="btn btn-sm btn-outline-primary">❤️ 0</button>
+                                <button id="commentBtn1" class="btn btn-sm btn-outline-secondary">💬 &nbsp Komentar</button>
+                            </div>
+                        </div>
+                    </div>
+                `;
+                document.getElementById('2').insertAdjacentElement('afterend', newComment);
+                document.getElementById('formp2').classList.remove('hidden');
+                document.getElementById('comment2').value = '';
+            });
+            document.getElementById('formp2b').addEventListener('submit', (e) => {
+                e.preventDefault();
+                const comment = document.getElementById('comment2b').value;
+                const newComment = document.createElement('div');
+                newComment.classList.add('card-body', 'mb-4');
+                newComment.innerHTML = `
+                    <div class="d-flex">
+                        <div> <img src="${imageUrl}" class="rounded-circle me-3" alt="User"> </div>
+                        <div>
+                            <h6>Pengguna Baru <small class="text-muted">• Baru saja</small></h6>
+                            <p>${comment}</p>
+                            <div class="mt-2">
+                                <button class="btn btn-sm btn-outline-primary">❤️ 0</button>
+                                <button id="commentBtn1b" class="btn btn-sm btn-outline-secondary">💬 &nbsp Komentar</button>
+                            </div>
+                        </div>
+                    </div>
+                `;
+                document.getElementById('2b').insertAdjacentElement('afterend', newComment);
+                document.getElementById('formp2b').classList.remove('hidden');
+                document.getElementById('comment2b').value = '';
+            });
+        });
   </script>
   <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
 </body>

@@ -191,7 +191,7 @@
                             <div class="col-md-10 d-flex align-items-center justify-content-md-start"><h4><a href="{{ route('ct.showII', $user->idusr_kbt) }}" style="text-decoration:none; color:inherit;">{{ $content->title }}</a></h4><hr></div>
                             <div class="col-md-2 d-flex justify-content-md-end"><div class="alert alert-secondary" role="alert"><a href="{{ route('ct.up', ['id' => $content->idpct]) }}" style="color:#a3a3a3"><i class="fa fa-edit" style="font-size: 15px; margin-right: 5px;"></i></a><a href="#" data-toggle="modal" data-target="#deleteModal{{$content->idpct}}" style="color:#a3a3a3"><i class="fa fa-trash" style="font-size: 15px;"></i></a></div></div><hr>
                         </div>
-                        <p data-aos="fade-up" data-aos-delay="500">{{ \App\Helpers\StringHelper::limitWords($content->content, 100) }} ...</p>
+                        <p data-aos="fade-up" data-aos-delay="500">{{ \App\Helpers\StringHelper::limitWords($content->content, 50) }} ...</p>
                         <div data-aos="fade-up" data-aos-delay="600" class="modal fade" id="deleteModal{{$content->idpct}}" tabindex="-1" role="dialog" aria-labelledby="deleteModal{{$content->idpct}}" aria-hidden="true">
                             <div class="modal-dialog modal-dialog-centered" role="document">
                                 <div class="modal-content">

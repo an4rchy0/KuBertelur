@@ -218,15 +218,15 @@
         </div>
         <div class="row" style="margin-top:25px; margin-bottom:45px;" data-aos="fade-up" data-aos-delay="400">
             @foreach ($content as $ct)
-            <div class="row" style="margin-bottom:10px;" data-aos="fade-up" data-aos-delay="500">
-                <div style="padding-top:1%;padding-left:2%; background-color:#ececec; border-radius:12px;">
+            <div class="row" style="margin-bottom:3%;" data-aos="fade-up" data-aos-delay="500">
+                <div style="padding-top:1%;padding-left:2%; background-color: #FDFCFC; box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.10); border-radius:12px;">
                     @if($us == 'false')
                         <h4 style="padding:1% 0;">{{ $ct->title }}</h4>
                     @else
                         <a style="text-decoration: none; color:inherit;" href="{{ route('ct.showII', $us) }}"><h4 style="padding:1% 0;">{{ $ct->title }}</h4></a>
                     @endif
                     <p><small class="text-body-secondary"><b>{{ $ct->user_name }}</b></small></p>
-                    <hr><p> {{ \App\Helpers\StringHelper::limitWords($ct->content, 100) }} ...</p><hr>
+                    <hr><p> {{ \App\Helpers\StringHelper::limitWords($ct->content, 50) }} ...</p><hr>
                     <div class="d-flex justify-content-center align-items-center" data-aos="fade-up" data-aos-delay="400" style="padding-bottom:1%;">
                         <i class="fa-solid fa-heart" data-aos="fade-up"></i> &nbsp &nbsp &nbsp <span style="margin-right:5%;" data-purecounter-start="0" data-purecounter-duration="1" class="purecounter"></span>&nbsp
                         <i class="fa-solid fa-face-laugh" data-aos="fade-up"></i> &nbsp &nbsp &nbsp <span style="margin-right:5%;" data-purecounter-start="0"  data-purecounter-duration="1" class="purecounter"></span>&nbsp

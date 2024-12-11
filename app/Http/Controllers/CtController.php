@@ -25,8 +25,13 @@ class CtController extends Controller
 		return view('Page.detail', ['content' => $content]);
 	}
 	public function showall($id) {
-		$contents = DB::table('mycontent')->get(); // Mengambil semua data dari tabel mycontent
+		$contents = DB::table('mycontent')
+			->join('usr_kpt', 'usr_kpt.idusr_kbt', '=', 'mycontent.idusr_kbt')
+			->select('mycontent.*', 'usr_kpt.name as user_name') // Memilih kolom yang diperlukan
+			->paginate(3);
+
 		return view('Page.detcontprev', ['contents' => $contents, 'id' => $id]);
+
 	}	
 	//form edit
     public function ups($id){

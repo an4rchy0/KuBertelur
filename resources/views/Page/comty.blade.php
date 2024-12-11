@@ -25,15 +25,20 @@
   <div class="container mt-4" style="margin-bottom:3%;">
     <!-- Header -->
     <div data-aos="fade-up" data-aos-delay="100" class="d-flex justify-content-between align-items-center p-3 text-white rounded" style="background-color:#000e86; box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);">
-      <div class="d-flex align-items-center">
-        <img data-aos="fade-up" data-aos-delay="200" src="{{ asset('img/logo1.png') }}" height="40" style="background-color:#;" class="rounded-circle me-2" alt="Logo">
-        <h4  data-aos="fade-up" data-aos-delay="300" class="m-0" style="color:#FFFFF;">Selamat Datang di Komunitas!</h4>
-      </div>
-      <div class="d-flex">
-        <button data-aos="fade-up" data-aos-delay="400" class="btn me-2" style="background-color:#FFD43B;"><i class="fa-solid fa-house" style="color:#000e86;"></i></button>
-        <button data-aos="fade-up" data-aos-delay="500" class="btn" style="background-color:#FFD43B;"><i class="fa-solid fa-bell" style="color:#000e86;"></i></button>
-      </div>
+        <div class="d-flex align-items-center">
+            <a href="/"><img data-aos="fade-up" data-aos-delay="200" src="{{ asset('img/logo1.png') }}" height="40" class="rounded-circle me-2" alt="Logo"></a>
+            <h4 data-aos="fade-up" data-aos-delay="300" class="m-0" style="color:#FFFFFF;">Selamat Datang di Komunitas!</h4>
+        </div>
+        <div class="d-flex">
+            <a data-aos="fade-up" data-aos-delay="400" href="{{ route('cmt.showI', $userString) }}" class="btn me-2" style="background-color:#FFD43B;">
+                <i class="fa-solid fa-house" style="color:#000e86;"></i>
+            </a>
+            <a data-aos="fade-up" data-aos-delay="500" href="/profile" class="btn" style="background-color:#FFD43B;">
+                <i class="fa-solid fa-bell" style="color:#000e86; height:20px; width:20px;"></i>
+            </a>
+        </div>
     </div>
+
 
     <!-- Main Content -->
     <div data-aos="fade-up" data-aos-delay="1000" class="row mt-4" style="padding:2%; background-color: #f8f9fa; box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);">
