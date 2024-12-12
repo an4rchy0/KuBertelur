@@ -30,7 +30,7 @@
             <h4 data-aos="fade-up" data-aos-delay="300" class="m-0" style="color:#FFFFFF;">Selamat Datang di Komunitas!</h4>
         </div>
         <div class="d-flex">
-            <a data-aos="fade-up" data-aos-delay="400" href="{{ route('cmt.showI', $userString) }}" class="btn me-2" style="background-color:#FFD43B;">
+            <a data-aos="fade-up" data-aos-delay="400" href="/" class="btn me-2" style="background-color:#FFD43B;">
                 <i class="fa-solid fa-house" style="color:#000e86;"></i>
             </a>
             <a data-aos="fade-up" data-aos-delay="500" href="/profile" class="btn" style="background-color:#FFD43B;">

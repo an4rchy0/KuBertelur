@@ -58,7 +58,7 @@ class UserController extends Controller
             $transactions = DB::table('trs_kpt as t')
                 ->join('product as p', DB::raw('t.pdcID COLLATE utf8mb4_unicode_ci'), '=', DB::raw('p.idproduct COLLATE utf8mb4_unicode_ci'))
                 ->join('usr_kpt as u', DB::raw('t.usID COLLATE utf8mb4_unicode_ci'), '=', DB::raw('u.idusr_kbt COLLATE utf8mb4_unicode_ci'))
-                ->select('p.prdname', 'p.prdpht', 't.qty', DB::raw('(p.prdprice * t.qty) as total_harga'), 't.alamat', 'u.name as nama_user')
+                ->select('p.prdname', 'p.prdpht', 't.qty', 't.total', 't.alamat', 'u.name as nama_user')
                 ->paginate(2);
 
             return view('Page.profile', compact('user', 'contents', 'pdc', 'userId', 'userString', 'transactions', 'cmt'));

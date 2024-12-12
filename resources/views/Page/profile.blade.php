@@ -50,7 +50,7 @@
                     <a class="nav-link" href="/" style="color: #FFFFFF;">Home</a>
                 </li>
                 <li class="nav-item" data-aos="fade-up" data-aos-delay="200">
-                    <a class="nav-link" href="/kat" style="color: #FFFFFF;">Blog</a>
+                    <a class="nav-link" href="{{ route('ct.showII', $userString) }}" style="color: #FFFFFF;">Blog</a>
                 </li>
                 <li class="nav-item" data-aos="fade-up" data-aos-delay="300">
                     <a class="nav-link" href="/about" style="color: #FFFFFF;">Tentang Kami</a>
@@ -129,7 +129,7 @@
                                 <h5 class="card-title">{{ $transaction->prdname }}</h5>
                                 <p class="card-text">
                                     Jumlah: {{ $transaction->qty }}<br>
-                                    Total Harga: Rp {{ number_format($transaction->total_harga, 2, ',', '.') }}<br>
+                                    Total Harga: Rp {{ number_format($transaction->total, 2, ',', '.') }}<br>
                                     Alamat: {{ $transaction->alamat }}
                                 </p>
                                 <p class="card-text"><small class="text-body-secondary">Pembeli: {{ $transaction->nama_user }}</small></p>
@@ -172,10 +172,10 @@
                 </div>
             </div>
         </div>
-        <div class="row d-flex" style="margin-top:25px;" data-aos="fade-up" data-aos-delay="100" id=ct>
+        <div class="row d-flex" style="margin-top:25px;"  id=ct>
             <div class="row">
                 <div class="col-md-6 d-flex align-items-center justify-content-md-start" data-aos="fade-up" data-aos-delay="200"><h5>Post</h5></div>
-                <div class="col-md-6 d-flex justify-content-md-end" data-aos="fade-up" data-aos-delay="300"><div class="alert alert-success" role="alert"><a href="{{ route('addcont', ['userId' => $user->idusr_kbt]) }}" style="text-decoration:none; color:inherit;">Tambah Post +</a></div></div><hr>
+                <div class="col-md-6 d-flex justify-content-md-end" data-aos="fade-up" data-aos-delay="300"><div class="alert alert-success" role="alert"><a href="{{ route('addcont', ['userId' => $user->idusr_kbt]) }}" style="text-decoration:none; color:inherit;">Tambahkan Konten +</a></div></div><hr>
             </div>
             @if ($contents->isEmpty())
                 <div class="row" data-aos="fade-up" data-aos-delay="400">
@@ -214,7 +214,7 @@
                 </div>
             @endif
         </div>
-        <div class="row d-flex" style="margin-top:25px; margin-bottom:50px;" data-aos="fade-up" data-aos-delay="100" id=pdc>
+        <div class="row d-flex" style="margin-top:25px; margin-bottom:50px;" id=pdc>
             <div class="row">
                 <div class="col-md-6 d-flex align-items-center justify-content-md-start" data-aos="fade-up" data-aos-delay="200"><h5>Produkku</h5></div>
                 <div class="col-md-6 d-flex justify-content-md-end" data-aos="fade-up" data-aos-delay="300"><div class="alert alert-success" role="alert"><a href="{{ route('addprd', ['userId' => $user->idusr_kbt]) }}" style="text-decoration:none; color:inherit;">Tambah produk +</a></div></div><hr>
@@ -255,7 +255,6 @@
                                         </div>
                                     </div>
                                 </div>
-                                
                             </div>
                         </div>
                     </div>

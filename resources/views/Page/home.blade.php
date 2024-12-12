@@ -73,7 +73,7 @@
                     <a class="nav-link" href="/" style="color: #FFFFFF;">Home</a>
                 </li>
                 <li class="nav-item" data-aos="fade-up" data-aos-delay="200">
-                    <a class="nav-link" href="/kat" style="color: #FFFFFF;">Blog</a>
+                    <a class="nav-link" href="{{ route('ct.showII', $us) }}" style="color: #FFFFFF;">Blog</a>
                 </li>
                 <li class="nav-item" data-aos="fade-up" data-aos-delay="300">
                     <a class="nav-link" href="/about" style="color: #FFFFFF;">Tentang Kami</a>

@@ -64,13 +64,13 @@
                     <a class="nav-link" href="/" style="color: #FFFFFF;">Home</a>
                 </li>
                 <li class="nav-item">
-                    <a class="nav-link" href="/kat" style="color: #FFFFFF;">Blog</a>
+                    <a class="nav-link" href="{{ route('ct.showII', $id) }}" style="color: #FFFFFF;">Blog</a>
                 </li>
                 <li class="nav-item">
                     <a class="nav-link" href="/about" style="color: #FFFFFF;">Tentang Kami</a>
                 </li>
                 <li class="nav-item">
-                    <a class="nav-link" href="/kontakk" style="color: #FFFFFF;">Komunitas</a>
+                    <a class="nav-link" href="{{ route('cmt.showI', $id) }}" style="color: #FFFFFF;">Komunitas</a>
                 </li>
             </ul>
             <div class="d-flex align-items-center space-x-4">
