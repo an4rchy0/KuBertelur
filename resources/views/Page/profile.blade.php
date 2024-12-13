@@ -111,7 +111,7 @@
     <div class="container">
         <div class="row" style="margin-top:6%;" data-aos="fade-up" data-aos-delay="100" id=trans>
             <h4>Transaksi Pembelian <i class="fa-solid fa-bucket" style="font-size:24px; margin-left:10px;"></i></h4><hr>
-            @if ($pdc->isEmpty())
+            @if ($transactions->isEmpty())
                 <div class="row">
                     <div class="alert alert-info d-flex justify-content-center align-items-center" role="alert">
                         Uppss.. Belum ada produk yang ditambahkan 
