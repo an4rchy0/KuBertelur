@@ -10,7 +10,7 @@ class ProductController extends Controller
 {
     public function indexhm(){
         $pdcvar = DB::table('product')->take(3)->get();
-		$pdcvarB = DB::table('product')->paginate(5);
+		$pdcvarB = DB::table('product')->paginate(6);
 		//$contentvar = DB::table('mycontent')->paginate(5);
 		//$nameCont = DB::table('usr_kpt')->where('idusr_kbt', DB::table('mycontent')->value('idusr_kbt'))->get();
         $contentvar = DB::table('mycontent')
@@ -60,7 +60,10 @@ class ProductController extends Controller
 	}
 	public function show($id, $ide) {
 		$content = DB::table('product')->where('idproduct', $id)->first();
-		return view('Page.buycart', ['content' => $content, 'userID' => $ide, 'pdcID' => $id]);
+		$pdcvarB = DB::table('product')->paginate(3);
+		$user = session('user');
+        $userString = strval($user->idusr_kbt);
+		return view('Page.buycart', ['content' => $content, 'userID' => $ide, 'pdcID' => $id, 'pdcB' => $pdcvarB, 'us' => $userString]);
 	}		
     //form edit
     public function ups($id){

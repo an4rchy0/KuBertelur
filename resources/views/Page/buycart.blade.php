@@ -12,6 +12,12 @@
     <!-- Font Awesome Kit -->
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.6.0/css/all.min.css" integrity="sha512-Kc323vGBEqzTmouAECnVceyQqyqdsSiqLQISBL29aUW4U/M7pSPA/gEUZQqv1cwx4OnYxTxve5UMg5GT6L4JJg==" crossorigin="anonymous" referrerpolicy="no-referrer" />
     <style>
+        .col-md-4 .card{
+            transition: .3s;
+        }
+        .col-md-4:hover .card{
+            transform: scale(1.1);
+        }
         .navbar-nav .nav-link {
             color: #FFFFFF;
         }
@@ -221,6 +227,23 @@
                             </div> 
                         </div>
                     </div>
+                </div>
+            </div>
+            <div class="row" style="margin-top: 5%">
+                @foreach($pdcB as $pB)
+                <div class="col-md-4 d-flex justify-content-center" style="margin-bottom:10px;" data-aos="fade-up" data-aos-delay="500">
+                    <div class="card" style="width: 300px;">
+                        <img src="{{asset('storage/photo/'.$pB->prdpht)}}" class="card-img-top img-responsive margin" alt="Product" style="width : 300px; height: 223px;">
+                        <div class="card-body">
+                            <h5 class="card-title" style="padding-top:2% 0;"><a style="text-decoration: none; color:inherit;" href="{{ route('pd.show', [$pB->idproduct, $us]) }}">{{$pB->prdname}}</a></h5>
+                            <p class="card-text" style="text-align: justify;">Harga: Rp{{ number_format($pB->prdprice, 2, ',', '.') }} <br><div style="margin-top:1px;">{{ \App\Helpers\StringHelper::limitWords($pB->prddescript, 15) }} ...</div> </p>
+                            <p class="card-text"><small class="text-body-secondary">Stok : {{ $pB->prdqty }}</small></p>
+                        </div>
+                    </div>
+                </div>
+                @endforeach
+                <div class="d-flex justify-content-center">
+                    {{ $pdcB->links('pagination::bootstrap-4') }}
                 </div>
             </div>
         </div>
