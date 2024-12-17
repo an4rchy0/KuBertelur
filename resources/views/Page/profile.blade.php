@@ -66,8 +66,8 @@
                     <img data-aos="fade-up" data-aos-delay="600" src="https://upload.wikimedia.org/wikipedia/commons/9/9f/Flag_of_Indonesia.svg" alt="Flag of Indonesia" height="20" width="20" style="margin-right:10px;"/>
                     <span data-aos="fade-up" data-aos-delay="700" style="color:white; margin-right:20px;"> <span style="margin-right:10px;">IDN | </span> 
                     <!-- Tautan Logout -->
-                    <a href="#" onclick="event.preventDefault(); document.getElementById('logout-form').submit();">
-                        <i class="fa-solid fa-user" style="color:#ffff; height:20px; width:20px;"></i>
+                    <a href="#" onclick="event.preventDefault(); document.getElementById('logout-form').submit();" style="text-decoration:none; color:inherit;">
+                        <i class="fa-solid fa-user" style="color:#ffff; height:20px; width:20px;"></i> Logout
                     </a>
                     <!-- Form Logout Tersembunyi -->
                     <form id="logout-form" action="{{ route('logout') }}" method="POST" style="display: none;">
@@ -233,7 +233,7 @@
                             <img data-aos="fade-up" data-aos-delay="400" src="{{asset('storage/photo/'.$pd->prdpht)}}" class="card-img-top img-responsive margin" alt="Product" style="width : 300px; height: 223px;">
                             <div data-aos="fade-up" data-aos-delay="500" class="card-body">
                                 <h5 class="card-title" style="padding-top:2% 0;"><a style="text-decoration: none; color:inherit;" href="{{ route('pd.show', [$pd->idproduct, $user->idusr_kbt]) }}">{{$pd->prdname}}</a></h5>
-                                <p class="card-text" style="text-align: justify;">Harga: {{ $pd->prdprice }} <br><div style="margin-top:1px;">{{ \App\Helpers\StringHelper::limitWords($pd->prddescript, 15) }} ...</div> </p>
+                                <p class="card-text" style="text-align: justify;">Harga: Rp{{ number_format($pd->prdprice, 2, ',', '.') }} <br><div style="margin-top:1px;">{{ \App\Helpers\StringHelper::limitWords($pd->prddescript, 15) }} ...</div> </p>
                                 <p class="card-text"><small class="text-body-secondary">Stok : {{ $pd->prdqty }}</small></p>
                             </div>
                             <div class="card-footer">

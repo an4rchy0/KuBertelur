@@ -146,7 +146,7 @@
                     <h1>{{$content->prdname}}</h1> <br> 
                     Avaibility : {{ $content->prdqty > 0 ? 'Available' : 'Not Available' }}<br> 
                     Stok : {{$content->prdqty}}<br> 
-                    Harga : {{$content->prdprice}} <span style="padding:5px 2%; background-color: #e6c347; border-radius:12px; margin-left:2%;">20% Off</span><br>
+                    Harga : Rp{{ number_format($content->prdprice, 2, ',', '.') }}<span style="padding:5px 2%; background-color: #e6c347; border-radius:12px; margin-left:2%;">20% Off</span><br>
                     <?php 
                         function generateid(){
                             $hari = date('l');
@@ -190,8 +190,13 @@
                                     <input type="text" class="form-control" name="price" required="required" placeholder="Biaya Jasa & Aplikasi" style="margin-right: 10px;" disabled>
                                 </div>
                                 <div class="form-group form-inline">
-                                    Total : 
-                                    <input type="text" class="form-control" name="total" id="total" required="required" placeholder="Total" style="margin-right: 10px; background-color: #E7E9E7;" readonly>
+                                    Total
+                                    <div class="input-group mb-3">
+                                        <div class="input-group-append">
+                                            <span class="input-group-text" id="basic-addon1">Rp</span>
+                                        </div>
+                                        <input type="text" class="form-control" name="total" id="total" required="required" placeholder="Total" style="background-color: #E7E9E7;" readonly>
+                                    </div>
                                 </div>
                                 <div class="form-group form-inline"> 
                                     <input type="text" class="form-control" name="usid" required="required" placeholder="Total" style="margin-right: 10px;" value="{{ $userID }}" hidden>

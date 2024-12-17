@@ -50,7 +50,7 @@
                     }
                 ?>
                 <h3 style="text-align:center; padding:15px;">Buat Akun</h3>
-                <form action="/UsReg" method="post" class="bg-body-tertiary rounded-3" style="padding:3%" enctype="multipart/form-data">
+                <form action="/UsReg" method="post" name="userForm" class="bg-body-tertiary rounded-3" style="padding:3%" enctype="multipart/form-data" onsubmit="return validateForm()">
                     <fieldset>
                         {{csrf_field()}}
                         <div class="form-input mb-3">
@@ -92,6 +92,7 @@
 </div>
 <script>
     AOS.init();
+    function validateForm() { var phone = document.forms["userForm"]["tlp"].value; if (!phone.startsWith("+62")) { alert("Please input phone number in the format +62..."); return false; } return true;}
 </script>
 </body>
 </html>

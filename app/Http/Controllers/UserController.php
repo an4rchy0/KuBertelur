@@ -47,7 +47,7 @@ class UserController extends Controller
             $userId = Auth::id(); 
             $contents = DB::table('mycontent')
                 ->where('idusr_kbt', $userString)
-                ->paginate(2); // Mengambil konten yang diinputkan oleh pengguna
+                ->paginate(2); 
 
             $pdc = DB::table('product')
                 ->where('idusr_kbt', $userString)

@@ -126,7 +126,7 @@
                         <img src="{{asset('storage/photo/'.$p->prdpht)}}" class="card-img-top img-responsive margin" alt="Product" style="width : 300px; height: 223px;">
                         <div class="card-body">
                             <h5 class="card-title" style="padding-top:2% 0;"><a style="text-decoration: none; color:inherit;" href="{{ route('pd.show', [$p->idproduct, $us]) }}">{{$p->prdname}}</a></h5>
-                            <p class="card-text" style="text-align: justify;">Harga: {{ $p->prdprice }} <br><div style="margin-top:1px;">{{ \App\Helpers\StringHelper::limitWords($p->prddescript, 15) }} ...</div> </p>
+                            <p class="card-text" style="text-align: justify;">Harga: Rp{{ number_format($p->prdprice, 2, ',', '.') }} <br><div style="margin-top:1px;">{{ \App\Helpers\StringHelper::limitWords($p->prddescript, 15) }} ...</div> </p>
                             <p class="card-text"><small class="text-body-secondary">Stok : {{ $p->prdqty }}</small></p>
                         </div>
                     </div>
@@ -197,7 +197,7 @@
                     <img src="{{asset('storage/photo/'.$pB->prdpht)}}" class="card-img-top img-responsive margin" alt="Product" style="width : 300px; height: 223px;">
                     <div class="card-body">
                         <h5 class="card-title" style="padding-top:2% 0;"><a style="text-decoration: none; color:inherit;" href="{{ route('pd.show', [$pB->idproduct, $us]) }}">{{$pB->prdname}}</a></h5>
-                        <p class="card-text" style="text-align: justify;">Harga: {{ $pB->prdprice }} <br><div style="margin-top:1px;">{{ \App\Helpers\StringHelper::limitWords($pB->prddescript, 15) }} ...</div> </p>
+                        <p class="card-text" style="text-align: justify;">Harga: Rp{{ number_format($pB->prdprice, 2, ',', '.') }} <br><div style="margin-top:1px;">{{ \App\Helpers\StringHelper::limitWords($pB->prddescript, 15) }} ...</div> </p>
                         <p class="card-text"><small class="text-body-secondary">Stok : {{ $pB->prdqty }}</small></p>
                     </div>
                 </div>
