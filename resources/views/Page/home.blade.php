@@ -12,9 +12,17 @@
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/aos@2.3.1/dist/aos.css">
     <script src="https://cdn.jsdelivr.net/npm/aos@2.3.1/dist/aos.js"></script>
     <script src="https://cdn.jsdelivr.net/npm/@srexi/purecounterjs@1.5.0/dist/purecounter_vanilla.min.js"></script>
+    <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+    <link rel="stylesheet" type="text/css" href="https://cdn.jsdelivr.net/npm/slick-carousel@1.8.1/slick/slick.css"/>
+    <link rel="stylesheet" type="text/css" href="https://cdn.jsdelivr.net/npm/slick-carousel@1.8.1/slick/slick-theme.css"/>
+    <script type="text/javascript" src="https://cdn.jsdelivr.net/npm/slick-carousel@1.8.1/slick/slick.min.js"></script>
     <!-- Font Awesome Kit -->
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.6.0/css/all.min.css" integrity="sha512-Kc323vGBEqzTmouAECnVceyQqyqdsSiqLQISBL29aUW4U/M7pSPA/gEUZQqv1cwx4OnYxTxve5UMg5GT6L4JJg==" crossorigin="anonymous" referrerpolicy="no-referrer" />
     <style>
+        .slick-slide img {
+            width: 300px;
+            height: 120px;
+        }
         .col-md-4 .card{
             transition: .3s;
         }
@@ -133,40 +141,16 @@
                 </div>
                 @endforeach
         </div>
-        <div class="row justify-content-md-center text-center" style="margin-top:50px; margin-bottom: 40px; background-color:#F7F9FB;" data-aos="fade-up" data-aos-delay="100">
-            <h4 style="padding:30px;">Mari Bergabung Bersama Kami!</h4>
-            <div class="col-md-4" data-aos="fade-up" data-aos-delay="200">
-                <div class="card" style="border-radius: 40px; margin: 10px; box-shadow: 4px lightgrey;">
-                    <img class="card-img-top img-responsive margin" src="{{ asset('img/mbbk1.png') }}" alt="card image" style="border-radius: 40px; height: 250px; padding: 10px; align-content: center;">
-                    <div class="card-body" style="text-align:center;">
-                        <h5 class="card-title">Berkualitas</h5>
-                        <p class="card-text">
-                            Menyediakan berbagai pakan dan ternak perikanan dengan kualitas terbaik, dijamin untuk meningkatkan hasil panen!
-                        </p>
-                    </div>
-                </div>
-            </div>
-            <div class="col-md-4" data-aos="fade-up" data-aos-delay="300">
-                <div class="card" style="border-radius: 40px; margin: 10px; box-shadow: 4px lightgrey;">
-                    <img class="card-img-top img-responsive margin" src="{{ asset('img/mbbk2.png') }}" alt="card image" style="border-radius: 40px; height: 50%; padding: 10px; align-content: center;">
-                    <div class="card-body" style="text-align:center;">
-                        <h5 class="card-title">Beragam Pilihan</h5>
-                        <p class="card-text">
-                            Menawarkan berbagai jenis pakan dan ternak perikanan yang sesuai dengan berbagai kebutuhan spesifik!
-                        </p>
-                    </div>
-                </div>
-            </div>
-            <div class="col-md-4" data-aos="fade-up" data-aos-delay="400">
-                <div class="card" style="border-radius: 40px; margin: 10px; box-shadow: 4px lightgrey;">
-                    <img class="card-img-top img-responsive margin" src="{{ asset('img/mbbk3.png') }}" alt="card image" style="border-radius: 40px; width: 100%; padding: 10px; align-content: center;">
-                    <div class="card-body" style="text-align:center;">
-                        <h5 class="card-title"><a href="#">Komunitas</a><br></h5>
-                        <p class="card-text">
-                            Bergabung dengan komunitas pengguna yang aktif dan dapatkan tips serta saran berharga dari mereka!
-                        </p>
-                    </div>
-                </div>
+        <div class="row justify-content-md-center text-center" style="margin-top:50px; margin-bottom: 40px; background-color:;" data-aos="fade-up" data-aos-delay="100">
+            <h4 style="padding:2%;">Media Partner</h4>
+            <div class="carousel">
+                <div><img src="{{ asset('img/7.png') }}" alt="Slide 7" style="margin: 1%; box-shadow: 0 2px 4px rgba(0, 0, 0, 0.2), 0 4px 8px rgba(206, 206, 206, 0.2);"></div>
+                <div><img src="{{ asset('img/2.png') }}" alt="Slide 2" style="margin: 1%; box-shadow: 0 2px 4px rgba(0, 0, 0, 0.2), 0 4px 8px rgba(206, 206, 206, 0.2);"></div>
+                <div><img src="{{ asset('img/3.png') }}" alt="Slide 3" style="margin: 1%; box-shadow: 0 2px 4px rgba(0, 0, 0, 0.2), 0 4px 8px rgba(206, 206, 206, 0.2);"></div>
+                <div><img src="{{ asset('img/1.png') }}" alt="Slide 1" style="margin: 1%; box-shadow: 0 2px 4px rgba(0, 0, 0, 0.2), 0 4px 8px rgba(206, 206, 206, 0.2);"></div>
+                <div><img src="{{ asset('img/6.png') }}" alt="Slide 6" style="margin: 1%; box-shadow: 0 2px 4px rgba(0, 0, 0, 0.2), 0 4px 8px rgba(206, 206, 206, 0.2);"></div>
+                <div><img src="{{ asset('img/4.png') }}" alt="Slide 4" style="margin: 1%; box-shadow: 0 2px 4px rgba(0, 0, 0, 0.2), 0 4px 8px rgba(206, 206, 206, 0.2);"></div>
+                <div><img src="{{ asset('img/5.png') }}" alt="Slide 5" style="margin: 1%; box-shadow: 0 2px 4px rgba(0, 0, 0, 0.2), 0 4px 8px rgba(206, 206, 206, 0.2);"></div>
             </div>
         </div>
         <div class="row" style="background-color:#050C9C; border-radius:15px; padding:20px;" data-aos="fade-up" data-aos-delay="100">
@@ -216,7 +200,7 @@
                 <i class="fa-solid fa-face-grin-wide fa-bounce" style="font-size: 2em;"></i>
             </div>
         </div>
-        <div class="row" style="margin-top:25px; margin-bottom:45px;" data-aos="fade-up" data-aos-delay="400">
+        <div class="row" style="margin:2% 4%;" data-aos="fade-up" data-aos-delay="400">
             @foreach ($content as $ct)
             <div class="row" style="margin-bottom:3%;" data-aos="fade-up" data-aos-delay="500">
                 <div style="padding-top:1%;padding-left:2%; background-color: #FDFCFC; box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.10); border-radius:12px;">
@@ -237,6 +221,42 @@
             @endforeach
             <div class="d-flex justify-content-center">
                 {{ $content->links('pagination::bootstrap-4') }}
+            </div>
+        </div>
+        <div class="row justify-content-md-center text-center" style="margin-top:2%; margin-bottom:6%; padding:2%; background-color:#F7F9FB;" data-aos="fade-up" data-aos-delay="100">
+            <h4 style="padding:30px;">Bergabunglah Bersama Kami!</h4>
+            <div class="col-md-4" data-aos="fade-up" data-aos-delay="200">
+                <div class="card" style="border-radius: 40px; margin: 10px; box-shadow: 4px lightgrey;">
+                    <img class="card-img-top img-responsive margin" src="{{ asset('img/mbbk3.png') }}" alt="card image" style="width : 100%; height: 223px;">
+                    <div class="card-body" style="text-align:center;">
+                        <h5 class="card-title">Berkualitas</h5>
+                        <p class="card-text">
+                            Menyediakan berbagai pakan dan ternak perikanan dengan kualitas terbaik, untuk meningkatkan panen!
+                        </p>
+                    </div>
+                </div>
+            </div>
+            <div class="col-md-4" data-aos="fade-up" data-aos-delay="300">
+                <div class="card" style="border-radius: 40px; margin: 10px; box-shadow: 4px lightgrey;">
+                    <img class="card-img-top img-responsive margin" src="{{ asset('img/mbbk3.png') }}" alt="card image" style="width : 100%; height: 223px;">
+                    <div class="card-body" style="text-align:center;">
+                        <h5 class="card-title">Beragam Pilihan</h5>
+                        <p class="card-text">
+                            Menawarkan berbagai jenis pakan dan ternak perikanan yang sesuai dengan berbagai kebutuhan spesifik!
+                        </p>
+                    </div>
+                </div>
+            </div>
+            <div class="col-md-4" data-aos="fade-up" data-aos-delay="400">
+                <div class="card" style="border-radius: 40px; margin: 10px; box-shadow: 4px lightgrey;">
+                    <img class="card-img-top img-responsive margin" src="{{ asset('img/mbbk3.png') }}" alt="card image" style="width : 100%; height: 223px;">
+                    <div class="card-body" style="text-align:center;">
+                        <h5 class="card-title">Komunitas</h5>
+                        <p class="card-text">
+                            Bergabung dengan komunitas pengguna yang aktif dan dapatkan tips serta saran berharga dari mereka!
+                        </p>
+                    </div>
+                </div>
             </div>
         </div>
 </div>
@@ -285,6 +305,18 @@
         });
         new PureCounter(); 
     });
+    $(document).ready(function(){
+            $('.carousel').slick({
+                dots: true,
+                infinite: true,
+                speed: 300,
+                slidesToShow: 3,
+                slidesToScroll: 1,
+                adaptiveHeight: true,
+                autoplay: true,
+                autoplaySpeed: 2000
+            });
+        });
 </script>
 </body>
 </html>

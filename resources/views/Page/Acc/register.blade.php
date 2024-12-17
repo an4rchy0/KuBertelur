@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>KuBertelur | Login</title>
+    <title>KuBertelur | Register</title>
     <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css" rel="stylesheet"/>
     <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;700&display=swap" rel="stylesheet"/>
     <!-- Bootstrap CSS -->
@@ -92,7 +92,53 @@
 </div>
 <script>
     AOS.init();
-    function validateForm() { var phone = document.forms["userForm"]["tlp"].value; if (!phone.startsWith("+62")) { alert("Please input phone number in the format +62..."); return false; } return true;}
+    function validateForm() { 
+        var phone = document.forms["userForm"]["tlp"].value;
+        const email = document.forms["userForm"]["usemail"].value;
+        const password = document.forms["userForm"]["uspass"].value;
+        const name = document.forms["userForm"]["name"].value;
+        const usname = document.forms["userForm"]["usname"].value;
+
+        if (!phone.startsWith("+62") || !/^\+62\d{8,13}$/.test(phone)) { 
+            alert("Mohon masukan nomor telepon dengan format +62 diikuti oleh nomor-nomor!"); 
+            return false; 
+        }
+        // Name validation 
+        if (!validateNameOrUsername(name)) { 
+            alert("Nama hanya mengandung huruf! minimal mengandung 5 karakter dan maksimal mengandung 30 karakter!"); 
+            return false; 
+        } // Username validation 
+        if (!validateNameOrUsername(usname)) { 
+            alert("Username hanya mengandung huruf! dan maksimal mengandung 30 karakter!"); 
+            return false; 
+        }
+        // Email validation
+        if (!validateEmail(email)) {
+            alert("Email harus valid dan maksimal mengandung 40 karakter!");
+            return false;
+        }
+        // Password validation
+        if (!validatePassword(password)) {
+            alert("Password harus mengandung huruf, simbol dan angka, serta minimal mengandung 10 karakter dan maksimal 20 karakter!");
+            return false;
+        }
+        return true;
+    }
+    function validateEmail(email) {
+        // Regular expression for email validation
+        const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
+        return emailRegex.test(email) && email.length <= 40;
+    }
+    function validatePassword(password) {
+        // Regular expression for password validation: at least one letter, one number, and one special character
+        const passwordRegex = /^(?=.*[A-Za-z])(?=.*\d)(?=.*[@$!%*?&])[A-Za-z\d@$!%*?&]{10,20}$/;
+        return passwordRegex.test(password);
+    }
+    function validateNameOrUsername(input) { 
+        // Regular expression for name and username validation: only letters and up to 30 characters 
+        const nameOrUsernameRegex = /^[A-Za-z]{5,30}$/; 
+        return nameOrUsernameRegex.test(input); 
+    }
 </script>
 </body>
 </html>
