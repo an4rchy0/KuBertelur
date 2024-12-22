@@ -175,7 +175,7 @@
         <div class="row d-flex" style="margin-top:25px;"  id=ct>
             <div class="row">
                 <div class="col-md-6 d-flex align-items-center justify-content-md-start" data-aos="fade-up" data-aos-delay="200"><h5>Post</h5></div>
-                <div class="col-md-6 d-flex justify-content-md-end" data-aos="fade-up" data-aos-delay="300"><div class="alert alert-success" role="alert"><a href="{{ route('addcont', ['userId' => $user->idusr_kbt]) }}" style="text-decoration:none; color:inherit;">Tambahkan Konten +</a></div></div><hr>
+                <div class="col-md-6 d-flex justify-content-md-end" data-aos="fade-up" data-aos-delay="300"><div class="alert alert-success" role="alert"><a href="{{ route('ct.showII', $user->idusr_kbt) }}" style="text-decoration:none; color:inherit;">Lihat Timeline</a></div></div><hr>
             </div>
             @if ($contents->isEmpty())
                 <div class="row" data-aos="fade-up" data-aos-delay="400">
@@ -186,26 +186,67 @@
             @else
                 @foreach ($contents as $content)
                 <div class="row" style="margin-bottom:2%;">
-                    <div style="padding:2%; background-color:#e0f0f8; border-radius:12px;">
+                    <div style="padding:2%; background-color:#D0F7F7; border-radius:12px;">
                         <div class="row" data-aos="fade-up" data-aos-delay="400">
                             <div class="col-md-10 d-flex align-items-center justify-content-md-start"><h4><a href="{{ route('ct.showII', $user->idusr_kbt) }}" style="text-decoration:none; color:inherit;">{{ $content->title }}</a></h4><hr></div>
-                            <div class="col-md-2 d-flex justify-content-md-end"><div class="alert alert-secondary" role="alert"><a href="{{ route('ct.up', ['id' => $content->idpct]) }}" style="color:#a3a3a3"><i class="fa fa-edit" style="font-size: 15px; margin-right: 5px;"></i></a><a href="#" data-toggle="modal" data-target="#deleteModal{{$content->idpct}}" style="color:#a3a3a3"><i class="fa fa-trash" style="font-size: 15px;"></i></a></div></div><hr>
+                            <div class="col-md-2 d-flex justify-content-md-end">
+                                <div class="alert alert-secondary" role="alert">
+                                    <!--<a href="{{ route('ct.up', ['id' => $content->idpct]) }}" style="color:#a3a3a3"><i class="fa fa-edit" style="font-size: 15px; margin-right: 5px;"></i></a>-->
+                                    <a href="#" data-toggle="modal" data-target="#prevMNModal{{$content->idpct}}" style="text-decoration:none; color:#a3a3a3;"><i class="fa-solid fa-bars" style="font-size: 15px;"></i></a>
+                                </div>
+                            </div><hr>
                         </div>
                         <p data-aos="fade-up" data-aos-delay="500">{{ \App\Helpers\StringHelper::limitWords($content->content, 50) }} ...</p>
-                        <div class="modal fade" id="deleteModal{{$content->idpct}}" tabindex="-1" role="dialog" aria-labelledby="deleteModal{{$content->idpct}}" aria-hidden="true">
-                            <div class="modal-dialog modal-dialog-centered" role="document">
+                        <div class="modal fade" id="prevMNModal{{$content->idpct}}" tabindex="-1" role="dialog" aria-labelledby="prevMNModalLabel{{$content->idpct}}" aria-hidden="true">
+                            <div class="modal-dialog modal-dialog-centered" role="document" style="max-width: 80%;">
                                 <div class="modal-content">
-                                    <div class="modal-header">
-                                        <h5 class="modal-title" id="deleteModal{{$content->idpct}}">Konfirmasi Hapus</h5>
+                                    <div class="modal-header"><h5 class="modal-title" id="prevMNModalLabel{{$content->idpct}}">Manage Kontenmu</h5></div>
+                                    <div class="modal-body">
+                                        <div class="row" style="padding:0% 3%;">
+                                            <div class="modal-body">
+                                                <div class="row" style="padding:0% 3%;">
+                                                    <form action="{{ url('/upCT', $content->idpct)}}" method="post" class="bg-body-tertiary rounded-3" style="padding:5%" enctype="multipart/form-data">
+                                                        <fieldset>
+                                                            {{csrf_field()}}
+                                                            <div class="form-group">
+                                                                Judul Konten            : <input type="text" class="form-control" value="{{$content->title}}" name="conttl" required="required">	
+                                                            </div>
+                                                            <div class="form-group">
+                                                                <textarea class="form-control" name="pvdc" required="required" hidden>{{ $content->prevdesc }}</textarea>
+                                                            </div>
+                                                            <div class="form-group">
+                                                                Isi Konten Anda : <textarea class="form-control" name="cont" required="required" style="height: 200px;">{{$content->content}}</textarea><br>
+                                                            </div>
+                                                            <div class="form-group">
+                                                                <input type="text" class="form-control" name="contid" value="{{$content->idpct}}" disabled hidden>
+                                                            </div>
+                                                            <input type="submit" value="Simpan Kontenku!" class="btn btn-primary form-control">
+                                                        </fieldset>
+                                                    </form>
+                                                    <a href="#" data-toggle="modal" data-target="#deleteModal{{$content->idpct}}" style="padding:1%; margin: 2% 0; border:1px solid; text-decoration:none; width:100%; text-align:center; color: red;"><i class="fa fa-trash" style="font-size: 20px;"></i>&nbsp Delete</a>
+                                                    <div class="modal fade" id="deleteModal{{$content->idpct}}" tabindex="-1" role="dialog" aria-labelledby="deleteModal{{$content->idpct}}" aria-hidden="true">
+                                                        <div class="modal-dialog modal-dialog-centered" role="document">
+                                                            <div class="modal-content">
+                                                                <div class="modal-header">
+                                                                    <h5 class="modal-title" id="deleteModal{{$content->idpct}}">Konfirmasi Hapus</h5>
+                                                                </div>
+                                                                <div class="modal-body">Apakah Anda yakin ingin menghapus Post ini?</div>
+                                                                <div class="modal-footer">
+                                                                    <button type="button" class="btn btn-secondary" data-dismiss="modal">Batal</button>
+                                                                    <a href="{{ route('ct.del', ['id' => $content->idpct]) }}" class="btn btn-danger">Hapus</a>
+                                                                </div>
+                                                            </div>
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                            </div>     
+                                        </div>
                                     </div>
-                                    <div class="modal-body">Apakah Anda yakin ingin menghapus Post ini?</div>
                                     <div class="modal-footer">
-                                        <button type="button" class="btn btn-secondary" data-dismiss="modal">Batal</button>
-                                        <a href="{{ route('ct.del', ['id' => $content->idpct]) }}" class="btn btn-danger">Hapus</a>
                                     </div>
                                 </div>
                             </div>
-                        </div>
+                        </div>                        
                     </div>
                 </div>
                 @endforeach
@@ -217,7 +258,77 @@
         <div class="row d-flex" style="margin-top:25px; margin-bottom:50px;" id=pdc>
             <div class="row">
                 <div class="col-md-6 d-flex align-items-center justify-content-md-start" data-aos="fade-up" data-aos-delay="200"><h5>Produkku</h5></div>
-                <div class="col-md-6 d-flex justify-content-md-end" data-aos="fade-up" data-aos-delay="300"><div class="alert alert-success" role="alert"><a href="{{ route('addprd', ['userId' => $user->idusr_kbt]) }}" style="text-decoration:none; color:inherit;">Tambah produk +</a></div></div><hr>
+                <div class="col-md-6 d-flex justify-content-md-end" data-aos="fade-up" data-aos-delay="300"><div class="alert alert-success" role="alert"><a href="#" data-toggle="modal" data-target="#addModal{{$user->idusr_kbt}}" style="text-decoration:none; color:inherit;">Tambah produk +</a></div></div><hr>
+                <div class="modal fade" id="addModal{{$user->idusr_kbt}}" tabindex="-1" role="dialog" aria-labelledby="addModalLabel{{$user->idusr_kbt}}" aria-hidden="true">
+                    <div class="modal-dialog modal-dialog-centered" role="document" style="max-width: 80%;">
+                        <div class="modal-content">
+                            <div class="modal-header">
+                                <h5 class="modal-title" id="addModalLabel{{$user->idusr_kbt}}">Add Product</h5>
+                            </div>
+                            <div class="modal-body">
+                                <div class="row" style="padding:0% 3%;">
+                                    <?php 
+                                        if (!function_exists('generateidPC')) {
+                                        function generateidPC(){
+                                            $hari = date('l');
+                                            $tanggal = date('d');
+                                            $bulan = date('M');
+                                            $blnangka = date('m');
+                                            $tahun = date('y');
+                                            $jam = date('h');
+                                            $minute = date('i');
+                                            $detik = date('s');
+                                            $haricut = substr($hari,0,1);
+                                            $bulancut = substr($bulan,0,1);
+                                            $hourcut = substr($jam,0,1);
+                                            $minutecut = substr($minute,0,1);
+                                            $detikcut = substr($detik,0,1);
+                                            $kodejoin = "PC-{$haricut}{$bulancut}{$hourcut}{$minutecut}{$detikcut}";
+                                            return $kodejoin;
+                                        }
+                                        }
+                                    ?>
+                                    <form action="/PrdStore" method="post" class="bg-body-tertiary rounded-3" style="padding:2%" enctype="multipart/form-data">
+                                        <fieldset>
+                                            {{csrf_field()}}
+                                            <div class="row" style="margin-top: 5%;">
+                                                <div class="col-md-6 d-flex flex-column justify-content-center align-items-center" style="padding:1%;">
+                                                    <img src="{{ asset('img/imgexm.png') }}" alt="Product" width="300px" height="300px">
+                                                    <div class="form-group">
+                                                        <input type="text" class="form-control" name="prdid" value="<?php echo generateidPC(); ?>" hidden>
+                                                    </div>
+                                                </div>
+                                                <div class="col-md-6">
+                                                    <p>Tambahkan Produk Anda Disini!<br>
+                                                    <div class="form-group">
+                                                        Nama Produk: <input type="text" class="form-control" name="prdname" required="required">
+                                                    </div>
+                                                    <div class="form-group">
+                                                        Harga Produk: <input type="number" class="form-control" name="prdprice" required="required">
+                                                    </div>
+                                                    <div class="form-group">
+                                                        Stok: <input type="number" class="form-control" name="prdqty" required="required">
+                                                    </div>
+                                                    <div class="form-group">
+                                                        Upload Foto Produkmu! <input type="file" class="form-control" name="prdpht" id="photo" required="required">
+                                                    </div>
+                                                    <div class="form-group">
+                                                        <input type="text" class="form-control" name="prdus" required="required" value="{{ $user->idusr_kbt }}" hidden>
+                                                    </div>
+                                                </div>
+                                                <div class="form-group w-100"> 
+                                                    Deskripsi: <textarea class="form-control w-100" name="prddescript" required="required" style="height: 300px;"></textarea><br> 
+                                                </div>
+                                                <input type="submit" value="Simpan Data" class="btn btn-primary form-control">
+                                            </div>
+                                        </fieldset>
+                                    </form>
+                                </div>
+                            </div>
+                            <div class="modal-footer"></div>
+                        </div>
+                    </div>
+                </div>
             </div>
             @if ($pdc->isEmpty())
                 <div class="row">
@@ -232,28 +343,75 @@
                         <div class="card" style="width: 300px;">
                             <img data-aos="fade-up" data-aos-delay="400" src="{{asset('storage/photo/'.$pd->prdpht)}}" class="card-img-top img-responsive margin" alt="Product" style="width : 300px; height: 223px;">
                             <div data-aos="fade-up" data-aos-delay="500" class="card-body">
-                                <h5 class="card-title" style="padding-top:2% 0;"><a style="text-decoration: none; color:inherit;" href="{{ route('pd.show', [$pd->idproduct, $user->idusr_kbt]) }}">{{$pd->prdname}}</a></h5>
+                                <!--<h5 class="card-title" style="padding-top:2% 0;"><a style="text-decoration: none; color:inherit;" href="{{ route('pd.show', [$pd->idproduct, $user->idusr_kbt]) }}">{{$pd->prdname}}</a></h5>-->
+                                <h5 class="card-title" style="padding-top:2% 0;"><a href="#" data-toggle="modal" data-target="#prevModal{{$pd->idproduct}}" style="text-decoration:none; color:inherit;">{{$pd->prdname}}</a></h5>
                                 <p class="card-text" style="text-align: justify;">Harga: Rp{{ number_format($pd->prdprice, 2, ',', '.') }} <br><div style="margin-top:1px;">{{ \App\Helpers\StringHelper::limitWords($pd->prddescript, 15) }} ...</div> </p>
                                 <p class="card-text"><small class="text-body-secondary">Stok : {{ $pd->prdqty }}</small></p>
                             </div>
                             <div class="card-footer">
                                 <a href="{{ route('pd.up', ['id' => $pd->idproduct]) }}"><i class="fa fa-edit" style="font-size: 20px; margin-right: 10px;"></i></a>
-                                <a href="#" data-toggle="modal" data-target="#deleteModal{{$pd->idproduct}}"><i class="fa fa-trash" style="font-size: 20px;"></i></a>
-                                <div class="modal fade" id="deleteModal{{$pd->idproduct}}" tabindex="-1" role="dialog" aria-labelledby="deleteModalLabel{{$pd->idproduct}}" aria-hidden="true">
-                                    <div class="modal-dialog modal-dialog-centered" role="document">
-                                        <div class="modal-content">
-                                            <div class="modal-header">
-                                                <h5 class="modal-title" id="deleteModalLabel{{$pd->idproduct}}">Konfirmasi Hapus</h5>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="modal fade" id="prevModal{{$pd->idproduct}}" tabindex="-1" role="dialog" aria-labelledby="prevModalLabel{{$pd->idproduct}}" aria-hidden="true">
+                        <div class="modal-dialog modal-dialog-centered" role="document" style="max-width: 80%;">
+                            <div class="modal-content">
+                                <div class="modal-header">
+                                    <h5 class="modal-title" id="prevModalLabel{{$pd->idproduct}}">Preview Produk</h5>
+                                </div>
+                                <div class="modal-body">
+                                    <div class="row" style="padding:0% 3%;">
+                                        <div class="modal-body">
+                                            <div class="row" style="padding:0% 3%;">
+                                                <form action="{{ url('/upPD', $pd->idproduct)}}" method="post" class="bg-body-tertiary rounded-3" style="padding:5%" enctype="multipart/form-data">
+                                                    <fieldset>
+                                                        {{csrf_field()}}
+                                                        <div class="row" style="margin-top: 5%;">
+                                                            <div class="col-md-6 d-flex flex-column justify-content-center align-items-center" style="padding:1%;">
+                                                                <img src="{{ asset('storage/photo/'.$pd->prdpht) }}" alt="Product" width="300px" height="300px">
+                                                                <div class="form-group w-100">
+                                                                    <input type="text" class="form-control" name="contid" value="{{$pd->idproduct}}" hidden>
+                                                                </div>
+                                                            </div>
+                                                            <div class="col-md-6">
+                                                                <p>Tambahkan Produk Anda Disini!<br>
+                                                                <div class="form-group">
+                                                                    Nama Produk     : <input type="text" value="{{$pd->prdname}}" class="form-control" name="prdname" required="required">	
+                                                                </div>
+                                                                <div class="form-group">
+                                                                    Harga Produk    : <input type="number" value="{{$pd->prdprice}}" class="form-control" name="prdprice" required="required">
+                                                                </div>
+                                                                <div class="form-group">
+                                                                    Stok            : <input type="number" value="{{$pd->prdqty}}" class="form-control" name="prdqty" required="required">
+                                                                </div>
+                                                            </div>
+                                                        </div>
+                                                        <div class="form-group w-100"> 
+                                                            Deskripsi: <textarea class="form-control w-100" name="prddescript" required="required" style="height: 100px;">{{ $pd->prddescript }}</textarea><br> 
+                                                        </div>
+                                                        <input type="submit" value="Simpan Data" class="btn btn-primary form-control" style="margin-top:2%;">
+                                                    </fieldset>
+                                                </form>
+                                                <a href="#" data-toggle="modal" data-target="#deleteModal{{$pd->idproduct}}" style="padding:1%; margin: 2% 0; border:1px solid; text-decoration:none; width:100%; text-align:center; color: red;"><i class="fa fa-trash" style="font-size: 20px;"></i>&nbsp Delete</a>
+                                                <div class="modal fade" id="deleteModal{{$pd->idproduct}}" tabindex="-1" role="dialog" aria-labelledby="deleteModalLabel{{$pd->idproduct}}" aria-hidden="true">
+                                                    <div class="modal-dialog modal-dialog-centered" role="document">
+                                                        <div class="modal-content">
+                                                            <div class="modal-header">
+                                                                <h5 class="modal-title" id="deleteModalLabel{{$pd->idproduct}}">Konfirmasi untuk menghapus</h5>
+                                                            </div>
+                                                            <div class="modal-body">Apa kamu yakin menghapus produk ini?</div>
+                                                            <div class="modal-footer">
+                                                                <button type="button" class="btn btn-secondary" data-dismiss="modal">Cancel</button>
+                                                                <a href="{{ route('pd.del', ['id' => $pd->idproduct]) }}" class="btn btn-danger">Delete</a>
+                                                            </div>
+                                                        </div>
+                                                    </div>
+                                                </div>
                                             </div>
-                                            <div class="modal-body">
-                                                Apakah Anda yakin ingin menghapus produk ini?
-                                            </div>
-                                            <div class="modal-footer">
-                                                <button type="button" class="btn btn-secondary" data-dismiss="modal">Batal</button>
-                                                <a href="{{ route('pd.del', ['id' => $pd->idproduct]) }}" class="btn btn-danger">Hapus</a>
-                                            </div>
-                                        </div>
+                                        </div>     
                                     </div>
+                                </div>
+                                <div class="modal-footer">
                                 </div>
                             </div>
                         </div>

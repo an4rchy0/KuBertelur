@@ -127,16 +127,16 @@
                             <input type="text" class="form-control" name="contid" value="<?php echo generateid(); ?>" hidden>
                         </div>
                         <div class="form-group">
+                            <input type="text" class="form-control" name="ctus" required="required" value="{{ $id }}" hidden>
+                        </div>
+                        <div class="form-group">
+                           <textarea class="form-control" name="pvdc" required="required" hidden>-</textarea>
+                        </div>
+                        <div class="form-group">
                             Judul Konten            : <input type="text" class="form-control" name="conttl" required="required">    
                         </div>
                         <div class="form-group">
-                            Deskripsi Singkat Konten (Preview) : <textarea class="form-control" name="pvdc" required="required"></textarea>
-                        </div>
-                        <div class="form-group">
-                            Isi Blog Konten Anda    : <textarea class="form-control" name="cont" required="required"></textarea><br><br><br>
-                        </div>
-                        <div class="form-group">
-                            <input type="text" class="form-control" name="ctus" required="required" value="{{ $id }}" hidden>
+                            Isi Blog Konten Anda    : <textarea class="form-control" name="cont" required="required" style="height:100px;"></textarea><br>
                         </div>
                         <input type="submit" value="Post ke Timeline!" class="btn btn-primary form-control">
                     </fieldset>
@@ -144,7 +144,7 @@
             </div>
 
             <div class="col-md-8">
-                <div  style="background-color:#000e86; padding:2% 4%; color:#ffff; box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19); border-radius:12px;" class="card-header bg-primary"><h5>Timeline Konten</h5></div>
+                <div  style="background-color:#000e86; padding:2% 4%; color:#ffff; box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19); border-radius:12px;" class="card-header bg-primary"><h5>Timeline</h5></div>
                 @foreach ($contents as $ct)
                 <div class="row" style="margin:3% 1%;" data-aos="fade-up" data-aos-delay="500">
                     <div style="padding-top:1%;padding-left:2%; box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.15); border-radius:12px;">

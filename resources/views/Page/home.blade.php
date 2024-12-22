@@ -102,7 +102,6 @@
                             <span class="visually-hidden">New alerts</span>
                         </span>
                     </button>
-                    
                 </div>
             </div>
         </div>
