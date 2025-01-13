@@ -81,15 +81,15 @@
     </div>
 </div>
 <div class="container-fluid" style="margin-top:70px;">
-    <div class="container"><hr>
+    <div class="container">
         <div class="row d-flex justify-content-center" style="margin-top:50px; margin-bottom: 40px;">
+            <center><h4>Tim Pengembangan</h4></center>
             <div class="col-md-4 d-flex justify-content-center" data-aos="fade-up" data-aos-delay="100">
                 <div class="card" style="width: 15rem;" data-aos="fade-up" data-aos-delay="200">
-                    <img src="{{ asset('img/develope/sadhsgdjs.png') }}" data-aos="fade-up" data-aos-delay="300" class="card-img-top" alt="Develope1">
+                    <img src="{{ asset('img/develope/sadhsgdjs.png') }}" data-aos="fade-up" data-aos-delay="300" class="card-img-top rounded-circle me-3" alt="Develope1">
                     <div class="card-body d-flex flex-column align-items-center text-center" data-aos="fade-up" data-aos-delay="400">
                         <h5 class="card-title" data-aos="fade-up" data-aos-delay="500">Netanel Danur Wendra</h5>
-                        <p class="card-text" data-aos="fade-up" data-aos-delay="600">Project MANAGER</p>
-                        <a href="#" data-aos="fade-up" data-aos-delay="700" class="btn btn-primary" style="width:100%; color: white;">Hubungi</a>
+                        <p class="card-text" data-aos="fade-up" data-aos-delay="600">Manajer Proyek</p>
                     </div>
                 </div>
             </div>
@@ -97,31 +97,77 @@
         <div class="row d-flex justify-content-center" style="margin-top:50px; margin-bottom: 40px;">
             <div class="col-md-4 d-flex justify-content-center" data-aos="fade-up" data-aos-delay="100">
                 <div class="card" style="width: 15rem;" data-aos="fade-up" data-aos-delay="200">
-                    <img src="{{ asset('img/develope/sadhsgdjs.png') }}" data-aos="fade-up" data-aos-delay="300" class="card-img-top" alt="Develope1">
+                    <img src="{{ asset('img/develope/1.png') }}" data-aos="fade-up" width="50%" data-aos-delay="300" class="card-img-top rounded-circle me-3" alt="Develope1">
                     <div class="card-body d-flex flex-column align-items-center text-center" data-aos="fade-up" data-aos-delay="400">
-                        <h5 class="card-title" data-aos="fade-up" data-aos-delay="500">Netanel Danur Wendra</h5>
-                        <p class="card-text" data-aos="fade-up" data-aos-delay="600">Project MANAGER</p>
-                        <a href="#" data-aos="fade-up" data-aos-delay="700" class="btn btn-primary" style="width:100%; color: white;">Hubungi</a>
+                        <h5 class="card-title" data-aos="fade-up" data-aos-delay="500">Didi Setiadi</h5>
+                       <p class="card-text" data-aos="fade-up" data-aos-delay="600">Backend Developer</p>
                     </div>
                 </div>
             </div>
             <div class="col-md-4 d-flex justify-content-center" data-aos="fade-up" data-aos-delay="100">
                 <div class="card" style="width: 15rem;" data-aos="fade-up" data-aos-delay="200">
-                    <img src="{{ asset('img/develope/sadhsgdjs.png') }}" data-aos="fade-up" data-aos-delay="300" class="card-img-top" alt="Develope1">
+                    <img src="{{ asset('img/develope/7.png') }}" data-aos="fade-up" data-aos-delay="300" class="card-img-top rounded-circle me-3" alt="Develope1">
                     <div class="card-body d-flex flex-column align-items-center text-center" data-aos="fade-up" data-aos-delay="400">
-                        <h5 class="card-title" data-aos="fade-up" data-aos-delay="500">Netanel Danur Wendra</h5>
-                        <p class="card-text" data-aos="fade-up" data-aos-delay="600">Project MANAGER</p>
-                        <a href="#" data-aos="fade-up" data-aos-delay="700" class="btn btn-primary" style="width:100%; color: white;">Hubungi</a>
+                        <h5 class="card-title" data-aos="fade-up" data-aos-delay="500">Naufalul Fajri</h5>
+                       <p class="card-text" data-aos="fade-up" data-aos-delay="600">Backend Developer</p>
                     </div>
                 </div>
             </div>
             <div class="col-md-4 d-flex justify-content-center" data-aos="fade-up" data-aos-delay="100">
                 <div class="card" style="width: 15rem;" data-aos="fade-up" data-aos-delay="200">
-                    <img src="{{ asset('img/develope/sadhsgdjs.png') }}" data-aos="fade-up" data-aos-delay="300" class="card-img-top" alt="Develope1">
+                    <img src="{{ asset('img/develope/5.png') }}" data-aos="fade-up" data-aos-delay="300" class="card-img-top rounded-circle me-3" alt="Develope1">
                     <div class="card-body d-flex flex-column align-items-center text-center" data-aos="fade-up" data-aos-delay="400">
-                        <h5 class="card-title" data-aos="fade-up" data-aos-delay="500">Netanel Danur Wendra</h5>
-                        <p class="card-text" data-aos="fade-up" data-aos-delay="600">Project MANAGER</p>
-                        <a href="#" data-aos="fade-up" data-aos-delay="700" class="btn btn-primary" style="width:100%;color: white;">Hubungi</a>
+                        <h5 class="card-title" data-aos="fade-up" data-aos-delay="500">M. Genta Syamtutizar</h5>
+                       <p class="card-text" data-aos="fade-up" data-aos-delay="600">Backend Developer</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="row d-flex justify-content-center" style="margin-top:50px; margin-bottom: 40px;">
+            <div class="col-md-4 d-flex justify-content-center" data-aos="fade-up" data-aos-delay="100">
+                <div class="card" style="width: 15rem;" data-aos="fade-up" data-aos-delay="200">
+                    <img src="{{ asset('img/develope/3.png') }}" data-aos="fade-up" width="50%" data-aos-delay="300" class="card-img-top rounded-circle me-3" alt="Develope1">
+                    <div class="card-body d-flex flex-column align-items-center text-center" data-aos="fade-up" data-aos-delay="400">
+                        <h5 class="card-title" data-aos="fade-up" data-aos-delay="500">Mayla Safana N.</h5>
+                       <p class="card-text" data-aos="fade-up" data-aos-delay="600">Frontend Developer</p>
+                    </div>
+                </div>
+            </div>
+            <div class="col-md-4 d-flex justify-content-center" data-aos="fade-up" data-aos-delay="100">
+                <div class="card" style="width: 15rem;" data-aos="fade-up" data-aos-delay="200">
+                    <img src="{{ asset('img/develope/4.png') }}" data-aos="fade-up" data-aos-delay="300" class="card-img-top rounded-circle me-3" alt="Develope1">
+                    <div class="card-body d-flex flex-column align-items-center text-center" data-aos="fade-up" data-aos-delay="400">
+                        <h5 class="card-title" data-aos="fade-up" data-aos-delay="500">Rava Dimas D.</h5>
+                       <p class="card-text" data-aos="fade-up" data-aos-delay="600">Frontend Developer</p>
+                    </div>
+                </div>
+            </div>
+            <div class="col-md-4 d-flex justify-content-center" data-aos="fade-up" data-aos-delay="100">
+                <div class="card" style="width: 15rem;" data-aos="fade-up" data-aos-delay="200">
+                    <img src="{{ asset('img/develope/2.png') }}" data-aos="fade-up" data-aos-delay="300" class="card-img-top rounded-circle me-3" alt="Develope1">
+                    <div class="card-body d-flex flex-column align-items-center text-center" data-aos="fade-up" data-aos-delay="400">
+                        <h5 class="card-title" data-aos="fade-up" data-aos-delay="500">Alfian Shidqi A.</h5>
+                       <p class="card-text" data-aos="fade-up" data-aos-delay="600">Frontend Developer</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="row d-flex justify-content-center" style="margin-top:50px; margin-bottom: 40px;">
+            <div class="col-md-4 d-flex justify-content-center" data-aos="fade-up" data-aos-delay="100">
+                <div class="card" style="width: 15rem;" data-aos="fade-up" data-aos-delay="200">
+                    <img src="{{ asset('img/develope/8.png') }}" data-aos="fade-up" width="50%" data-aos-delay="300" class="card-img-top rounded-circle me-3" alt="Develope1">
+                    <div class="card-body d-flex flex-column align-items-center text-center" data-aos="fade-up" data-aos-delay="400">
+                        <h5 class="card-title" data-aos="fade-up" data-aos-delay="500">Siti Nur F.</h5>
+                       <p class="card-text" data-aos="fade-up" data-aos-delay="600">Quality Assurance</p>
+                    </div>
+                </div>
+            </div>
+            <div class="col-md-4 d-flex justify-content-center" data-aos="fade-up" data-aos-delay="100">
+                <div class="card" style="width: 15rem;" data-aos="fade-up" data-aos-delay="200">
+                    <img src="{{ asset('img/develope/6.png') }}" data-aos="fade-up" data-aos-delay="300" class="card-img-top rounded-circle me-3" alt="Develope1">
+                    <div class="card-body d-flex flex-column align-items-center text-center" data-aos="fade-up" data-aos-delay="400">
+                        <h5 class="card-title" data-aos="fade-up" data-aos-delay="500">Nurti Ananda</h5>
+                       <p class="card-text" data-aos="fade-up" data-aos-delay="600">Quality Assurance</p>
                     </div>
                 </div>
             </div>
@@ -147,7 +193,7 @@
                     <div class="col-md-6" data-aos="fade-up" data-aos-delay="300">
                         <h5>Sosial Media </h5>
                         <div class="d-flex flex-column">
-                            <a href="/" class="text-white mb-2"><i class="fa-brands fa-instagram"></i> Youtube : KuBertelur</a>
+                            <a href="/" class="text-white mb-2">Youtube : KuBertelur</a>
                         </div>
                     </div>
                 </div>

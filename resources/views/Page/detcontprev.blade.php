@@ -9,6 +9,8 @@
     <!-- Bootstrap CSS -->
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-QWTKZyjpPEjISv5WaRU9OFeRpok6YctnYmDr5pNlyT2bRjXh0JMhjY6hW+ALEwIH" crossorigin="anonymous">
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js" integrity="sha384-YvpcrYf0tY3lHB60NNkmXc5s9fDVZLESaAA55NDzOxhy9GkcIdslK1eN7N6jIeHz" crossorigin="anonymous"></script>
+    <script src="https://cdn.jsdelivr.net/npm/@srexi/purecounterjs@1.5.0/dist/purecounter_vanilla.min.js"></script>
+    <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
     <!-- Font Awesome Kit -->
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.6.0/css/all.min.css" integrity="sha512-Kc323vGBEqzTmouAECnVceyQqyqdsSiqLQISBL29aUW4U/M7pSPA/gEUZQqv1cwx4OnYxTxve5UMg5GT6L4JJg==" crossorigin="anonymous" referrerpolicy="no-referrer" />
     <style>
@@ -120,7 +122,7 @@
         ?>
             <div class="col-md-4 justify-md-center" style="padding-top:1%;padding-left:2%; background-color: #FDFCFC; box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.15), 0 6px 20px 0 rgba(0, 0, 0, 0.05); border-radius:12px;">
                 <h5 style="text-align: center; padding:5%;">Unggah kontenmu disini!</h5>
-                <form action="/BgStore" method="post" class="bg-body-tertiary rounded-3" style="padding:5%" enctype="multipart/form-data">
+                <form action="/BgStore" method="post" class="bg-body-tertiary rounded-3" style="padding:5%;" enctype="multipart/form-data">
                     <fieldset>
                         {{csrf_field()}}
                         <div class="form-group">
@@ -133,29 +135,29 @@
                            <textarea class="form-control" name="pvdc" required="required" hidden>-</textarea>
                         </div>
                         <div class="form-group">
-                            Judul Konten            : <input type="text" class="form-control" name="conttl" required="required">    
+                            Judul Konten       : <input type="text" class="form-control" name="conttl" required="required">    
                         </div>
                         <div class="form-group">
-                            Isi Blog Konten Anda    : <textarea class="form-control" name="cont" required="required" style="height:100px;"></textarea><br>
+                            Isi Blog Konten    : <textarea class="form-control" name="cont" required="required" style="height:100px;"></textarea><br>
                         </div>
-                        <input type="submit" value="Post ke Timeline!" class="btn btn-primary form-control">
+                        <input type="submit" value="Post Timeline!" class="btn btn-primary form-control">
                     </fieldset>
                 </form>
             </div>
 
             <div class="col-md-8">
-                <div  style="background-color:#000e86; padding:2% 4%; color:#ffff; box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19); border-radius:12px;" class="card-header bg-primary"><h5>Timeline</h5></div>
+                <div  style="background-color:#000e86; padding:2% 4%; color:#ffff; border-radius:8px;" class="card-header bg-primary"><h5>Timeline</h5></div>
                 @foreach ($contents as $ct)
                 <div class="row" style="margin:3% 1%;" data-aos="fade-up" data-aos-delay="500">
-                    <div style="padding-top:1%;padding-left:2%; box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.15); border-radius:12px;">
+                    <div style="padding-top:1%;padding-left:2%; box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.1), 0 6px 20px 0 rgba(0, 0, 0, 0.05); border-radius:12px;">
                         <h4 style="padding:1% 0;">{{ $ct->title }}</h4>
                         <p><small class="text-body-secondary"><b>{{ $ct->user_name }}</b></small></p>
-                        <hr><p> {{ \App\Helpers\StringHelper::limitWords($ct->content, 50) }} ...</p><hr>
-                        <div class="d-flex justify-content-center align-items-center" data-aos="fade-up" data-aos-delay="400" style="padding-bottom:1%;">
+                        <hr><p> {{ \App\Helpers\StringHelper::limitWords($ct->content, 50) }} ...</p><!--<hr>
+                            <div class="d-flex justify-content-center align-items-center" data-aos="fade-up" data-aos-delay="400" style="padding-bottom:1%;">
                             <i class="fa-solid fa-heart" data-aos="fade-up"></i> &nbsp &nbsp &nbsp <span style="margin-right:5%;" data-purecounter-start="0" data-purecounter-duration="1" class="purecounter"></span>&nbsp
                             <i class="fa-solid fa-face-laugh" data-aos="fade-up"></i> &nbsp &nbsp &nbsp <span style="margin-right:5%;" data-purecounter-start="0"  data-purecounter-duration="1" class="purecounter"></span>&nbsp
-                            <i class="fa-solid fa-arrow-trend-up" data-aos="fade-up"></i> &nbsp &nbsp &nbsp <spanstyle="margin-right:5%;" data-purecounter-start="0" data-purecounter-duration="1" class="purecounter"></span>&nbsp
-                        </div>
+                            <i class="fa-solid fa-arrow-trend-up" data-aos="fade-up"></i> &nbsp &nbsp &nbsp <span style="margin-right:5%;" data-purecounter-start="0" data-purecounter-duration="1" class="purecounter"></span>&nbsp
+                        </div>-->
                     </div>
                 </div>
                 @endforeach
@@ -167,3 +169,30 @@
     </div>
 </div>
 </html>
+
+<script>
+    AOS.init();
+    function getRandomInt(min, max) {
+        return Math.floor(Math.random() * (max - min + 1)) + min; 
+    } 
+    document.addEventListener('DOMContentLoaded', function() {
+        var counters = document.querySelectorAll('.purecounter');
+        counters.forEach(function(counter) {
+            var randomEndValue = getRandomInt(0, 100);
+            counter.setAttribute('data-purecounter-end', randomEndValue); 
+        });
+        new PureCounter(); 
+    });
+    $(document).ready(function(){
+            $('.carousel').slick({
+                dots: true,
+                infinite: true,
+                speed: 300,
+                slidesToShow: 3,
+                slidesToScroll: 1,
+                adaptiveHeight: true,
+                autoplay: true,
+                autoplaySpeed: 2000
+            });
+        });
+</script>

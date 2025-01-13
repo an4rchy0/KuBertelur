@@ -34,10 +34,10 @@
         </div>
         <div class="d-flex">
             <a data-aos="fade-up" data-aos-delay="400" href="{{ route('cmt.showI', $myid) }}" class="btn me-2" style="background-color:#FFD43B;">
-                <i class="fa-solid fa-house" style="color:#000e86;"></i>
+                <i class="fa-solid fa-backward" style="color:#000e86;"></i>
             </a>
             <a data-aos="fade-up" data-aos-delay="500" href="/profile" class="btn" style="background-color:#FFD43B;">
-                <i class="fa-solid fa-bell" style="color:#000e86; height:20px; width:20px;"></i>
+                <i class="fa-solid fa-user" style="color:#000e86; height:20px; width:20px;"></i>
             </a>
         </div>
     </div>
@@ -101,7 +101,7 @@
                         <div class="d-flex">
                             <img id="randomImg2" src="{{asset('img/P1.png')}}" class="rounded-circle me-3" alt="User">
                             <div>
-                                <h6 id="us">Pengguna Baru<small class="text-muted">• <span id="usII">Baru</span> saja</small></h6>
+                                <h6 id="us">Didi<small class="text-muted">• <span id="usII">Baru</span> saja</small></h6>
                                 <p id="userComment">text</p>
                                 <div class="mt-2">
                                     <button class="btn btn-sm btn-outline-primary">❤️ 0</span></button>
@@ -115,7 +115,7 @@
                             <div class="mb-3">
                                 <textarea id="comment1" class="form-control" rows="3" placeholder="Tulis tanggapan Anda di sini..."></textarea>
                             </div>
-                            <button type="submit" class="btn btn-primary btn-sm">Kirim</button>
+                            <button type="submit" class="btn btn-primary btn-sm" style="width:100%">Kirim</button>
                         </form>
                     </div>
                     <div class="mt-3" style="padding:2%;" id="formp2">
@@ -124,7 +124,7 @@
                             <div class="mb-3">
                                 <textarea id="comment2" class="form-control" rows="3" placeholder="Tulis tanggapan Anda di sini..."></textarea>
                             </div>
-                            <button type="submit" class="btn btn-primary btn-sm">Kirim</button>
+                            <button type="submit" class="btn btn-primary btn-sm" style="width:100%">Kirim</button>
                         </form>
                     </div>
                 </div>
@@ -148,7 +148,7 @@
                         <div class="d-flex">
                             <img id="randomImg2" src="{{asset('img/P1.png')}}" class="rounded-circle me-3" alt="User">
                             <div>
-                                <h6 id="us">Pengguna Baru<small class="text-muted">• <span id="usII">Baru</span> saja</small></h6>
+                                <h6 id="us">Didi<small class="text-muted">• <span id="usII">Baru</span> saja</small></h6>
                                 <p id="userCommentb">text</p>
                                 <div class="mt-2">
                                     <button class="btn btn-sm btn-outline-primary">❤️ 0</span></button>
@@ -160,18 +160,18 @@
                         <h6>Tinggalkan Tanggapan:</h6>
                         <form id="form1b">
                             <div class="mb-3">
-                                <textarea id="comment1b" class="form-control" rows="3" placeholder="Tulis tanggapan Anda di sini..."></textarea>
+                                <textarea id="comment1b" class="form-control" rows="3" placeholder="Tulis tanggapan Anda di sini..." required></textarea>
                             </div>
-                            <button type="submit" class="btn btn-primary btn-sm">Kirim</button>
+                            <button type="submit" class="btn btn-primary btn-sm" style="width:100%">Kirim</button>
                         </form>
                     </div>
                     <div class="mt-3" style="padding:2%;" id="formp2b">
                         <h6>Berikan post anda:</h6>
                         <form id="form2">
                             <div class="mb-3">
-                                <textarea id="comment2b" class="form-control" rows="3" placeholder="Tulis tanggapan Anda di sini..."></textarea>
+                                <textarea id="comment2b" class="form-control" rows="3" placeholder="Tulis tanggapan Anda di sini..." required></textarea>
                             </div>
-                            <button type="submit" class="btn btn-primary btn-sm">Kirim</button>
+                            <button type="submit" class="btn btn-primary btn-sm" style="width:100%">Kirim</button>
                         </form>
                     </div>
                   </div>
@@ -321,7 +321,7 @@
                     <div class="d-flex" style="background-color:#F7F7F7; padding:2%;">
                         <div> <img src="${imageUrl}" class="rounded-circle me-3" alt="User"> </div>
                         <div>
-                            <h6>Pengguna Baru <small class="text-muted">• Baru saja</small></h6>
+                            <h6>Didi <small class="text-muted">• Baru saja</small></h6>
                             <p>${comment}</p>
                             <div class="mt-2">
                                 <button class="btn btn-sm btn-outline-primary">❤️ 0</button>
@@ -345,7 +345,7 @@
                     <div class="d-flex" style="background-color:#F7F7F7; padding:2%;">
                         <div> <img src="${imageUrl}" class="rounded-circle me-3" alt="User"> </div>
                         <div>
-                            <h6>Pengguna Baru <small class="text-muted">• Baru saja</small></h6>
+                            <h6>Didi <small class="text-muted">• Baru saja</small></h6>
                             <p>${comment}</p>
                             <div class="mt-2">
                                 <button class="btn btn-sm btn-outline-primary">❤️ 0</button>
@@ -368,7 +368,7 @@
                     <div class="d-flex">
                         <div> <img src="${imageUrl}" class="rounded-circle me-3" alt="User"> </div>
                         <div>
-                            <h6>Pengguna Baru <small class="text-muted">• Baru saja</small></h6>
+                            <h6>Didi <small class="text-muted">• Baru saja</small></h6>
                             <p>${comment}</p>
                             <div class="mt-2">
                                 <button class="btn btn-sm btn-outline-primary">❤️ 0</button>
@@ -390,7 +390,7 @@
                     <div class="d-flex">
                         <div> <img src="${imageUrl}" class="rounded-circle me-3" alt="User"> </div>
                         <div>
-                            <h6>Pengguna Baru <small class="text-muted">• Baru saja</small></h6>
+                            <h6>Didi <small class="text-muted">• Baru saja</small></h6>
                             <p>${comment}</p>
                             <div class="mt-2">
                                 <button class="btn btn-sm btn-outline-primary">❤️ 0</button>

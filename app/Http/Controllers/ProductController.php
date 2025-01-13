@@ -10,7 +10,7 @@ class ProductController extends Controller
 {
     public function indexhm(){
         $pdcvar = DB::table('product')->take(3)->get();
-		$pdcvarB = DB::table('product')->paginate(6);
+		$pdcvarB = DB::table('product')->paginate(9);
 		//$contentvar = DB::table('mycontent')->paginate(5);
 		//$nameCont = DB::table('usr_kpt')->where('idusr_kbt', DB::table('mycontent')->value('idusr_kbt'))->get();
         $contentvar = DB::table('mycontent')

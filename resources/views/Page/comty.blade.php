@@ -34,7 +34,7 @@
                 <i class="fa-solid fa-house" style="color:#000e86;"></i>
             </a>
             <a data-aos="fade-up" data-aos-delay="500" href="/profile" class="btn" style="background-color:#FFD43B;">
-                <i class="fa-solid fa-bell" style="color:#000e86; height:20px; width:20px;"></i>
+                <i class="fa-solid fa-user" style="color:#000e86; height:20px; width:20px;"></i>
             </a>
         </div>
     </div>

@@ -115,150 +115,147 @@
     </div>
 </div>
 <div class="container">  
-<div class="container-fluid" style="margin-top:70px;">
-        <div class="row" style="margin-top:60px" data-aos="fade-up" data-aos-delay="100">
-            <div class="col-md-6 tlri justify-content-md-start" data-aos="fade-up" data-aos-delay="200">
-                <h6>Apa yang baru</h6>
-                <h5>Ayo lihat apa saja yang baru datang!</h5>
+    <div class="container-fluid" style="margin-top:70px;">
+            <div class="row" style="margin-top:60px" data-aos="fade-up" data-aos-delay="100">
+                <div class="col-md-6 tlri justify-content-md-start" data-aos="fade-up" data-aos-delay="200">
+                    <h6>Apa yang baru</h6>
+                    <h5>Ayo lihat apa saja yang baru datang!</h5>
+                </div>
+                <div class="col-md-6 d-flex justify-content-md-end align-items-center" style="height: 100%;" data-aos="fade-up" data-aos-delay="300">
+                    <i class="fa-solid fa-solid fa-face-grin-hearts fa-beat" style="font-size: 1.5em;"></i>
+                </div>
             </div>
-            <div class="col-md-6 d-flex justify-content-md-end align-items-center" style="height: 100%;" data-aos="fade-up" data-aos-delay="300">
-                <i class="fa-solid fa-solid fa-face-grin-hearts fa-beat" style="font-size: 1.5em;"></i>
+            <!-- --> <hr>
+            <div class="row d-flex justify-content-center" style="margin-top:50px; margin-bottom: 40px;" data-aos="fade-up" data-aos-delay="100">
+                    @foreach($pdc as $p)
+                    <div class="col-md-4 d-flex justify-content-center" style="margin-bottom:10px;" data-aos="fade-up" data-aos-delay="200">
+                        <div class="card" style="width: 300px;">
+                            <img src="{{asset('storage/photo/'.$p->prdpht)}}" class="card-img-top img-responsive margin" alt="Product" style="width : 300px; height: 223px;">
+                            <div class="card-body">
+                                <h5 class="card-title" style="padding-top:2% 0;"><a style="text-decoration: none; color:inherit;" href="{{ route('pd.show', [$p->idproduct, $us]) }}">{{$p->prdname}}</a></h5>
+                                <p class="card-text" style="text-align: justify;">Harga: Rp{{ number_format($p->prdprice, 2, ',', '.') }} <br><div style="margin-top:1px;">{{ \App\Helpers\StringHelper::limitWords($p->prddescript, 15) }} ...</div> </p>
+                                <p class="card-text"><small class="text-body-secondary">Stok : {{ $p->prdqty }}</small></p>
+                            </div>
+                        </div>
+                    </div>
+                    @endforeach
             </div>
-        </div>
-        <!-- --> <hr>
-        <div class="row d-flex justify-content-center" style="margin-top:50px; margin-bottom: 40px;" data-aos="fade-up" data-aos-delay="100">
-                @foreach($pdc as $p)
-                <div class="col-md-4 d-flex justify-content-center" style="margin-bottom:10px;" data-aos="fade-up" data-aos-delay="200">
+            <div class="row justify-content-md-center text-center" style="margin-top:50px; margin-bottom: 40px; background-color:;" data-aos="fade-up" data-aos-delay="100">
+                <h4 style="padding:2%;">Media Partner</h4><hr>
+                <div class="carousel" style="margin-top:2%;">
+                    <div><img src="{{ asset('img/7.png') }}" alt="Slide 7" style="margin: 1%; box-shadow: 0 2px 4px rgba(0, 0, 0, 0.2), 0 4px 8px rgba(206, 206, 206, 0.2);"></div>
+                    <div><img src="{{ asset('img/2.png') }}" alt="Slide 2" style="margin: 1%; box-shadow: 0 2px 4px rgba(0, 0, 0, 0.2), 0 4px 8px rgba(206, 206, 206, 0.2);"></div>
+                    <div><img src="{{ asset('img/3.png') }}" alt="Slide 3" style="margin: 1%; box-shadow: 0 2px 4px rgba(0, 0, 0, 0.2), 0 4px 8px rgba(206, 206, 206, 0.2);"></div>
+                    <div><img src="{{ asset('img/1.png') }}" alt="Slide 1" style="margin: 1%; box-shadow: 0 2px 4px rgba(0, 0, 0, 0.2), 0 4px 8px rgba(206, 206, 206, 0.2);"></div>
+                    <div><img src="{{ asset('img/6.png') }}" alt="Slide 6" style="margin: 1%; box-shadow: 0 2px 4px rgba(0, 0, 0, 0.2), 0 4px 8px rgba(206, 206, 206, 0.2);"></div>
+                    <div><img src="{{ asset('img/4.png') }}" alt="Slide 4" style="margin: 1%; box-shadow: 0 2px 4px rgba(0, 0, 0, 0.2), 0 4px 8px rgba(206, 206, 206, 0.2);"></div>
+                    <div><img src="{{ asset('img/5.png') }}" alt="Slide 5" style="margin: 1%; box-shadow: 0 2px 4px rgba(0, 0, 0, 0.2), 0 4px 8px rgba(206, 206, 206, 0.2);"></div>
+                </div>
+            </div>
+            <div class="row" style="background-color:#050C9C; border-radius:15px; padding:20px;" data-aos="fade-up" data-aos-delay="100">
+                <div class="col-md-3 tlri justify-content-md-start" style="color:white; padding: 1%;" data-aos="fade-up" data-aos-delay="200">
+                    Daftarkan diri anda segera, agar <br> tidak ketinggalan program kami!
+                </div>
+                <div class="col-md-7 tlri justify-content-md-start" style="padding:1%;" data-aos="fade-up" data-aos-delay="300">
+                    <a href="{{ route('loginPage') }}" style="border-radius:12px;" class="custom-button form-control">Masuk</a>
+                </div>
+                <div class="col-md-2 tlri justify-content-md-start" style="padding:1%;" data-aos="fade-up" data-aos-delay="400">
+                    <a href="/regis" style="background-color:#deb900; border-radius:12px; color:black;" class="custom-button form-control">Daftar</a>
+                </div>
+            </div>
+            <!-- -->
+            <div class="row" style="margin-top:60px;background-color:#F8FFFD;padding:2%;" data-aos="fade-up" data-aos-delay="100">
+                <div class="col-md-6 tlri justify-content-md-start" data-aos="fade-up" data-aos-delay="200">
+                    <h6>Sulit untuk menemukan produk yang tepat untuk ternak anda??</h6>
+                    <h5>Ayo lihat produk yang bagus untukmu!</h5>
+                </div>
+            </div>
+            <div class="row d-flex justify-content-center" style="margin-top:50px; margin-bottom: 40px;" data-aos="fade-up" data-aos-delay="400">
+                @foreach($pdcB as $pB)
+                <div class="col-md-4 d-flex justify-content-center" style="margin-bottom:10px;" data-aos="fade-up" data-aos-delay="500">
                     <div class="card" style="width: 300px;">
-                        <img src="{{asset('storage/photo/'.$p->prdpht)}}" class="card-img-top img-responsive margin" alt="Product" style="width : 300px; height: 223px;">
+                        <img src="{{asset('storage/photo/'.$pB->prdpht)}}" class="card-img-top img-responsive margin" alt="Product" style="width : 300px; height: 223px;">
                         <div class="card-body">
-                            <h5 class="card-title" style="padding-top:2% 0;"><a style="text-decoration: none; color:inherit;" href="{{ route('pd.show', [$p->idproduct, $us]) }}">{{$p->prdname}}</a></h5>
-                            <p class="card-text" style="text-align: justify;">Harga: Rp{{ number_format($p->prdprice, 2, ',', '.') }} <br><div style="margin-top:1px;">{{ \App\Helpers\StringHelper::limitWords($p->prddescript, 15) }} ...</div> </p>
-                            <p class="card-text"><small class="text-body-secondary">Stok : {{ $p->prdqty }}</small></p>
+                            <h5 class="card-title" style="padding-top:2% 0;"><a style="text-decoration: none; color:inherit;" href="{{ route('pd.show', [$pB->idproduct, $us]) }}">{{$pB->prdname}}</a></h5>
+                            <p class="card-text" style="text-align: justify;">Harga: Rp{{ number_format($pB->prdprice, 2, ',', '.') }} <br><div style="margin-top:1px;">{{ \App\Helpers\StringHelper::limitWords($pB->prddescript, 15) }} ...</div> </p>
+                            <p class="card-text"><small class="text-body-secondary">Stok : {{ $pB->prdqty }}</small></p>
                         </div>
                     </div>
                 </div>
                 @endforeach
-        </div>
-        <div class="row justify-content-md-center text-center" style="margin-top:50px; margin-bottom: 40px; background-color:;" data-aos="fade-up" data-aos-delay="100">
-            <h4 style="padding:2%;">Media Partner</h4>
-            <div class="carousel">
-                <div><img src="{{ asset('img/7.png') }}" alt="Slide 7" style="margin: 1%; box-shadow: 0 2px 4px rgba(0, 0, 0, 0.2), 0 4px 8px rgba(206, 206, 206, 0.2);"></div>
-                <div><img src="{{ asset('img/2.png') }}" alt="Slide 2" style="margin: 1%; box-shadow: 0 2px 4px rgba(0, 0, 0, 0.2), 0 4px 8px rgba(206, 206, 206, 0.2);"></div>
-                <div><img src="{{ asset('img/3.png') }}" alt="Slide 3" style="margin: 1%; box-shadow: 0 2px 4px rgba(0, 0, 0, 0.2), 0 4px 8px rgba(206, 206, 206, 0.2);"></div>
-                <div><img src="{{ asset('img/1.png') }}" alt="Slide 1" style="margin: 1%; box-shadow: 0 2px 4px rgba(0, 0, 0, 0.2), 0 4px 8px rgba(206, 206, 206, 0.2);"></div>
-                <div><img src="{{ asset('img/6.png') }}" alt="Slide 6" style="margin: 1%; box-shadow: 0 2px 4px rgba(0, 0, 0, 0.2), 0 4px 8px rgba(206, 206, 206, 0.2);"></div>
-                <div><img src="{{ asset('img/4.png') }}" alt="Slide 4" style="margin: 1%; box-shadow: 0 2px 4px rgba(0, 0, 0, 0.2), 0 4px 8px rgba(206, 206, 206, 0.2);"></div>
-                <div><img src="{{ asset('img/5.png') }}" alt="Slide 5" style="margin: 1%; box-shadow: 0 2px 4px rgba(0, 0, 0, 0.2), 0 4px 8px rgba(206, 206, 206, 0.2);"></div>
+                <div class="d-flex justify-content-center">
+                    {{ $pdcB->links('pagination::bootstrap-4') }}
+                </div>
             </div>
-        </div>
-        <div class="row" style="background-color:#050C9C; border-radius:15px; padding:20px;" data-aos="fade-up" data-aos-delay="100">
-            <div class="col-md-3 tlri justify-content-md-start" style="color:white; padding: 1%;" data-aos="fade-up" data-aos-delay="200">
-                Daftarkan diri anda segera, agar <br> tidak ketinggalan program kami!
+            <div class="row" style="margin-top:60px; margin-bottom:30px; background-color:#F8FFFD; padding:2%;" data-aos="fade-up" data-aos-delay="100">
+                <div class="col-md-6 tlri justify-content-md-start" data-aos="fade-up" data-aos-delay="200">
+                    <h6>Apakah kamu tahu??</h6>
+                    <h5>Fakta dan info apa saja yang kamu ketahui tentang ikan?</h5>
+                </div>
+                <div class="col-md-6 d-flex justify-content-md-end align-items-center" style="height: 100%;" data-aos="fade-up" data-aos-delay="300">
+                    <i class="fa-solid fa-face-grin-wide fa-bounce" style="font-size: 2em;"></i>
+                </div>
             </div>
-            <div class="col-md-7 tlri justify-content-md-start" style="padding:1%;" data-aos="fade-up" data-aos-delay="300">
-                <a href="{{ route('loginPage') }}" style="border-radius:12px;" class="custom-button form-control">Masuk</a>
+            <div class="row" style="margin:2% 4%;" data-aos="fade-up" data-aos-delay="400">
+                @foreach ($content as $ct)
+                <div class="row" style="margin-bottom:3%;" data-aos="fade-up" data-aos-delay="500">
+                    <div style="padding-top:1%;padding-left:2%; background-color: #FDFCFC; box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.10); border-radius:12px;">
+                        @if($us == 'false')
+                            <h4 style="padding:1% 0;">{{ $ct->title }}</h4>
+                        @else
+                            <a style="text-decoration: none; color:inherit;" href="{{ route('ct.showII', $us) }}"><h4 style="padding:1% 0;">{{ $ct->title }}</h4></a>
+                        @endif
+                        <p><small class="text-body-secondary"><b>{{ $ct->user_name }}</b></small></p>
+                        <hr><p> {{ \App\Helpers\StringHelper::limitWords($ct->content, 50) }} ...</p><hr>
+                        <div class="d-flex justify-content-center align-items-center" data-aos="fade-up" data-aos-delay="400" style="padding-bottom:1%;">
+                            <i class="fa-solid fa-heart" data-aos="fade-up"></i> &nbsp &nbsp &nbsp <span style="margin-right:5%;" data-purecounter-start="0" data-purecounter-duration="1" class="purecounter"></span>&nbsp
+                            <i class="fa-solid fa-face-laugh" data-aos="fade-up"></i> &nbsp &nbsp &nbsp <span style="margin-right:5%;" data-purecounter-start="0"  data-purecounter-duration="1" class="purecounter"></span>&nbsp
+                            <i class="fa-solid fa-arrow-trend-up" data-aos="fade-up"></i> &nbsp &nbsp &nbsp <span style="margin-right:5%;" data-purecounter-start="0" data-purecounter-duration="1" class="purecounter"></span>&nbsp
+                        </div>
+                    </div>
+                </div>
+                @endforeach
+                <div class="d-flex justify-content-center">
+                    {{ $content->links('pagination::bootstrap-4') }}
+                </div>
             </div>
-            <div class="col-md-2 tlri justify-content-md-start" style="padding:1%;" data-aos="fade-up" data-aos-delay="400">
-                <a href="/regis" style="background-color:#deb900; border-radius:12px; color:black;" class="custom-button form-control">Daftar</a>
-            </div>
-        </div>
-        <!-- -->
-        <div class="row" style="margin-top:60px;" data-aos="fade-up" data-aos-delay="100">
-            <div class="col-md-6 tlri justify-content-md-start" data-aos="fade-up" data-aos-delay="200">
-                <h6>Sulit untuk menemukan produk yang tepat untuk ternak anda??</h6>
-                <h5>Ayo lihat produk yang bagus untukmu!</h5>
-            </div>
-            <div class="col-md-6 d-flex justify-content-md-end align-items-center" style="height: 100%;" data-aos="fade-up" data-aos-delay="300">
-                <i class="fa-solid fa-cart-shopping fa-beat" style="font-size: 1.5em;"></i>
-            </div>
-        </div>
-        <div class="row d-flex justify-content-center" style="margin-top:50px; margin-bottom: 40px;" data-aos="fade-up" data-aos-delay="400">
-            @foreach($pdcB as $pB)
-            <div class="col-md-4 d-flex justify-content-center" style="margin-bottom:10px;" data-aos="fade-up" data-aos-delay="500">
-                <div class="card" style="width: 300px;">
-                    <img src="{{asset('storage/photo/'.$pB->prdpht)}}" class="card-img-top img-responsive margin" alt="Product" style="width : 300px; height: 223px;">
-                    <div class="card-body">
-                        <h5 class="card-title" style="padding-top:2% 0;"><a style="text-decoration: none; color:inherit;" href="{{ route('pd.show', [$pB->idproduct, $us]) }}">{{$pB->prdname}}</a></h5>
-                        <p class="card-text" style="text-align: justify;">Harga: Rp{{ number_format($pB->prdprice, 2, ',', '.') }} <br><div style="margin-top:1px;">{{ \App\Helpers\StringHelper::limitWords($pB->prddescript, 15) }} ...</div> </p>
-                        <p class="card-text"><small class="text-body-secondary">Stok : {{ $pB->prdqty }}</small></p>
+            <div class="row justify-content-md-center text-center" style="margin-top:2%; margin-bottom:6%; padding:2%; background-color:#F7F9FB;" data-aos="fade-up" data-aos-delay="100">
+                <h4 style="padding:30px;">Bergabunglah Bersama Kami!</h4>
+                <div class="col-md-4" data-aos="fade-up" data-aos-delay="200">
+                    <div class="card" style="border-radius: 40px; margin: 10px; box-shadow: 4px lightgrey;">
+                        <img class="card-img-top img-responsive margin" src="{{ asset('img/mbbk32.jpeg') }}" alt="card image" style="width : 100%; height: 223px;">
+                        <div class="card-body" style="text-align:center;">
+                            <h5 class="card-title">Berkualitas</h5>
+                            <p class="card-text">
+                                Menyediakan berbagai pakan dan ternak perikanan dengan kualitas terbaik, untuk meningkatkan panen!
+                            </p>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-md-4" data-aos="fade-up" data-aos-delay="300">
+                    <div class="card" style="border-radius: 40px; margin: 10px; box-shadow: 4px lightgrey;">
+                        <img class="card-img-top img-responsive margin" src="{{ asset('img/mbbk3.jpeg') }}" alt="card image" style="width : 100%; height: 223px;">
+                        <div class="card-body" style="text-align:center;">
+                            <h5 class="card-title">Beragam Pilihan</h5>
+                            <p class="card-text">
+                                Menawarkan berbagai jenis pakan dan ternak perikanan yang sesuai dengan berbagai kebutuhan spesifik!
+                            </p>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-md-4" data-aos="fade-up" data-aos-delay="400">
+                    <div class="card" style="border-radius: 40px; margin: 10px; box-shadow: 4px lightgrey;">
+                        <img class="card-img-top img-responsive margin" src="{{ asset('img/mbbk33.jpeg') }}" alt="card image" style="width : 100%; height: 223px;">
+                        <div class="card-body" style="text-align:center;">
+                            <h5 class="card-title">Komunitas</h5>
+                            <p class="card-text">
+                                Bergabung dengan komunitas pengguna yang aktif dan dapatkan tips serta saran berharga dari mereka!
+                            </p>
+                        </div>
                     </div>
                 </div>
             </div>
-            @endforeach
-            <div class="d-flex justify-content-center">
-                {{ $pdcB->links('pagination::bootstrap-4') }}
-            </div>
-        </div>
-        <div class="row" style="margin-top:60px" data-aos="fade-up" data-aos-delay="100">
-            <div class="col-md-6 tlri justify-content-md-start" data-aos="fade-up" data-aos-delay="200">
-                <h6>Apakah kamu tahu??</h6>
-                <h5>Fakta dan info apa saja yang kamu ketahui tentang ikan?</h5>
-            </div>
-            <div class="col-md-6 d-flex justify-content-md-end align-items-center" style="height: 100%;" data-aos="fade-up" data-aos-delay="300">
-                <i class="fa-solid fa-face-grin-wide fa-bounce" style="font-size: 2em;"></i>
-            </div>
-        </div>
-        <div class="row" style="margin:2% 4%;" data-aos="fade-up" data-aos-delay="400">
-            @foreach ($content as $ct)
-            <div class="row" style="margin-bottom:3%;" data-aos="fade-up" data-aos-delay="500">
-                <div style="padding-top:1%;padding-left:2%; background-color: #FDFCFC; box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.10); border-radius:12px;">
-                    @if($us == 'false')
-                        <h4 style="padding:1% 0;">{{ $ct->title }}</h4>
-                    @else
-                        <a style="text-decoration: none; color:inherit;" href="{{ route('ct.showII', $us) }}"><h4 style="padding:1% 0;">{{ $ct->title }}</h4></a>
-                    @endif
-                    <p><small class="text-body-secondary"><b>{{ $ct->user_name }}</b></small></p>
-                    <hr><p> {{ \App\Helpers\StringHelper::limitWords($ct->content, 50) }} ...</p><hr>
-                    <div class="d-flex justify-content-center align-items-center" data-aos="fade-up" data-aos-delay="400" style="padding-bottom:1%;">
-                        <i class="fa-solid fa-heart" data-aos="fade-up"></i> &nbsp &nbsp &nbsp <span style="margin-right:5%;" data-purecounter-start="0" data-purecounter-duration="1" class="purecounter"></span>&nbsp
-                        <i class="fa-solid fa-face-laugh" data-aos="fade-up"></i> &nbsp &nbsp &nbsp <span style="margin-right:5%;" data-purecounter-start="0"  data-purecounter-duration="1" class="purecounter"></span>&nbsp
-                        <i class="fa-solid fa-arrow-trend-up" data-aos="fade-up"></i> &nbsp &nbsp &nbsp <spanstyle="margin-right:5%;" data-purecounter-start="0" data-purecounter-duration="1" class="purecounter"></span>&nbsp
-                    </div>
-                </div>
-            </div>
-            @endforeach
-            <div class="d-flex justify-content-center">
-                {{ $content->links('pagination::bootstrap-4') }}
-            </div>
-        </div>
-        <div class="row justify-content-md-center text-center" style="margin-top:2%; margin-bottom:6%; padding:2%; background-color:#F7F9FB;" data-aos="fade-up" data-aos-delay="100">
-            <h4 style="padding:30px;">Bergabunglah Bersama Kami!</h4>
-            <div class="col-md-4" data-aos="fade-up" data-aos-delay="200">
-                <div class="card" style="border-radius: 40px; margin: 10px; box-shadow: 4px lightgrey;">
-                    <img class="card-img-top img-responsive margin" src="{{ asset('img/mbbk3.png') }}" alt="card image" style="width : 100%; height: 223px;">
-                    <div class="card-body" style="text-align:center;">
-                        <h5 class="card-title">Berkualitas</h5>
-                        <p class="card-text">
-                            Menyediakan berbagai pakan dan ternak perikanan dengan kualitas terbaik, untuk meningkatkan panen!
-                        </p>
-                    </div>
-                </div>
-            </div>
-            <div class="col-md-4" data-aos="fade-up" data-aos-delay="300">
-                <div class="card" style="border-radius: 40px; margin: 10px; box-shadow: 4px lightgrey;">
-                    <img class="card-img-top img-responsive margin" src="{{ asset('img/mbbk3.png') }}" alt="card image" style="width : 100%; height: 223px;">
-                    <div class="card-body" style="text-align:center;">
-                        <h5 class="card-title">Beragam Pilihan</h5>
-                        <p class="card-text">
-                            Menawarkan berbagai jenis pakan dan ternak perikanan yang sesuai dengan berbagai kebutuhan spesifik!
-                        </p>
-                    </div>
-                </div>
-            </div>
-            <div class="col-md-4" data-aos="fade-up" data-aos-delay="400">
-                <div class="card" style="border-radius: 40px; margin: 10px; box-shadow: 4px lightgrey;">
-                    <img class="card-img-top img-responsive margin" src="{{ asset('img/mbbk3.png') }}" alt="card image" style="width : 100%; height: 223px;">
-                    <div class="card-body" style="text-align:center;">
-                        <h5 class="card-title">Komunitas</h5>
-                        <p class="card-text">
-                            Bergabung dengan komunitas pengguna yang aktif dan dapatkan tips serta saran berharga dari mereka!
-                        </p>
-                    </div>
-                </div>
-            </div>
-        </div>
-</div>
+    </div>
 </div>
 
 <footer class="footer bg-dark text-white" style="margin-top :20px; background-color: #343a40;">
@@ -280,7 +277,7 @@
                     <div class="col-md-6" data-aos="fade-up" data-aos-delay="300">
                         <h5>Sosial Media </h5>
                         <div class="d-flex flex-column">
-                            <a href="/" class="text-white mb-2"><i class="fa-brands fa-instagram"></i> Youtube : KuBertelur</a>
+                            <a href="/" class="text-white mb-2">Youtube : KuBertelur</a>
                         </div>
                     </div>
                 </div>

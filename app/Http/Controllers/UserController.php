@@ -51,7 +51,7 @@ class UserController extends Controller
 
             $pdc = DB::table('product')
                 ->where('idusr_kbt', $userString)
-                ->paginate(3);
+                ->paginate(9);
             
             $cmt = DB::table('comty')->paginate(3);
 

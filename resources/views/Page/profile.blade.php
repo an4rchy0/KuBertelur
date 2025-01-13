@@ -110,7 +110,7 @@
 <div class="container-fluid">
     <div class="container">
         <div class="row" style="margin-top:6%;" data-aos="fade-up" data-aos-delay="100" id=trans>
-            <h4>Transaksi Pembelian <i class="fa-solid fa-bucket" style="font-size:24px; margin-left:10px;"></i></h4><hr>
+            <h4>Transaksi Pembelian</h4><hr>
             @if ($transactions->isEmpty())
                 <div class="row">
                     <div class="alert alert-info d-flex justify-content-center align-items-center" role="alert">
@@ -144,7 +144,7 @@
                 </div>
             @endif
         </div>
-        <div class="row d-flex" style="margin-top:25px;" data-aos="fade-up" data-aos-delay="100" id=cmt>
+        <div class="row d-flex" style="margin-top:25px; background-color:#F8FFFD; padding:2%;" data-aos="fade-up" data-aos-delay="100" id=cmt>
             <div class="row">
                 <div class="col-md-6 d-flex align-items-center justify-content-md-start" data-aos="fade-up" data-aos-delay="200"><h5>Forum Diskusi dan Komunitas</h5></div><hr>
             </div>
@@ -174,8 +174,8 @@
         </div>
         <div class="row d-flex" style="margin-top:25px;"  id=ct>
             <div class="row">
-                <div class="col-md-6 d-flex align-items-center justify-content-md-start" data-aos="fade-up" data-aos-delay="200"><h5>Post</h5></div>
-                <div class="col-md-6 d-flex justify-content-md-end" data-aos="fade-up" data-aos-delay="300"><div class="alert alert-success" role="alert"><a href="{{ route('ct.showII', $user->idusr_kbt) }}" style="text-decoration:none; color:inherit;">Lihat Timeline</a></div></div><hr>
+                <div class="col-md-6 d-flex align-items-center justify-content-md-start" data-aos="fade-up" data-aos-delay="200"><h5>Postingan Pribadi</h5></div>
+                <div class="col-md-6 d-flex justify-content-md-end" data-aos="fade-up" data-aos-delay="300"><div class="alert alert-success" role="alert"><a href="{{ route('ct.showII', $user->idusr_kbt) }}" style="text-decoration:none; color:inherit;"><i class="fa-solid fa-timeline" style="margin-right:5px;"></i>Lihat Timeline</a></div></div><hr>
             </div>
             @if ($contents->isEmpty())
                 <div class="row" data-aos="fade-up" data-aos-delay="400">
@@ -186,13 +186,13 @@
             @else
                 @foreach ($contents as $content)
                 <div class="row" style="margin-bottom:2%;">
-                    <div style="padding:2%; background-color:#D0F7F7; border-radius:12px;">
+                    <div style="padding:2%; background-color:#F8FFFD; border-radius:12px;">
                         <div class="row" data-aos="fade-up" data-aos-delay="400">
                             <div class="col-md-10 d-flex align-items-center justify-content-md-start"><h4><a href="{{ route('ct.showII', $user->idusr_kbt) }}" style="text-decoration:none; color:inherit;">{{ $content->title }}</a></h4><hr></div>
                             <div class="col-md-2 d-flex justify-content-md-end">
                                 <div class="alert alert-secondary" role="alert">
                                     <!--<a href="{{ route('ct.up', ['id' => $content->idpct]) }}" style="color:#a3a3a3"><i class="fa fa-edit" style="font-size: 15px; margin-right: 5px;"></i></a>-->
-                                    <a href="#" data-toggle="modal" data-target="#prevMNModal{{$content->idpct}}" style="text-decoration:none; color:#a3a3a3;"><i class="fa-solid fa-bars" style="font-size: 15px;"></i></a>
+                                    <a href="#" data-toggle="modal" data-target="#prevMNModal{{$content->idpct}}" style="text-decoration:none; color:#a3a3a3;"><i class="fa-solid fa-gear"></i></a>
                                 </div>
                             </div><hr>
                         </div>
@@ -257,8 +257,8 @@
         </div>
         <div class="row d-flex" style="margin-top:25px; margin-bottom:50px;" id=pdc>
             <div class="row">
-                <div class="col-md-6 d-flex align-items-center justify-content-md-start" data-aos="fade-up" data-aos-delay="200"><h5>Produkku</h5></div>
-                <div class="col-md-6 d-flex justify-content-md-end" data-aos="fade-up" data-aos-delay="300"><div class="alert alert-success" role="alert"><a href="#" data-toggle="modal" data-target="#addModal{{$user->idusr_kbt}}" style="text-decoration:none; color:inherit;">Tambah produk +</a></div></div><hr>
+                <div class="col-md-6 d-flex align-items-center justify-content-md-start" data-aos="fade-up" data-aos-delay="200"><h5>Kelola Produk</h5></div>
+                <div class="col-md-6 d-flex justify-content-md-end" data-aos="fade-up" data-aos-delay="300"><div class="alert alert-success" role="alert"><a href="#" data-toggle="modal" data-target="#addModal{{$user->idusr_kbt}}" style="text-decoration:none; color:inherit;"><i class="fa-solid fa-plus" style="margin-right:5px;"></i> Tambah produk</a></div></div><hr>
                 <div class="modal fade" id="addModal{{$user->idusr_kbt}}" tabindex="-1" role="dialog" aria-labelledby="addModalLabel{{$user->idusr_kbt}}" aria-hidden="true">
                     <div class="modal-dialog modal-dialog-centered" role="document" style="max-width: 80%;">
                         <div class="modal-content">
@@ -349,7 +349,7 @@
                                 <p class="card-text"><small class="text-body-secondary">Stok : {{ $pd->prdqty }}</small></p>
                             </div>
                             <div class="card-footer">
-                                <a href="{{ route('pd.up', ['id' => $pd->idproduct]) }}"><i class="fa fa-edit" style="font-size: 20px; margin-right: 10px;"></i></a>
+                                <!--<a href="{{ route('pd.up', ['id' => $pd->idproduct]) }}"><i class="fa fa-edit" style="font-size: 20px; margin-right: 10px;"></i></a>-->
                             </div>
                         </div>
                     </div>
